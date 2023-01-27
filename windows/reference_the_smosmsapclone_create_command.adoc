@@ -1,0 +1,167 @@
+---
+permalink: windows/reference_the_smosmsapclone_create_command.html 
+sidebar: sidebar 
+keywords: clone, create, command, backed, up, database, primary, secondary, storage, smo 
+summary: Es posible ejecutar el comando clone create para crear el clon de una base de datos incluida en el backup. Es posible clonar un backup del almacenamiento primario o secundario. 
+---
+= El comando smo clone create
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible ejecutar el comando clone create para crear el clon de una base de datos incluida en el backup. Es posible clonar un backup del almacenamiento primario o secundario.
+
+
+
+== Sintaxis
+
+[listing]
+----
+
+        smo clone create
+-profile profile_name
+[-backup-id backup_guid \| -backup-label backup_label_name \| -current\]
+-newsid new_sid
+\[-host target_host\]
+[-label clone_label]
+\[-comment string\]
+-clonespec full_path_to_clonespec_file
+]
+\[-syspassword syspassword\]
+\[-reserve \{yes \| no \| inherit\}\]
+
+\[-no-resetlogs \| -recover-from-location path1 \[, path2\]\]\[-taskspec taskspec\]
+\[-dump\]
+\[-quiet \| -verbose\]
+----
+
+
+== Parámetros
+
+* *-nombre del perfil*
++
+Especifica la base de datos que desea clonar. El perfil contiene el identificador de la base de datos y otra información de la base de datos.
+
+* *-backup-id guid*
++
+Clona el backup con el GUID especificado. SnapManager genera el GUID cuando se crea un backup. Puede utilizar el comando list-verbose de backups de smo para mostrar el GUID de cada backup.
+
+* *-backup-label backup_label_name*
++
+Especifica que se clone el backup con el nombre de etiqueta especificado.
+
+* *-corriente*
++
+Especifica la creación de backup y clonado a partir del estado actual de la base de datos.
+
++
+
+NOTE: Si la base de datos se encuentra en el modo noarchivelog, SnapManager creará un backup sin conexión.
+
+* *-newsid new_sid*
++
+Especifica un nuevo identificador exclusivo del sistema de Oracle para la base de datos clonada. El valor identificador del sistema es un máximo de ocho caracteres. Oracle no permite la ejecución simultánea de dos bases de datos con el mismo identificador de sistema en el mismo host.
+
+* *-host target_host*
++
+Especifica el host en el que se debe crear el clon.
+
+* *-label clone_label*
++
+Especifica una etiqueta para el clon.
+
+* *-cadena de comentario*
++
+Especifica un comentario opcional para describir este clon. La cadena debe escribirse entre comillas simples.
+
++
+
+NOTE: Algunos vaciados eliminan las comillas. Si esto es cierto para el shell, debe escapar de las comillas con una barra invertida (\). Por ejemplo, es posible que tenga que introducir: \' esto es un comentario\'
+
+* *-clonespec full_path_to_clonespec_file*
++
+Especifica la ruta de acceso al archivo XML de especificación del clon. Puede ser un nombre de ruta relativo o absoluto.
+
+* *-syspassaword syspassaword*
++
+Especifica la contraseña para el usuario con privilegios sys.
+
++
+
+NOTE: Debe proporcionar la contraseña para el usuario con privilegios sys si las credenciales de la base de datos proporcionadas no son las mismas para el usuario con privilegios sys.
+
+* *-reserva*
++
+Si se configura la opción -reserve en yes, se garantiza que la reserva de espacio garantizado para los volúmenes nuevos. Si se configura la opción -reserve en no, se garantiza que la reserva de espacio garantizado de volumen se desactive para los volúmenes clones nuevos. Si se establece la opción -reserve en heredar, se garantiza que el nuevo clon herede las características de reserva de espacio de la copia Snapshot primaria. El valor predeterminado es no
+
++
+En la siguiente tabla se describen los métodos de clonado y su efecto en la operación clone create y su opción -reserve. Una LUN se puede clonar mediante cualquiera de estos métodos.
+
++
+|===
+
+
+| Método de clonación | Descripción | Resultado 
+
+
+ a| 
+ LUN cloning a| 
+ A new clone LUN is created within the same volume. a| 
+ When the -reserve option for a LUN is set to yes, space is reserved for the full LUN size within the volume.
+
+
+ a| 
+ Volume cloning a| 
+ A new FlexClone is created, and the clone LUN exists within the new clone volume. Uses the FlexClone technology. a| 
+ When the -reserve option for a volume is set to yes, space is reserved for the full volume size within the aggregate.
++
+
+|===
+* *-no-resetlogs*
++
+Especifica omitir la recuperación de la base de datos, ejecutar la utilidad DBNEWID y no abrir la base de datos con los registros de nuevo mientras se crea el clon.
+
+* *-recover-from-location*
++
+Especifica la ubicación del registro de archivos externo de los backups de registros de archivos donde SnapManager toma los archivos de registro de archivos de la ubicación externa y los utiliza para la clonado.
+
+* *-taskspec*
++
+Especifica el archivo XML de especificación de la tarea para la actividad de procesamiento previo o la actividad de procesamiento posterior de la operación de clonado. Debe proporcionar la ruta de acceso completa del archivo XML de especificación de la tarea.
+
+* *-dump*
++
+Especifica recoger los archivos de volcado después de la operación de creación de clones.
+
+* *-silencio*
++
+Muestra sólo mensajes de error en la consola. La configuración predeterminada es mostrar mensajes de error y advertencia.
+
+* *-verbose*
++
+Muestra mensajes de error, advertencia e informativos en la consola.
+
+
+
+
+
+== Ejemplo
+
+En el ejemplo siguiente se clona el backup mediante una especificación de clon que se crea para este clon:
+
+[listing]
+----
+smo clone create -profile SALES1 -backup-label full_backup_sales_May -newsid
+CLONE -label sales1_clone -clonespec E:\\spec\\clonespec.xml
+----
+[listing]
+----
+Operation Id [8abc01ec0e794e3f010e794e6e9b0001] succeeded.
+----
+*Información relacionada*
+
+xref:task_creating_clone_specifications.adoc[Creando especificaciones de clon]
+
+xref:task_cloning_databases_from_backups.adoc[Clonar bases de datos a partir de backups]

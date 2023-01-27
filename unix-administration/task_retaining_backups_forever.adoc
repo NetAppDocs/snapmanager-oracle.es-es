@@ -1,0 +1,22 @@
+---
+permalink: unix-administration/task_retaining_backups_forever.html 
+sidebar: sidebar 
+keywords: specify, backup, ineligible, deletion, retention, policy, indefinite, unlimited, basis, smo 
+summary: Puede especificar que una copia de seguridad no sea elegible para su eliminación por parte de la política de retención, con el fin de conservar el backup de forma indefinida. 
+---
+= Retención permanente de backups
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede especificar que una copia de seguridad no sea elegible para su eliminación por parte de la política de retención, con el fin de conservar el backup de forma indefinida.
+
+. Para especificar que una copia de seguridad se conserve sin límite, escriba el siguiente comando:
+`smo backup update -profileprofile_name {-labellabel [data | -archivelogs] | -idid} -retain -unlimited`
+
+
+*Información relacionada*
+
+xref:reference_the_smosmsapbackup_update_command.adoc[El comando de actualización de backup de smo]

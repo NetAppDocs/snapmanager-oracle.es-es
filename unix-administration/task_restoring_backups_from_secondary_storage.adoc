@@ -1,0 +1,70 @@
+---
+permalink: unix-administration/task_restoring_backups_from_secondary_storage.html 
+sidebar: sidebar 
+keywords: restore, protect, backup, secondary, storage, copy, data, primary, storage 
+summary: Es posible restaurar backups protegidos desde el almacenamiento secundario y elegir cómo desea volver a copiar los datos en el almacenamiento primario. 
+---
+= Restaurar backups a partir del almacenamiento secundario
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible restaurar backups protegidos desde el almacenamiento secundario y elegir cómo desea volver a copiar los datos en el almacenamiento primario.
+
+Se puede usar el comando backup restore con la opción -from-secondary para restaurar los datos del almacenamiento secundario. Si no especifica la opción -from-secondary, SnapManager restaura los datos desde las copias Snapshot del almacenamiento primario.
+
+No se puede utilizar la opción -from-secondary si el backup existe en el almacenamiento primario; es necesario liberar el backup principal para que se pueda restaurar un backup del almacenamiento secundario. Si se utiliza un volumen temporal, se debe especificar el volumen con la opción -temp-volume.
+
+Debe especificar la opción -copy-id siempre que especifique la opción -from-secondary. Si existe más de un backup en el sistema de almacenamiento secundario, la opción -copy-id se utiliza para especificar qué copia de backup en el almacenamiento secundario se debe usar para la operación de restauración.
+
+
+NOTE: Si se utiliza Data ONTAP en 7-Mode, es necesario especificar un valor válido para la opción -copy-id. Sin embargo, si utiliza Clustered Data ONTAP, la opción -copy-id no es necesaria.
+
+Cuando se restauran datos desde un almacenamiento secundario, SnapManager intenta primero restaurar los datos directamente desde el sistema de almacenamiento secundario al sistema de almacenamiento primario (sin involucrar al host). Si SnapManager no puede realizar este tipo de restauración (por ejemplo, si los archivos no forman parte del sistema de archivos), SnapManager recuperará una restauración de copia de archivos del lado del host. SnapManager tiene dos métodos para realizar una restauración de copia de archivos en el lado del host desde el almacenamiento secundario. El método que selecciona SnapManager se configura en el archivo smo.config.
+
+* Si restore.secondaryAccessPolicy = Direct, SnapManager clona los datos en el almacenamiento secundario, monta los datos clonados del sistema de almacenamiento secundario en el host, y después copia los datos del clon en el entorno activo.
++
+Esta es la directiva de acceso secundaria predeterminada.
+
+* Si restore.secondaryAccessPolicy = indirecta, SnapManager copia primero los datos en un volumen temporal en el sistema de almacenamiento principal, monta los datos del volumen temporal en el host y, a continuación, copia los datos del volumen temporal en el entorno activo.
++
+Esta política se debe utilizar solo si el host no tiene acceso directo al sistema de almacenamiento secundario. Las restauraciones mediante el método indirecto demorarán el doble de tiempo que el método directo porque se crean dos copias de los datos.
+
++
+.. Ejecute una de las siguientes acciones:
++
+|===
+| Si desea... | Realice lo siguiente... 
+
+
+ a| 
+Restaure una base de datos completa si el backup seleccionado existe en el almacenamiento principal
+ a| 
+Introduzca el siguiente comando: smo backup restore -profileprofile_name-labellabel-complete-recover -alllogs[-copy-idid]
+
+
+
+ a| 
+Restaure una base de datos completa si el backup seleccionado no existe en el almacenamiento primario
+ a| 
+Introduzca el siguiente comando: smo backup restore -profileprofile_name-labellabel-complete-recover -alllogs-from-secondary [-temp-volume <temp_volume>] [-copy-idid]
+
+|===
+
+
+
+
+
+
+== Ejemplo
+
+El siguiente comando restaura un backup protegido desde el sistema de almacenamiento secundario:
+
+[listing]
+----
+smo backup restore -profile PAYDB -label daily_monday -complete
+-recover alllogs -from-secondary -copy-id 3042 -temp-volume smo_scratch_restore_volume
+Operation Id [8abc011215d385920115d38599470001] succeeded.
+----

@@ -1,0 +1,40 @@
+---
+permalink: unix-installation-7mode/task_accessing_the_snapmanager_user_interface.html 
+sidebar: sidebar 
+keywords: access, snapmanager, user, interface, ui, remote, web, browser, system, database, smogui 
+summary: Puede acceder a la interfaz de usuario de SnapManager de forma remota mediante un explorador web desde cualquier sistema que se ejecute en un sistema operativo compatible con SnapManager. También puede acceder a la interfaz de usuario de SnapManager desde el host de la base de datos de destino ejecutando el comando smogui. 
+---
+= Obtener acceso a la interfaz de usuario de SnapManager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede acceder a la interfaz de usuario de SnapManager de forma remota mediante un explorador web desde cualquier sistema que se ejecute en un sistema operativo compatible con SnapManager. También puede acceder a la interfaz de usuario de SnapManager desde el host de la base de datos de destino ejecutando el comando smogui.
+
+* Debe asegurarse de que SnapManager esté en ejecución.
+* Debe asegurarse de que el sistema operativo y Java compatibles estén instalados en el sistema donde desea acceder a la interfaz de usuario de SnapManager.
++
+Para obtener información sobre el sistema operativo compatible y Java, consulte herramienta matriz de interoperabilidad.
+
++
+.. En la ventana del navegador web, introduzca lo siguiente:https://server_name.domain.com:port_number[]
++
+*** Server_name es el nombre del host de la base de datos de destino donde está instalado SnapManager.
++
+También puede introducir la dirección IP del host de la base de datos de destino.
+
+*** Port_number es el puerto en el que se ejecuta SnapManager.
++
+El valor predeterminado es 27214.
+
+
+
+.. Haga clic en el vínculo.
++
+Se muestra la interfaz de usuario de.
+
+
+
+

@@ -1,0 +1,29 @@
+---
+permalink: windows/task_creating_operation_level_dump_files.html 
+sidebar: sidebar 
+keywords: smo, operation, dump, command, name, id, fail, particular, host, environment 
+summary: Puede utilizar el comando de volcado de la operación de smo con el nombre o el ID de la operación fallida para obtener información del registro sobre una operación en particular. Es posible especificar niveles de registro diferentes para recopilar información sobre una operación, un perfil, un host o un entorno específicos. 
+---
+= Creación de archivos de volcado en el nivel de las operaciones
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede utilizar el comando de volcado de la operación de smo con el nombre o el ID de la operación fallida para obtener información del registro sobre una operación en particular. Es posible especificar niveles de registro diferentes para recopilar información sobre una operación, un perfil, un host o un entorno específicos.
+
+. Introduzca el siguiente comando: Volcado de operación de smo -idguid
++
+
+NOTE: El comando smo operation dump proporciona un superconjunto de la información proporcionada por el comando de volcado de perfil de smo, que a su vez proporciona un superconjunto de la información proporcionada por el comando de volcado del sistema smo.
+
++
+Ubicación del archivo de volcado:
+
++
+[listing]
+----
+Path:\<user-home>\Application Data\NetApp\smo\3.3.0\smo_dump_8abc01c814649ebd0114649ec69d0001.jar
+----
+

@@ -1,0 +1,48 @@
+---
+permalink: unix-administration/task_changing_the_retention_policy_default_behavior.html 
+sidebar: sidebar 
+keywords: backup, expire, based, retention, policy, snapmanager, determine, delete, backup, setting, policy, default, behavior 
+summary: Cuando caduca un backup según la política de retención, SnapManager determina si se elimina el backup según la configuración de retención. La eliminación de copias de seguridad es el comportamiento predeterminado. Puede cambiar este comportamiento predeterminado y liberar en su lugar las copias de seguridad no protegidas. 
+---
+= Cambiar el comportamiento predeterminado de la política de retención
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cuando caduca un backup según la política de retención, SnapManager determina si se elimina el backup según la configuración de retención. La eliminación de copias de seguridad es el comportamiento predeterminado. Puede cambiar este comportamiento predeterminado y liberar en su lugar las copias de seguridad no protegidas.
+
+De forma predeterminada, SnapManager elimina o libera backups en función de si están protegidos o no de la siguiente manera:
+
+* En el caso de los backups protegidos, SnapManager libera los backups locales cuando caducan.
+* Para backups sin protección, SnapManager elimina los backups locales cuando caducan.
++
+Puede cambiar este comportamiento predeterminado.
+
+
+
+Para los backups protegidos, SnapManager no tiene en cuenta lo siguiente a la hora de determinar si se debe eliminar la copia local:
+
+* El backup en el almacenamiento secundario presenta un error o está en proceso de protección.
++
+Esto permite la transferencia de backups a un almacenamiento secundario antes de aplicar la normativa de retención.
+
+* La copia se eliminó posteriormente del almacenamiento secundario.
++
+.. Acceda a la siguiente ubicación predeterminada:
++
+ubicación/propiedades de la instalación predeterminada de smo.config
+
+.. Edite el archivo smo.config.
+.. Establezca la propiedad retain.always FreeExpiredbackups en el archivo smo.config en true.
++
+Por ejemplo, retain.always FreeExpiredbackups = true
+
+
+
+
+
+*Información relacionada*
+
+xref:reference_the_smosmsapbackup_update_command.adoc[El comando de actualización de backup de smo]

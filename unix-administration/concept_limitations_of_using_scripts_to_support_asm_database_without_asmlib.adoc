@@ -1,0 +1,19 @@
+---
+permalink: unix-administration/concept_limitations_of_using_scripts_to_support_asm_database_without_asmlib.html 
+sidebar: sidebar 
+keywords: certain, limitation, script, asm, database, asmlib, root, grid, oracle 
+summary: Debe tener en cuenta ciertas limitaciones al uso de scripts para admitir una base de datos ASM sin ASMLib. 
+---
+= Limitaciones de uso de scripts para admitir una base de datos ASM sin ASMLib
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe tener en cuenta ciertas limitaciones al uso de scripts para admitir una base de datos ASM sin ASMLib.
+
+* Las secuencias de comandos ofrecen una solución alternativa para cualquier versión del kernel, pero sólo si ASMLib no está instalado.
+* Los permisos de los scripts deben definirse de forma que los usuarios root, Grid, oracle o equivalentes puedan acceder a los scripts.
+* Los scripts no admiten la restauración desde una ubicación secundaria.
+

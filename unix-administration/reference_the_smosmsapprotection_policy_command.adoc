@@ -1,0 +1,72 @@
+---
+permalink: unix-administration/reference_the_smosmsapprotection_policy_command.html 
+sidebar: sidebar 
+keywords: run, protection-policy, command, list, protection, policies, applied, smo 
+summary: Puede ejecutar el comando de directiva de protección para enumerar las directivas de protección que se pueden aplicar a un perfil. La directiva de protección se puede aplicar cuando se crea un perfil nuevo o se actualiza un perfil existente. También puede establecer la política de protección del perfil mediante la consola de Protection Manager. 
+---
+= El comando smo protection-policy
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede ejecutar el comando de directiva de protección para enumerar las directivas de protección que se pueden aplicar a un perfil. La directiva de protección se puede aplicar cuando se crea un perfil nuevo o se actualiza un perfil existente. También puede establecer la política de protección del perfil mediante la consola de Protection Manager.
+
+
+
+== Sintaxis
+
+[listing]
+----
+
+        smo protection-policy list
+----
+
+NOTE: Protection Manager y SnapDrive se deben instalar en el servidor para que pueda utilizar este comando.
+
+
+
+== Parámetros
+
+* *lista*
++
+Muestra la lista de directivas de protección que se pueden establecer en un perfil.
+
+
+
+
+
+== Ejemplo
+
+En el siguiente ejemplo, se enumeran las políticas de protección que se pueden configurar en un perfil:
+
+[listing]
+----
+ smo protection-policy list
+----
+[listing]
+----
+
+Back up
+Back up, then mirror
+Chain of two mirrors
+DR Back up
+DR Back up, then mirror
+DR Mirror
+DR Mirror and back up
+DR Mirror and mirror
+DR Mirror, then back up
+DR Mirror, then mirror
+Local backups only
+Mirror
+Mirror and back up
+Mirror to two destinations
+Mirror, then back up
+No protection
+Partial-volume Mirror
+Remote backups only
+----
+*Información relacionada*
+
+xref:concept_managing_profiles_for_efficient_backups.adoc[Gestionar perfiles para backups eficientes]

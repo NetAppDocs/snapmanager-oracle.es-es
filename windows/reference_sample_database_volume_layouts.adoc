@@ -1,0 +1,94 @@
+---
+permalink: windows/reference_sample_database_volume_layouts.html 
+sidebar: sidebar 
+keywords: refer, sample, database, volume, layout, configuring, configure 
+summary: Puede consultar ejemplos de diseños de volumen de base de datos para obtener ayuda en la configuración de la base de datos. 
+---
+= Ejemplos de distribuciones de volúmenes de base de datos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede consultar ejemplos de diseños de volumen de base de datos para obtener ayuda en la configuración de la base de datos.
+
+
+
+== Bases de datos de instancia única
+
+|===
+
+
+| Tipos de archivo | Nombres de volúmenes | Volumen dedicado para los tipos de archivo | Copias snapshot automáticas 
+
+
+ a| 
+Binarios de Oracle
+ a| 
+nombre_host_orabin
+ a| 
+Sí
+ a| 
+Encendido
+
+
+
+ a| 
+Archivos de datos
+ a| 
+oradata_sid
+ a| 
+Sí
+ a| 
+Apagado
+
+
+
+ a| 
+Archivos de datos temporales
+ a| 
+oratemp_sid
+ a| 
+Sí
+ a| 
+Apagado
+
+
+
+ a| 
+Archivos de control
+ a| 
+Oracntrl01_sid (multiplexado)
+
+Oracntrl02_sid (multiplexado)
+ a| 
+Sí
+ a| 
+Apagado
+
+
+
+ a| 
+Rehacer registros
+ a| 
+Oralog01_sid (multiplexado)
+
+Oralog02_sid (multiplexado)
+ a| 
+Sí
+ a| 
+Apagado
+
+
+
+ a| 
+Registros de archivo
+ a| 
+oraarch_sid
+ a| 
+Sí
+ a| 
+Apagado
+
+|===

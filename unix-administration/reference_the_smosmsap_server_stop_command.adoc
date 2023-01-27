@@ -1,0 +1,49 @@
+---
+permalink: unix-administration/reference_the_smosmsap_server_stop_command.html 
+sidebar: sidebar 
+keywords: command, stop, snapmanager, host, server, enter, root, smo_server 
+summary: Este comando detiene el servidor host de SnapManager y se introduce en la raíz. 
+---
+= El comando smo_Server stop
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Este comando detiene el servidor host de SnapManager y se introduce en la raíz.
+
+
+
+== Sintaxis
+
+[listing]
+----
+
+        smo_server stop
+\[-quiet \| -verbose\]
+----
+
+
+== Parámetros
+
+* *-silencio*
++
+Especifica que sólo se muestran mensajes de error en la consola. El valor predeterminado es mostrar mensajes de error y advertencia.
+
+* *-verbose*
++
+Especifica que los mensajes de error, advertencia e informativos se muestran en la consola.
+
+
+
+
+
+== Comando de ejemplo
+
+En el ejemplo siguiente se utiliza el comando smo_Server stop.
+
+[listing]
+----
+smo_server stop
+----

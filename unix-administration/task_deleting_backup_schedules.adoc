@@ -1,0 +1,17 @@
+---
+permalink: unix-administration/task_deleting_backup_schedules.html 
+sidebar: sidebar 
+keywords: delete, backup, schedule, necessary, deleting, smo 
+summary: Es posible eliminar programaciones de backup cuando ya no sean necesarias. 
+---
+= Eliminación de programaciones de backup
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible eliminar programaciones de backup cuando ya no sean necesarias.
+
+. Para eliminar la programación de copia de seguridad, introduzca este comando: smo schedule delete -profile_name-schedule-namesetnameName [-quiet | -verbose]
+

@@ -1,0 +1,38 @@
+---
+permalink: windows/task_viewing_a_list_of_storage_controllers_associated_with_a_profile.html 
+sidebar: sidebar 
+keywords: view, list, storage, system, associate, particular, profile 
+summary: Puede ver una lista de los sistemas de almacenamiento asociados con un perfil en particular. 
+---
+= Ver una lista de sistemas de almacenamiento asociados a un perfil
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede ver una lista de los sistemas de almacenamiento asociados con un perfil en particular.
+
+La lista muestra los nombres de los sistemas de almacenamiento asociados con el perfil en particular.
+
+
+NOTE: Si no hay backups disponibles para el perfil, no puede ver el nombre del sistema de almacenamiento asociado con el perfil.
+
+. Para mostrar la información de los sistemas de almacenamiento asociados con un perfil determinado, escriba este comando: smo Storage list -profileprofile [-quiet | -verbose]
+
+
+
+
+== Ejemplo
+
+[listing]
+----
+smo storage list -profile mjubllian
+----
+[listing]
+----
+Sample Output:
+Storage Controllers
+--------------------
+STCO1110-RTP07OLD
+----

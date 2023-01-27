@@ -1,0 +1,207 @@
+---
+permalink: unix-administration/reference_the_smosmsapbackup_restore_command.html 
+sidebar: sidebar 
+keywords: run, backup, restore, command, database, portion, optional, smo, information 
+summary: Se puede ejecutar el comando backup restore para restaurar backups de una base de datos o una parte de una base de datos y, opcionalmente, recuperar la información de la base de datos. 
+---
+= El comando smo backup restore
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se puede ejecutar el comando backup restore para restaurar backups de una base de datos o una parte de una base de datos y, opcionalmente, recuperar la información de la base de datos.
+
+
+
+== Sintaxis
+
+[listing]
+----
+
+        smo backup restore
+-profile profile_name
+\[-label label \| -id id\]
+\[-files files \[files...\] \|
+-tablespaces tablespaces \[tablespaces...\]\] \|
+-complete \| -controlfiles\]
+\[-recover \{-alllogs \| -nologs \| -until until\} \[-using-backup-controlfile\] \]
+\[-restorespec restorespec \| -from-secondary \[-temp-volume temp_volume\] \[-copy-id id\]\]
+\[-preview\]
+\[-fast \{-require \| -override \| -fallback \| -off\}\]
+\[-recover-from-location path1 \[, path2\]\]
+\[-taskspec taskspec\]
+\[-dump\]
+\[-force\]
+\[-quiet \| -verbose\]
+----
+
+
+== Parámetros
+
+* *-profile profile_name*
++
+Especifica la base de datos que desea restaurar. El perfil contiene el identificador de la base de datos y otra información de la base de datos.
+
+* *-nombre de etiqueta*
++
+Restaura el backup con la etiqueta especificada.
+
+* *-id guid*
++
+Restaura el backup con el GUID especificado. SnapManager genera el GUID cuando se crea un backup. Puede utilizar el comando smo backup list para mostrar el GUID de cada backup.
+
+* *Elija todos los archivos o especificados*
++
+De manera opcional, puede utilizar una de las siguientes opciones:
+
++
+** -Complete: Restaura todos los archivos de datos de la copia de seguridad.
+** -Tableslist: Restaura sólo los tablespaces especificados a partir de la copia de seguridad.
++
+Debe utilizar espacios para separar los nombres en la lista.
+
+** -Fileslist: Restaura sólo los archivos de datos especificados de la copia de seguridad.
++
+Debe utilizar espacios para separar los nombres en la lista. Si la base de datos se está ejecutando, SnapManager garantiza que el tablespace que contiene los archivos esté sin conexión.
+
+
+
+* *-controlfiles*
++
+Restaura los archivos de control. SnapManager permite restaurar archivos de control junto con los archivos de datos de los backups en una única operación. La opción -controlfiles es independiente de otros parámetros de alcance de restauración, como -complete, -tablespaces y -files.
+
+* *-recover*
++
+Recupera la base de datos después de restaurarla. También debe especificar el punto en el que desea que SnapManager recupere la base de datos mediante una de las siguientes opciones:
+
++
+** -Nologs: Recupera la base de datos al momento de la copia de seguridad y no aplica registros.
++
+Este parámetro se puede usar para backups en línea o sin conexión.
+
+** -Alllogs: Recupera la base de datos a la última transacción o confirmación y aplica todos los registros requeridos.
+** -Hasta fecha: Recupera la base de datos hasta la fecha y hora especificadas.
++
+Debe usar el formato year-month-date: Hour: Minute: Second (yyyy-mm-dd:hh:mm:ss). Para horas, utilice el formato de 12 o 24 horas, según la configuración de la base de datos.
+
+** -Until scn: Permite avanzar los archivos de datos hasta alcanzar el número de cambio de sistema (SCN) especificado.
+** -Using-backup-Controlfile: Recupera la base de datos utilizando el archivo de control de copia de seguridad.
+
+
+* *-restaurespec*
++
+Permite restaurar los datos en un sistema de archivos activo y restaurar desde los datos especificados mediante la asignación de cada copia Snapshot original a su sistema de archivos activo. Si no especifica una opción, SnapManager restaura los datos desde las copias Snapshot en el almacenamiento principal. Es posible especificar una de las siguientes opciones:
+
++
+** -Restoreespec: Especifica los datos que se van a restaurar y el formato de restauración.
+** -Desde-secondary: Restaura los datos desde el almacenamiento secundario.
++
+No puede utilizar esta opción si el backup existe en el almacenamiento principal; debe liberarse el backup principal antes de poder restaurar un backup desde el almacenamiento secundario. Si se utiliza un volumen temporal, se debe especificar el volumen con la opción -temp-volume.
+
++
+Debe especificar la opción -copy-id siempre que especifique la opción -from-secondary. Si existe más de un backup en el sistema de almacenamiento secundario, la opción -copy-id se utiliza para especificar qué copia de backup en el almacenamiento secundario se debe usar para la operación de restauración.
+
++
+
+NOTE: Si se utiliza Data ONTAP en 7-Mode, es necesario especificar un valor válido para la opción -copy-id. Sin embargo, si utiliza Clustered Data ONTAP, la opción -copy-id no es necesaria
+
++
+Cuando se restaura a partir de un almacenamiento secundario, SnapManager intenta en primer lugar restaurar los datos directamente desde el sistema de almacenamiento secundario al sistema de almacenamiento primario (sin afectar el host). Si SnapManager no puede realizar este tipo de restauración (por ejemplo, si los archivos no forman parte del sistema de archivos), SnapManager recuperará una restauración de copia de archivos del lado del host. SnapManager tiene dos métodos para realizar una restauración de copia de archivos en el lado del host desde secundario. El método que selecciona SnapManager se configura en el archivo smo.config.
+
+** Directo: SnapManager clona los datos en el almacenamiento secundario, monta los datos clonados del sistema de almacenamiento secundario en el host, y después copia los datos del clon en el entorno activo.
++
+Esta es la directiva de acceso secundaria predeterminada.
+
+** Indirecto: SnapManager copia primero los datos en un volumen temporal en el sistema de almacenamiento primario, monta los datos del volumen temporal en el host y, a continuación, copia los datos del volumen temporal en el entorno activo.
++
+Esta política se debe utilizar solo si el host no tiene acceso directo al sistema de almacenamiento secundario. Las restauraciones mediante el método indirecto demorarán el doble de tiempo que la política de acceso secundario directo, ya que se realizan dos copias de los datos.
+
+
+
++
+La decisión de utilizar el método directo o indirecto se controla mediante el valor del parámetro restore.secondaryAccessPolicy del archivo de configuración smo.config.
+
+* *-preview*
++
+Muestra la siguiente información:
+
++
+** Qué mecanismo de restauración (restauración rápida, restauración de sistema de archivos en el lado del almacenamiento, restauración de archivos en el lado del almacenamiento o restauración de copias de archivos del lado del host) se utilizará para restaurar cada archivo
+** Por qué no se han utilizado mecanismos más eficientes para restaurar cada archivo, al especificar la opción -verbose Si está utilizando la opción -preview , debe saber lo siguiente:
+** La opción -force no afecta al comando.
+** La opción -recover no afecta al comando.
+** La opción -fast (-require, -override, -fallback o -off) tiene un impacto significativo en la salida. Para obtener una vista previa de la operación de restauración, se debe montar la base de datos. Si desea obtener la vista previa de un plan de restauración y la base de datos no está montada actualmente, SnapManager monta la base de datos. Si no se puede montar la base de datos, el comando fallará y SnapManager devolverá la base de datos a su estado original.
+
+
++
+La opción -preview muestra hasta 20 archivos. Puede configurar el número máximo de archivos que se mostrará en el archivo smo.config.
+
+* *-rápido*
++
+Permite elegir el proceso que se usará en la operación de restauración. Si se cumplen todas las condiciones obligatorias de restauración, es posible forzar a SnapManager para que use el proceso de restauración rápida basado en volúmenes en lugar de otros procesos de restauración. Si no se sabe que no puede realizarse una restauración de volumen, también puede usar este proceso para impedir que SnapManager realice comprobaciones de cumplimiento y la operación de restauración mediante el proceso de restauración rápido.
+
++
+La opción -fast incluye los siguientes parámetros:
+
++
+** -Require: Permite forzar a SnapManager a realizar una restauración de volúmenes, si se cumplen todas las condiciones de elegibilidad de la restauración.
++
+Si especifica la opción -fast, pero no especifica ningún parámetro para -FAST, SnapManager utiliza el parámetro -require como valor predeterminado.
+
+** -Override: Permite anular las comprobaciones de elegibilidad no obligatorias y realizar el proceso de restauración rápida basado en volúmenes.
+** -Fallback: Permite restaurar la base de datos con el método que SnapManager determine.
++
+Si no se especifica la opción -FAST, SnapManager utiliza la opción default backup restore -fast fallback.
+
+** -OFF: Le permite evitar el tiempo necesario para realizar las comprobaciones de elegibilidad.
+
+
+* *-recover-from-location*
++
+Especifica la ubicación del registro de archivos externo de los archivos de registro de archivos. SnapManager toma los archivos de registro de archivos de la ubicación externa y los utiliza para el proceso de recuperación.
+
+* *-taskspec*
++
+Especifica el archivo XML de especificación de la tarea para la actividad de preprocesamiento o la actividad de posprocesamiento de la operación de restauración. Debe proporcionar la ruta de acceso completa del archivo XML de especificación de la tarea.
+
+* *-dump*
++
+Especifica recoger los archivos de volcado después de la operación de restauración.
+
+* *-fuerza*
++
+Si es necesario, cambia el estado de la base de datos a uno más bajo que el estado actual. En Real Application Clusters (RAC), debe incluir la opción -force si SnapManager tiene que cambiar el estado de cualquier instancia de RAC a un estado inferior.
+
++
+De forma predeterminada, SnapManager puede cambiar el estado de la base de datos a más alto durante una operación. Esta opción no es necesaria para que SnapManager cambie el estado de la base de datos a uno más alto.
+
+* *-silencio*
++
+Muestra sólo mensajes de error en la consola. La configuración predeterminada es mostrar mensajes de error y advertencia.
+
+* *-verbose*
++
+Muestra mensajes de error, advertencia e informativos en la consola. Puede usar esta opción para ver por qué no se pueden usar procesos de restauración más eficientes para restaurar el archivo.
+
+
+
+
+
+== Ejemplo
+
+En el siguiente ejemplo se restaura una base de datos junto con los archivos de control:
+
+[listing]
+----
+smo backup restore -profile SALES1 -label full_backup_sales_May
+-complete -controlfiles -force
+----
+*Información relacionada*
+
+xref:concept_restoring_database_backup.adoc[Restaurar backups de base de datos]
+
+xref:task_restoring_backups_from_an_alternate_location.adoc[Restaurar backups desde una ubicación alternativa]
+
+xref:task_creating_restore_specifications.adoc[Creando especificaciones de restauración]

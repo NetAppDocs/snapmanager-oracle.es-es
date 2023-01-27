@@ -1,0 +1,23 @@
+---
+permalink: windows/task_unmounting_backups.html 
+sidebar: sidebar 
+keywords: snapmanager, automatic, unmount, backup, unavailable, host, server, remove, access 
+summary: 'SnapManager desmonta automáticamente el backup para que no esté disponible para el servidor host. SnapManager también permite desmontar si se utiliza una herramienta externa, como Oracle Recovery Manager (RMAN), para acceder a los archivos de la copia de seguridad y para cambiar el estado del backup para quitar el acceso.' 
+---
+= Desmontaje de backups
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapManager desmonta automáticamente el backup para que no esté disponible para el servidor host. SnapManager también permite desmontar si se utiliza una herramienta externa, como Oracle Recovery Manager (RMAN), para acceder a los archivos de la copia de seguridad y para cambiar el estado del backup para quitar el acceso.
+
+Otra opción es recoger los archivos de volcado después de una operación de backup realizó una operación de desmontaje correcta o con errores.
+
+. Introduzca el siguiente comando: smo backup unmount -profile profile_name {labellabel [data | -archivvelogs] | -idid} [-quiet | -verbose] -dump-force-verbose
+
+
+*Información relacionada*
+
+xref:reference_the_smosmsapbackup_unmount_command.adoc[El comando de desmontaje del backup de smo]

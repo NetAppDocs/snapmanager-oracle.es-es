@@ -1,0 +1,27 @@
+---
+permalink: unix-administration/concept_restoration_of_the_data_from_file_systems.html 
+sidebar: sidebar 
+keywords: restore, data, alternate, location, necessary, file, system, local, host, asm 
+summary: Antes de restaurar datos desde una ubicación alternativa, debe restaurar el sistema de archivos necesario y montarlo en el host local. 
+---
+= Restauración de datos desde el sistema de ficheros
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de restaurar datos desde una ubicación alternativa, debe restaurar el sistema de archivos necesario y montarlo en el host local.
+
+Se puede invocar la operación de restauración desde una ubicación alternativa para copiar los archivos de sistemas de archivos alternativos a sistemas de archivos activos.
+
+Para realizar esta operación, debe especificar los puntos de montaje alternativos desde los que se restaurarán los puntos de montaje originales y los nombres de las copias Snapshot originales creando un archivo de especificación de restauración.
+
+
+NOTE: El nombre de copia Snapshot es un componente necesario porque el mismo sistema de archivos puede ajustarse varias veces en una única operación de backup (por ejemplo, una vez para los archivos de datos y otra para el archivo de registro).
+
+Para Automatic Storage Management (ASM), el nombre del grupo de discos debe ser el mismo que el grupo de discos clonado por SnapManager para registrar la copia de seguridad con Oracle Recovery Manager (RMAN). Para obtener este nombre, consulte las propiedades de la copia de seguridad.
+
+*Información relacionada*
+
+xref:task_creating_restore_specifications.adoc[Creando especificaciones de restauración]

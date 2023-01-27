@@ -1,0 +1,34 @@
+---
+permalink: unix-administration/task_protecting_archive_log_backups.html 
+sidebar: sidebar 
+keywords: creating, profile, enable, protection, archive, log, backup, base, policy 
+summary: Al crear perfiles, puede habilitar la protección para los backups del registro de archivos según la política de protección de los registros de archivos. 
+---
+= Protección de backups de registros de archivos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Al crear perfiles, puede habilitar la protección para los backups del registro de archivos según la política de protección de los registros de archivos.
+
+. Introduzca el siguiente comando:
+`smo profile create -profileprofile [-profile-passwordprofile_password] -repository-dbnamerepo_dbname-hostrepo_host-portrepo_port-login-usernamerepo_username-database-dbnamedb_dbname-hostdb_host [-siddb_sid] [-login-usernamedb_username-passworddb_password-portdb_port] [-rman {-controlfile | {-login-usernamerman_username-passwordrman_password-tnsnamerman_tnsname} } ] -osaccountosaccount-osgrouposgroup [-retain [-hourly [-countn] [-durationm]] [-daily [-countn] [-durationm]] [-weekly [-countn] [-durationm]] [-monthly [-countn] [-durationm]]] [-commentcomment][-snapname-patternpattern][-protect [-protection-policypolicy_name]] [-summary-notification] [-notification [-success-emailemail_address1, email_address2-subjectsubject_pattern] [-failure-emailemail_address1, email_address2-subjectsubject_pattern]][-separate-archivelog-backups-retain-archivelog-backups-hourshours | -daysdays | -weeksweeks| -monthsmonths [-protect [-protection-policypolicy_name] | -noprotect] [-include-with-online-backups | -no-include-with-online-backups]] [-dump]`
++
+|===
+| Si... | Realice lo siguiente... 
+
+
+ a| 
+*Desea realizar una copia de seguridad de las copias de seguridad de archive log por separado y proteger los archivos archive log*
+ a| 
+Especifique las siguientes opciones:
+
+** -separar-archivvelog-backups permite separar los archivos log de los archivos de datos.
+** -protect asigna una política de protección independiente para los backups de los registros de archivos de registros de archivos.
+** -protection-policy asigna la política de protección para los backups de registros de archivos.
+
+
+|===
+

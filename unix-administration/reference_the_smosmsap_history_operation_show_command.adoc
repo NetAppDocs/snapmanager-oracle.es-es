@@ -1,0 +1,58 @@
+---
+permalink: unix-administration/reference_the_smosmsap_history_operation_show_command.html 
+sidebar: sidebar 
+keywords: command, enable, history, specific, snapmanager, operation, associated, profile 
+summary: Este comando le permite ver el historial de una operación de SnapManager específica asociada con un perfil. 
+---
+= El comando Operation-show de historial de smo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Este comando le permite ver el historial de una operación de SnapManager específica asociada con un perfil.
+
+
+
+== Sintaxis
+
+[listing]
+----
+
+        smo history operation-show
+-profile profile
+\{-label label \| -id id\}
+\[-quiet \| -verbose\]
+----
+
+
+== Parámetros
+
+* * perfil*
++
+Especifica el nombre del perfil. Este nombre puede tener hasta 30 caracteres y debe ser único dentro del host.
+
+* * etiqueta | -idid*
++
+Especifica el ID o la etiqueta de la operación de SnapManager para la que desea ver el historial.
+
+* *-silencio*
++
+Muestra sólo mensajes de error en la consola. El valor predeterminado es mostrar mensajes de error y advertencia.
+
+* *-verbose*
++
+Muestra mensajes de error, advertencia e informativos en la consola.
+
+
+
+
+
+== Comando de ejemplo
+
+[listing]
+----
+
+          smo  history operation-show -profile PROFILE1 -label backup1 -verbose
+----

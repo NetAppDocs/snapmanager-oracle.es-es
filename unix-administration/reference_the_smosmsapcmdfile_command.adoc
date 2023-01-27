@@ -1,0 +1,70 @@
+---
+permalink: unix-administration/reference_the_smosmsapcmdfile_command.html 
+sidebar: sidebar 
+keywords: cmdfile, command, run, shell, host, limit, number, character, appear, line, smo 
+summary: Puede utilizar el comando cmdfile para ejecutar cualquier comando si el shell del host limita el número de caracteres que pueden aparecer en una línea de comandos. 
+---
+= El comando cmdfile de smo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede utilizar el comando cmdfile para ejecutar cualquier comando si el shell del host limita el número de caracteres que pueden aparecer en una línea de comandos.
+
+
+
+== Sintaxis
+
+[listing]
+----
+
+        smo cmdfile
+-file file_name
+\[-quiet \| -verbose\]
+----
+Puede incluir el comando en un archivo de texto y usar el comando cmdfile de smo para ejecutar el comando. Sólo puede agregar un comando en un archivo de texto. No debe incluir smo en la sintaxis de comandos.
+
+
+NOTE: El comando cmdfile de smo reemplaza al comando pfile de smo. El archivo cmdsmo no es compatible con el comando pfile de smo.
+
+
+
+== Parámetros
+
+* *-file file_name*
++
+Especifica la ruta de acceso al archivo de texto que contiene el comando que desea ejecutar.
+
+* *-silencio*
++
+Especifica que sólo se muestran mensajes de error en la consola. El valor predeterminado es mostrar mensajes de error y advertencia.
+
+* *-verbose*
++
+Especifica que los mensajes de error, advertencia e informativos se muestran en la consola.
+
+
+
+
+
+== Ejemplo
+
+En este ejemplo se crea un perfil incluyendo el comando profile create en command.txt ubicado en /tmp. A continuación, puede ejecutar el comando cmdfile de smo.
+
+El archivo de texto contiene la siguiente información:
+
+[listing]
+----
+profile create -profile SALES1 -repository -dbname SNAPMGRR
+-login -username server1_user -password ontap -port 1521 -host server1
+-database -dbname SMO -sid SMO -login -username sys -password oracle -port 1521
+-host Host2 -osaccount oracle -osgroup db2
+----
+Ahora puede crear el perfil ejecutando el comando cmdfile de smo con el archivo command.txt:
+
+[listing]
+----
+smo cmdfile -file /tmp/command.txt
+----

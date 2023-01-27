@@ -1,0 +1,220 @@
+---
+permalink: windows/concept_variables_available_in_the_task_scripts_for_backup_operation.html 
+sidebar: sidebar 
+keywords: provide, context, information, form, environment, variable, relate, backup, perform 
+summary: SnapManager proporciona información de contexto en forma de variables de entorno relacionadas con la operación de backup que se realiza. Por ejemplo, el script puede recuperar el nombre del host original, el nombre de la política de retención y la etiqueta del backup. 
+---
+= Variables disponibles en los scripts de tareas para la operación de backup
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapManager proporciona información de contexto en forma de variables de entorno relacionadas con la operación de backup que se realiza. Por ejemplo, el script puede recuperar el nombre del host original, el nombre de la política de retención y la etiqueta del backup.
+
+En la siguiente tabla, se enumeran las variables de entorno que se pueden utilizar en los scripts:
+
+|===
+
+
+| Variables | Descripción | Formato 
+
+
+ a| 
+SM_OPERATION_ID
+ a| 
+Especifica el ID de la operación actual
+ a| 
+cadena
+
+
+
+ a| 
+SM_PROFILE_NAME
+ a| 
+Especifica el nombre del perfil utilizado
+ a| 
+cadena
+
+
+
+ a| 
+SM_SID
+ a| 
+Especifica el identificador del sistema de la base de datos
+ a| 
+cadena
+
+
+
+ a| 
+SM_HOST
+ a| 
+Especifica el nombre de host de la base de datos
+ a| 
+cadena
+
+
+
+ a| 
+SM_OS_USER
+ a| 
+Especifica el propietario del sistema operativo (SO) de la base de datos
+ a| 
+cadena
+
+
+
+ a| 
+SM_OS_GROUP
+ a| 
+Especifica el grupo del sistema operativo de la base de datos
+ a| 
+cadena
+
+
+
+ a| 
+SM_BACKUP_TYPE
+ a| 
+Especifica el tipo de backup (en línea, sin conexión o automático)
+ a| 
+cadena
+
+
+
+ a| 
+SM_BACKUP_LABEL
+ a| 
+Especifica la etiqueta del backup
+ a| 
+cadena
+
+
+
+ a| 
+SM_BACKUP_ID
+ a| 
+Especifica el ID del backup
+ a| 
+cadena
+
+
+
+ a| 
+SM_BACKUP_RETENCIÓN
+ a| 
+Especifica el período de retención
+ a| 
+cadena
+
+
+
+ a| 
+SM_BACKUP_PROFILE
+ a| 
+Especifica el perfil utilizado para esta copia de seguridad
+ a| 
+cadena
+
+
+
+ a| 
+SM_ALLOW_DATABASE_SHUTDOWN
+ a| 
+Especifica si desea iniciar o cerrar la base de datos Si es necesario puede utilizar la opción -force de la interfaz de línea de comandos.
+ a| 
+booleano
+
+
+
+ a| 
+SM_BACKUP_SCOPE
+ a| 
+Especifica el ámbito del backup (completo o parcial)
+ a| 
+cadena
+
+
+
+ a| 
+SM_TARGET_FILER_NAME
+ a| 
+Especifica el nombre del sistema de almacenamiento de destino *Nota:* Si se utiliza más de un sistema de almacenamiento, los nombres de los sistemas de almacenamiento deben separarse con comas.
+ a| 
+cadena
+
+
+
+ a| 
+SM_TARGET_VOLUME_NAME
+ a| 
+Especifica el nombre del volumen de destino *Nota:* el nombre del volumen de destino debe ser prefijado con el nombre del dispositivo de almacenamiento, por ejemplo, SM_TARGET_FILER_NAME/SM_TARGET_VOLUME_NAME.
+ a| 
+cadena
+
+
+
+ a| 
+SM_HOST_FILE_SYSTEM
+ a| 
+Especifica el sistema de archivos del host
+ a| 
+cadena
+
+
+
+ a| 
+SM_SNAPSHOT_NAMES
+ a| 
+Especifica la lista de instantáneas *Nota:* el nombre de las copias snapshot debe prefijarse con el nombre del sistema de almacenamiento y el nombre del volumen. Los nombres de las copias Snapshot están separados por comas.
+ a| 
+matriz de cadenas
+
+
+
+ a| 
+SM_ARCHIVE_LOGS_DIRECTORY
+ a| 
+Especifica el directorio de registros de archivos *Nota:* Si los registros de archivos se encuentran en más de un directorio, los nombres de esos directorios se separan por comas.
+ a| 
+matriz de cadenas
+
+
+
+ a| 
+SM_REDO_LOGS_DIRECTORY
+ a| 
+Especifica el directorio de redo logs *Nota:* Si los redo logs se encuentran en más de un directorio, los nombres de esos directorios se separan con comas.
+ a| 
+matriz de cadenas
+
+
+
+ a| 
+DIRECTORIO_ARCHIVOS_SM_CONTROL
+ a| 
+Especifica el directorio de archivos de control *Nota:* Si los archivos de control se encuentran en más de un directorio, los nombres de esos directorios se separan por comas.
+ a| 
+matriz de cadenas
+
+
+
+ a| 
+DIRECTORIO_ARCHIVOS_DATOS_SM
+ a| 
+Especifica el directorio de archivos de datos *Nota:* Si los archivos de datos se encuentran en más de un directorio, los nombres de esos directorios se separan por comas.
+ a| 
+matriz de cadenas
+
+
+
+ a| 
+definido por el usuario
+ a| 
+Especifica parámetros adicionales definidos por el usuario. Los parámetros definidos por el usuario no están disponibles para los plugins que se usan como políticas.
+ a| 
+definido por el usuario
+
+|===

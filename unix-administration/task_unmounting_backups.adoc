@@ -1,0 +1,32 @@
+---
+permalink: unix-administration/task_unmounting_backups.html 
+sidebar: sidebar 
+keywords: snapmanager, automatic, unmount, backup, unavailable, host, server, asm, smo 
+summary: 'SnapManager desmonta automáticamente el backup para que no esté disponible para el servidor host. SnapManager también le permite desmontar si utiliza una herramienta externa, como Oracle Recovery Manager \(RMAN\), para acceder a los archivos de la copia de seguridad y para cambiar el estado de la copia de seguridad para eliminar el acceso.' 
+---
+= Desmontaje de backups
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapManager desmonta automáticamente el backup para que no esté disponible para el servidor host. SnapManager también permite desmontar si se utiliza una herramienta externa, como Oracle Recovery Manager (RMAN), para acceder a los archivos de la copia de seguridad y para cambiar el estado del backup para quitar el acceso.
+
+Si va a desmontar un backup de base de datos de un host remoto, debe asegurarse de que las credenciales de Automatic Storage Management (ASM) sean las mismas en ambos hosts.
+
+Otra opción es recoger los archivos de volcado después de una operación de backup realizó una operación de desmontaje correcta o con errores.
+
+La operación de desmontaje puede fallar en algún momento con un mensaje de error si el punto de montaje está ocupado, por ejemplo, --[ERROR] FLOW-11019 6598: Failure in Disconnect: SD-10046: No se puede desmontar el backup ya que el punto de montaje está ocupado con las siguientes rutas de montaje y PID: /Opt/NetApp/smo/mnt/-mnt-neuse_nfsvrdb_20120427052319903-Arch.
+
+Debe identificar el PID de la sesión que tiene como resultado un fallo en la operación de desmontaje. Detenga la sesión ejecutando el siguiente comando: `kill pid`
+
+Posteriormente, puede ejecutar la operación de desmontaje correctamente.
+
+. Introduzca el siguiente comando:
+`smo backup unmount -profile profile_name {labellabel [data | -archivelogs] | -idid} [-quiet | -verbose] -dump-force-verbose`
+
+
+*Información relacionada*
+
+xref:reference_the_smosmsapbackup_unmount_command.adoc[El comando de desmontaje del backup de smo]

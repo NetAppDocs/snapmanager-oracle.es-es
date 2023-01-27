@@ -1,0 +1,68 @@
+---
+permalink: unix-administration/reference_the_smosmsapclone_list_command.html 
+sidebar: sidebar 
+keywords: command, list, clone, database, given, profile, smo 
+summary: Este comando enumera los clones de la base de datos para un perfil determinado. 
+---
+= El comando smo clone list
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Este comando enumera los clones de la base de datos para un perfil determinado.
+
+
+
+== Sintaxis
+
+[listing]
+----
+
+        smo clone list
+-profile profile_name
+-delimiter character
+\[-quiet \| -verbose\]
+----
+
+
+== Parámetros
+
+* *-profile profile_name*
++
+Especifica la lista de clones asociados con el perfil. El perfil contiene el identificador de la base de datos y otra información de la base de datos.
+
+* * carácter delimitador*
++
+Cuando se especifica este parámetro, el comando enumera los atributos de cada fila separados por el carácter especificado.
+
+* *-silencio*
++
+Muestra sólo mensajes de error en la consola. El valor predeterminado es mostrar mensajes de error y advertencia.
+
+* *-verbose*
++
+Muestra mensajes de error, advertencia e informativos en la consola.
+
+
+
+
+
+== Comando de ejemplo
+
+En el siguiente ejemplo se enumeran los clones de base de datos del perfil SALES1.
+
+[listing]
+----
+smo clone list -profile SALES1 -verbose
+----
+[listing]
+----
+ID Status SID Host Label Comment
+-------- ------- ----- ------- ---------- -------
+8ab...01 SUCCESS hsdbc server1 back1clone test comment
+----
+*Información relacionada*
+
+xref:task_viewing_a_list_of_clones.adoc[Ver una lista de clones]

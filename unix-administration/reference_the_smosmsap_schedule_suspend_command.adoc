@@ -1,0 +1,40 @@
+---
+permalink: unix-administration/reference_the_smosmsap_schedule_suspend_command.html 
+sidebar: sidebar 
+keywords: command, suspend, backup, schedule, resume, smo 
+summary: Este comando suspende una programación de backup hasta que se reanuda la programación de backup. 
+---
+= El comando smo schedule suspend
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Este comando suspende una programación de backup hasta que se reanuda la programación de backup.
+
+
+
+== Sintaxis
+
+[listing]
+----
+
+        smo schedule suspend
+-profile profile_name
+-schedule-name schedule_name
+\[-quiet \| -verbose\]
+----
+
+
+== Parámetros
+
+* *-profile profile_name*
++
+Especifica el nombre del perfil relacionado con la base de datos que desea suspender una programación de backup. El perfil contiene el identificador de la base de datos y otra información de la base de datos.
+
+* *-nombre-horario nombre_horario*
++
+Especifica el nombre de programación que se proporcionó al crear una programación de backups.
+
+

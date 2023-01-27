@@ -1,0 +1,16 @@
+---
+permalink: unix-administration/concept_support_for_oracle_10g_asm_databases.html 
+sidebar: sidebar 
+keywords: oracle, 10g, asmcmd, sql, query, disk, list, support 
+summary: Si utiliza Oracle 10g, el comando asmcmd no está disponible para enumerar discos. Puede utilizar la consulta sql para obtener la lista de discos. 
+---
+= Compatibilidad con bases de datos ASM de Oracle 10g sin ASMLib
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si utiliza Oracle 10g, el comando asmcmd no está disponible para enumerar discos. Puede utilizar la consulta sql para obtener la lista de discos.
+
+La secuencia de comandos disk_list.sql se incluye en las secuencias de comandos existentes proporcionadas en el directorio examples para admitir consultas sql. Al ejecutar el script theasmquerydisk.sh, el script disk_list.sql debe ejecutarse manualmente. Las líneas del script de ejemplo se añaden con comentarios en el archivo asmquerydisk.shI. Este archivo se puede colocar en la ubicación /home/grid u otra ubicación que desee.

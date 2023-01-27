@@ -1,0 +1,14 @@
+---
+permalink: unix-installation-cmode/index.html 
+sidebar: sidebar 
+keywords: installation, setup, guide, unix, 3.4.2 
+summary: Guía de instalación y configuración de SnapManager para Oracle 3.4.2 para UNIX® 
+---
+= Guía de instalación y configuración para UNIX®
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Esta guía describe las tareas iniciales que debe realizar para poner en marcha SnapManager 3.4.2 para Oracle con Clustered Data ONTAP en un entorno UNIX. Los temas incluyen cómo instalar y configurar el producto y cómo realizar una copia de seguridad de las bases de datos.

@@ -1,0 +1,26 @@
+---
+permalink: unix-installation-7mode/task_creating_an_oracle_user_for_the_target_database.html 
+sidebar: sidebar 
+keywords: oracle, database, user, require, log, in, snapmanager, operation, sysdba, privilege 
+summary: Se necesita un usuario de la base de datos de Oracle para iniciar sesión en la base de datos y ejecutar operaciones de SnapManager. Debe crear este usuario con el privilegio sysdba si no existe un usuario con el privilegio sysdba para la base de datos de destino. 
+---
+= Crear un usuario de base de datos de Oracle para la base de datos de destino
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se necesita un usuario de la base de datos de Oracle para iniciar sesión en la base de datos y ejecutar operaciones de SnapManager. Debe crear este usuario con el privilegio _sysdba_ si no existe un usuario con el privilegio _sysdba_ para la base de datos de destino.
+
+SnapManager puede utilizar cualquier usuario de Oracle con el privilegio _sysdba_ que existe para la base de datos de destino. Por ejemplo, SnapManager puede utilizar el usuario predeterminado _sys_. Sin embargo, incluso si el usuario existe, puede crear un nuevo usuario para la base de datos de destino y asignar el privilegio _sysdba_.
+
+También puede usar el método de autenticación del SO en donde el sistema operativo (SO) permite que la base de datos Oracle utilice las credenciales que mantiene el sistema operativo para autenticar a los usuarios para iniciar sesión en la base de datos y ejecutar operaciones de SnapManager. Si el sistema operativo autentica, puede conectarse a la base de datos de Oracle sin especificar un nombre de usuario o una contraseña.
+
+. Iniciar sesión en SQL *Plus: 'Sqlplus / as sysdba'
+. Cree un nuevo usuario con una contraseña de administrador: 'Cree useruser_name identificado por admin_password;'
++
+user_name es el nombre de usuario que va a crear y admin_password es la contraseña que desea asignar al usuario.
+
+. Asigne el privilegio sysdba al nuevo usuario de Oracle: 'GRANT sysdba to user_name;'
+

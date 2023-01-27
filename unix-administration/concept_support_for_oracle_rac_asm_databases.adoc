@@ -1,0 +1,18 @@
+---
+permalink: unix-administration/concept_support_for_oracle_rac_asm_databases.html 
+sidebar: sidebar 
+keywords: oracle, rac, database, node, initasmdisk, file 
+summary: Si utiliza bases de datos Oracle RAC, los nodos RAC deben actualizarse con el archivo initasmdisks cada vez que se realice una operación en el nodo RAC maestro. 
+---
+= Compatibilidad con bases de datos de ASM de Oracle RAC sin ASMLib
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si utiliza bases de datos Oracle RAC, los nodos RAC deben actualizarse con el archivo initasmdisks cada vez que se realice una operación en el nodo RAC maestro.
+
+Si no se requiere autenticación para iniciar sesión en los nodos RAC desde el nodo maestro, la asmmain.sh realiza una copia segura (SCP) de inimasmdisks en todos los nodos RAC. El archivo initasmdisks del nodo maestro se llamará cada vez que se produzca la restauración, y la secuencia de comandos asmmain.sh se puede actualizar para invocar la misma secuencia de comandos en todos los nodos RAC.
+
+El archivo /etc/initasmdisks creado que debe ejecutarse desde una de las secuencias de comandos de inicio o desde una secuencia de comandos recientemente definida en rc3.d. El archivo /etc/initasmdisks debe ejecutarse siempre antes de que se inicie el servicio oracleha.

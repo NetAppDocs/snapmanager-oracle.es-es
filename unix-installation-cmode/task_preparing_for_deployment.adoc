@@ -1,0 +1,20 @@
+---
+permalink: unix-installation-cmode/task_preparing_for_deployment.html 
+sidebar: sidebar 
+keywords: before, deploy, snapmanager, storage, system, unix, minimum, resource, requirement 
+summary: Antes de implementar SnapManager, debe asegurarse de que el sistema de almacenamiento y los hosts UNIX cumplen con los requisitos mínimos de recursos. 
+---
+= Preparación para la implementación
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de implementar SnapManager, debe asegurarse de que el sistema de almacenamiento y los hosts UNIX cumplen con los requisitos mínimos de recursos.
+
+. Compruebe que tiene las licencias necesarias.
+. Compruebe las configuraciones admitidas.
+. Compruebe los tipos de almacenamiento admitidos.
+. Verificar que los hosts UNIX cumplen los requisitos de SnapManager.
+

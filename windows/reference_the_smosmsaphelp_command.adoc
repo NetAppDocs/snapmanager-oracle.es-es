@@ -1,0 +1,50 @@
+---
+permalink: windows/reference_the_smosmsaphelp_command.html 
+sidebar: sidebar 
+keywords: run, help, command, display, information, snapmanager, smo, valid 
+summary: Puede ejecutar el comando help para mostrar información acerca de los comandos de la SnapManager y sus opciones. Si no proporciona un nombre de comando, se muestra una lista de comandos válidos. Si proporciona un nombre de comando, muestra la sintaxis de ese comando. 
+---
+= El comando smo help
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede ejecutar el comando help para mostrar información acerca de los comandos de la SnapManager y sus opciones. Si no proporciona un nombre de comando, se muestra una lista de comandos válidos. Si proporciona un nombre de comando, muestra la sintaxis de ese comando.
+
+
+
+== Sintaxis
+
+[listing]
+----
+
+        smo help
+\[\]\[backup\|cmdfile\|clone\|credential\|help\|operation\|profile\|repository\|system\|version\|plugin\|diag\|history\|schedule\|notification\|storage\|get\]
+\[-quiet \| -verbose\]
+----
+
+
+== Parámetros
+
+A continuación se muestran algunos nombres de comandos que puede utilizar con este comando:
+
+* Backup
+* clonar
+* cmdfile
+* credencial
+* diag
+* obtenga
+* notificación
+* ayuda
+* historia
+* funcionamiento
+* plug-in
+* perfil
+* repositorio
+* programación
+* Reducida
+* sistema
+* versión
+

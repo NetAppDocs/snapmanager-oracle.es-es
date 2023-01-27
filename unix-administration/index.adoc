@@ -1,0 +1,14 @@
+---
+permalink: unix-administration/index.html 
+sidebar: sidebar 
+keywords: administration, guide, unix, 3.4.2 
+summary: Guía de administración de SnapManager para Oracle 3.4.2 para UNIX® 
+---
+= Guía de administración para UNIX®
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En esta guía se describe cómo administrar SnapManager 3.4.2 para Oracle en un entorno UNIX después de completar la implementación, incluido cómo configurar, actualizar y desinstalar el producto, cómo realizar backup de bases de datos, restaurarlas y clonarlas.

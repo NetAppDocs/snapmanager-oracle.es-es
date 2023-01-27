@@ -1,0 +1,17 @@
+---
+permalink: windows/task_updating_a_backup_schedule.html 
+sidebar: sidebar 
+keywords: view, list, schedule, operation, update, scheduling, backup, updating 
+summary: Puede ver una lista de operaciones programadas y actualizarlas si es necesario. Puede actualizar la frecuencia de programación, la hora de inicio de la programación, la expresión cronstring y el usuario que programó la copia de seguridad. 
+---
+= Actualizar una programación de backup
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede ver una lista de operaciones programadas y actualizarlas si es necesario. Puede actualizar la frecuencia de programación, la hora de inicio de la programación, la expresión cronstring y el usuario que programó la copia de seguridad.
+
+. Para actualizar la programación de una copia de seguridad, introduzca este comando: smo schedule update -profile profile_name-schedule-namesetename [-schedule-commentschedule comment] -interval {-time | -Daily | -Weekly | -mensual | -onetimeonly} -start-timarttime-cronstringstring-runasrunususerosusuario [-quiet | -verbose]
+

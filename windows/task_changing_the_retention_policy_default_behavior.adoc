@@ -1,0 +1,31 @@
+---
+permalink: windows/task_changing_the_retention_policy_default_behavior.html 
+sidebar: sidebar 
+keywords: backup, expire, retention, policy, snapmanager, delete, settings, default, behavior, protect, unprotected 
+summary: Cuando caduca un backup según la política de retención, SnapManager determina si se elimina el backup según la configuración de retención. La eliminación de copias de seguridad es el comportamiento predeterminado. Puede cambiar este comportamiento predeterminado y liberar en su lugar las copias de seguridad no protegidas. 
+---
+= Cambiar el comportamiento predeterminado de la política de retención
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cuando caduca un backup según la política de retención, SnapManager determina si se elimina el backup según la configuración de retención. La eliminación de copias de seguridad es el comportamiento predeterminado. Puede cambiar este comportamiento predeterminado y liberar en su lugar las copias de seguridad no protegidas.
+
+De forma predeterminada, Snap Manager elimina la copia de seguridad cuando caducan.
+
+. Acceda a la siguiente ubicación predeterminada:
++
+ubicación\propiedades\smo.config predeterminada de la instalación de smo
+
+. Edite el archivo smo.config.
+. Establezca la propiedad retain.always FreeExpiredbackups en el archivo smo.config en true.
++
+Por ejemplo, retain.always FreeExpiredbackups = true
+
+
+
+*Información relacionada*
+
+xref:reference_the_smosmsapbackup_update_command.adoc[El comando de actualización de backup de smo]

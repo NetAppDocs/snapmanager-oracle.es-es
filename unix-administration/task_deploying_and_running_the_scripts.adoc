@@ -1,0 +1,88 @@
+---
+permalink: unix-administration/task_deploying_and_running_the_scripts.html 
+sidebar: sidebar 
+keywords: deploy, run, asmmain.sh, asmquerydisk.sh, script, support, asm, database, asmlib, disk, group, oracleasm 
+summary: Es posible implementar y ejecutar los scripts asmmain.sh y asmquerydisk.sh para admitir bases de datos ASM sin ASMLib. 
+---
+= Implementar y ejecutar los scripts
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible implementar y ejecutar los scripts asmmain.sh y asmquerydisk.sh para admitir bases de datos ASM sin ASMLib.
+
+Estas secuencias de comandos no siguen la sintaxis de los scripts previos o posteriores y se llama al flujo de trabajo cuando los intitasmdiscos están habilitados. Puede cambiar cualquier cosa relacionada con la configuración en los scripts. Se recomienda verificar si todo lo contenido en los scripts funciona según lo esperado realizando una ejecución de secado rápida.
+
+
+NOTE: Estas secuencias de comandos no afectan a su sistema en caso de fallos ni afectarán a su sistema. Estas secuencias de comandos se ejecutan para actualizar los discos relacionados con ASM para que tengan los permisos y la propiedad adecuados, de modo que los discos siempre estarán bajo control de instancia de ASM.
+
+. Cree los grupos de discos ASM con los discos con particiones.
+. Cree la base de datos Oracle en LOS GRUPOS de DISCOS.
+. Detenga el servidor SnapManager para Oracle.
++
+
+NOTE: En un entorno RAC, debe realizar este paso en todos los nodos de RAC.
+
+. Modifique smo.conf para incluir los siguientes parámetros:
++
+.. oracleasm.support.without.asmlib = true
+.. oracleasm.support.without.asmlib.owpropiedad = true
+.. oracleasm.support.without.asmlib.username = nombre de usuario del entorno de instancia de ASM
+.. oracleasm.support.without.asmlib.groupname = nombre de grupo del entorno de instancia de ASM
+
+
++
+Estas modificaciones establecen los permisos sólo para la ruta absoluta, lo que significa que en lugar del dispositivo de partición, los permisos se establecerán sólo para el dispositivo dm-*.
+
+. Modifique los scripts de los plugins disponibles en /opt/NetApp/smo/plugins/examples/noasmlib para incluir los ajustes de configuración en los scripts.
+. Copie las secuencias de comandos en /opt/NetApp/smo/plugins/noasmlib antes de iniciar el servidor SnapManager para Oracle en el host.
+. Desplácese hasta el directorio /opt/NetApp/smo y ejecute una ejecución en seco ejecutando el siguiente script: sh plugins/noasmlib/asmmain.sh
++
+Se crea el archivo etc/initasmdisks, que es el archivo principal que se utiliza.
+
++
+Puede confirmar que el archivo etc/initasmdisks contiene todos los dispositivos relacionados con la base de datos ASM configurada, como:
+
++
+[listing]
+----
+chown -R grid:oinstall /dev/mapper/360a98000316b61396c3f394645776863p1
+	     chmod 777 /dev/mapper/360a98000316b61396c3f394645776863p1
+	     chown -R grid:oinstall /dev/mapper/360a980003754322f7a2b433469714239p1
+	     chmod 777 /dev/mapper/360a980003754322f7a2b433469714239p1
+	     chown -R grid:oinstall /dev/mapper/360a980003754322f7a2b433469714241p1
+	     chmod 777 /dev/mapper/360a980003754322f7a2b433469714241p1
+	     chown -R grid:oinstall /dev/mapper/360a980003754322f7a2b433469714243p1
+	     chmod 777 /dev/mapper/360a980003754322f7a2b433469714243p1
+----
+. Inicie el servidor de SnapManager para Oracle.
+. Configure SnapDrive para UNIX añadiendo lo siguiente al archivo snapdrive.conf.disconnect-luns-before-vbsr=on
+. Reinicie el servidor de SnapDrive para UNIX.
++
+
+NOTE: En un entorno RAC, es necesario realizar los pasos del 3 al 10 para todos los nodos RAC.
+
+
+
+El archivo /etc/initasmdisks creado, debe ejecutarse desde uno de los scripts de inicio o desde un script que se acaba de definir en rc3.d. El archivo /etc/initasmdisks debe ejecutarse siempre antes de que se inicie el servicio oracleha.
+
+Ejemplo
+
+[listing]
+----
+# ls -ltr *ohasd*
+	      lrwxrwxrwx 1 root root 17 Aug  7 02:34 S96ohasd -> /etc/init.d/ohasd
+    	  lrwxrwxrwx 1 root root 17 Aug  7 02:34 K15ohasd -> /etc/init.d/ohasd
+----
+En el ejemplo siguiente, sh -x/etc/initasmdisks no estará disponible de forma predeterminada, y debe anexarlo como primera línea de la función `start_stack()` en un script ohasd:
+
+[listing]
+----
+start_stack()
+{
+sh -x /etc/initasmdisks
+# see init.ohasd.sbs for a full rationale case $PLATFORM in Linux
+}
+----

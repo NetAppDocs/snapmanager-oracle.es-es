@@ -1,0 +1,34 @@
+---
+permalink: unix-administration/concept_what_autosupport_is.html 
+sidebar: sidebar 
+keywords: autosupport, snapmanager, autosupport, storage, system, backup, operation, complete, enable, disable 
+summary: La función AutoSupport permite que el servidor SnapManager envíe mensajes de AutoSupport al sistema de almacenamiento una vez completada la operación de backup. 
+---
+= Qué es AutoSupport
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La función AutoSupport permite que el servidor SnapManager envíe mensajes de AutoSupport al sistema de almacenamiento una vez completada la operación de backup.
+
+
+NOTE: SnapManager envía mensajes de AutoSupport solo para las operaciones de backup correctas.
+
+Puede habilitar o deshabilitar AutoSupport asignando los siguientes valores al parámetro de configuración auto_support.on en el archivo de configuración de smo.config:
+
+* TRUE - habilita AutoSupport
+* FALSE - deshabilita AutoSupport
+
+
+
+NOTE: De manera predeterminada, AutoSupport se habilita en SnapManager.
+
+*Información relacionada*
+
+xref:task_adding_storage_systems_to_the_snapmanager_server_host.adoc[Añadir sistemas de almacenamiento que funcionen en Clustered Data ONTAP al host del servidor SnapManager]
+
+xref:task_enabling_autosupport_in_snapmanager.adoc[Habilitar AutoSupport en SnapManager]
+
+xref:task_disabling_autosupport_in_snapmanager.adoc[Deshabilitar AutoSupport en SnapManager]

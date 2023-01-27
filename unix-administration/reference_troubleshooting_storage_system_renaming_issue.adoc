@@ -1,0 +1,57 @@
+---
+permalink: unix-administration/reference_troubleshooting_storage_system_renaming_issue.html 
+sidebar: sidebar 
+keywords: face, issue, renaming, storage, system, succesful, rename, storage, system, troubleshoot 
+summary: Puede enfrentarse a problemas al cambiar el nombre de un sistema de almacenamiento o después de haber cambiado correctamente el nombre del sistema de almacenamiento. 
+---
+= Solucionar problemas de cambio de nombre del sistema de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede enfrentarse a problemas al cambiar el nombre de un sistema de almacenamiento o después de haber cambiado correctamente el nombre del sistema de almacenamiento.
+
+Cuando intenta cambiar el nombre del sistema de almacenamiento, es posible que se produzca un error en la operación con el siguiente mensaje: SMO-05085 no se ha encontrado ninguna controladora de almacenamiento "fas3020-rtp07New" que esté asociada con el perfil
+
+Debe introducir la dirección IP o el nombre del sistema de almacenamiento que aparece cuando ejecuta el comando smo Storage list.
+
+Después de cambiar el nombre del sistema de almacenamiento, es posible que se produzca un error en las operaciones de SnapManager si SnapManager no reconoce el sistema de almacenamiento. Para resolver este problema, debe realizar algunos pasos adicionales en el host del servidor de DataFabric Manager y en el host del servidor SnapManager.
+
+Realice los siguientes pasos en el host del servidor de DataFabric Manager:
+
+. Eliminar la dirección IP y el host del sistema de almacenamiento anterior en el archivo de host ubicado en /etc/hosts en el host del servidor de DataFabric Manager.
+. Añada la nueva dirección IP y el nuevo host del sistema de almacenamiento en el archivo host ubicado en /etc/hosts en el host del servidor de DataFabric Manager.
+. Cambie el nombre del host de almacenamiento introduciendo el siguiente comando: dfm host rename -a old_host_namenew_host_name
+. Configure la nueva dirección IP en el host. Para ello, introduzca el siguiente comando: dfm host set old_host_name_or_objId hostPrimaryAddress = new_Storage_Controller_ip_address
++
+
+NOTE: Este paso debe realizarse solo si se especificó la dirección IP como nombre del nuevo sistema de almacenamiento.
+
+. Actualice el nuevo nombre del sistema de almacenamiento en el host de DataFabric Manager Server. Para ello, introduzca el siguiente comando: dfm host diag old_Storage_name
++
+Puede verificar si el nombre de la controladora de almacenamiento anterior se reemplaza por un nuevo nombre de la controladora de almacenamiento. Para ello, introduzca el siguiente comando: dfm host Discover new_Storage_name
+
+
+
+Realice los siguientes pasos como usuario raíz en el host del servidor SnapManager.
+
+
+NOTE: Cuando se introduce el nuevo nombre de controladora de almacenamiento, se debe utilizar el nombre de alias del sistema y no el nombre de dominio completo (FQDN).
+
+. Elimine el nombre del sistema de almacenamiento anterior introduciendo el siguiente comando: SnapDrive config delete old_Storage_name
++
+
+NOTE: Si no elimina el nombre de sistema de almacenamiento anterior, todas las operaciones de SnapManager fallarán.
+
+. Eliminar la dirección IP y el host del sistema de almacenamiento anterior en el archivo de host ubicado en etc/hosts en el host de la base de datos de destino.
+. Añada la nueva dirección IP y el host del nuevo sistema de almacenamiento en el archivo host ubicado en /etc/hosts en el host de la base de datos de destino.
+. Añada el nombre del nuevo sistema de almacenamiento introduciendo el siguiente comando: SnapDrive config set root new_Storage_name
+. Asigne los nombres de sistema de almacenamiento anteriores y posteriores introduciendo el siguiente comando: SnapDrive config migrate set old_Storage_namenew_Storage_name
+. Elimine la ruta de gestión del sistema de almacenamiento anterior introduciendo el siguiente comando:snapdrive config delete -mgmtpath old_Storage_name
+. Añada la ruta de gestión del nuevo sistema de almacenamiento introduciendo el siguiente comando: SnapDrive config set -mgmtpath new_Storage_name
+. Actualice el conjunto de datos para los archivos de datos y los archivos de registro de archivos con el nuevo nombre del sistema de almacenamiento introduciendo el siguiente comando: SnapDrive dataset changehostname -dndataset_name-oldnamedold_Storage_name-newnamenew_Storage_name
+. Actualice el perfil del nuevo nombre del sistema de almacenamiento introduciendo el siguiente comando: smo Storage rename -profileprofile_name-oldnamold_Storage_name-newnamenew_Storage_name
+. Comprobar el sistema de almacenamiento asociado con el perfil introduciendo el siguiente comando: smo Storage list -profileprofile_name
+

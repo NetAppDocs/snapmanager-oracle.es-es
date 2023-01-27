@@ -1,0 +1,53 @@
+---
+permalink: unix-installation-7mode/task_installing_snapmanager.html 
+sidebar: sidebar 
+keywords: install, snapmanager, host, database, backup, run, snapdrive, unix, real, application, cluster, rac 
+summary: Debe instalar SnapManager en cada host donde se ejecute la base de datos de la que desea realizar el backup. 
+---
+= Instalando SnapManager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe instalar SnapManager en cada host donde se ejecute la base de datos de la que desea realizar el backup.
+
+Debe haber instalado SnapDrive para UNIX en el host de la base de datos y establecer una conexión con el sistema de almacenamiento.
+
+Para obtener información sobre cómo instalar SnapDrive y establecer una conexión con el sistema de almacenamiento, consulte la documentación de SnapDrive para UNIX.
+
+Debe instalar una instancia de SnapManager por cada host de bases de datos. Si usa una base de datos de RAC y desea realizar un backup de la base de datos de RAC, debe instalar SnapManager en todos los hosts de la base de datos de RAC.
+
+. Descargue el paquete de instalación de SnapManager para Oracle para UNIX desde el sitio de soporte de NetApp y cópielo al sistema host.
++
+http://mysupport.netapp.com/NOW/cgi-bin/software["Descargas de NetApp: "Software"]''
+
+. Inicie sesión en el host de la base de datos como usuario root.
+. Desde el símbolo del sistema, desplácese hasta el directorio en el que copió el paquete de instalación.
+. Haga ejecutable el paquete de instalación: Chmod 755install_package.bin
+. Install SnapManager: './install_package.bin'
+. Pulse Intro para continuar.
+. Siga estos pasos:
++
+.. Pulse Intro para aceptar el valor predeterminado para el grupo de sistemas operativos.
++
+El valor predeterminado para el grupo es dba.
+
+.. Pulse Intro para aceptar el valor predeterminado del tipo de inicio.
+
+
++
+Se muestra el resumen de la configuración.
+
+. Revise el resumen de la configuración y pulse Intro para continuar.
++
+SnapManager se instala en
+
+
+
+*Información relacionada*
+
+xref:task_setting_up_snapmanager.adoc[Configurar SnapManager]
+
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30050["Documentación de NetApp: "SnapDrive para UNIX"]'

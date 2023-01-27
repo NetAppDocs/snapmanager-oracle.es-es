@@ -1,0 +1,191 @@
+---
+permalink: windows/reference_troubleshooting_known_issues.html 
+sidebar: sidebar 
+keywords: known, issues, snapmanager, troubleshooting 
+summary: Es necesario conocer algunos problemas conocidos que se pueden producir al utilizar SnapManager y cómo solucionar sus problemas. 
+---
+= Resolución de problemas conocidos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es necesario conocer algunos problemas conocidos que se pueden producir al utilizar SnapManager y cómo solucionar sus problemas.
+
+
+
+== SnapManager para Oracle no identifica los perfiles de modo Cluster
+
+Si el nombre del perfil de Cluster-Mode no está presente en el archivo cmode_profiles.config del directorio de instalación de SnapManager para Oracle, el siguiente mensaje de error podría activarse:
+
+Configure el servidor DFM mediante la configuración de SnapDrive set -dfm user_name Appliance_name.
+
+Además, al actualizar SnapManager para Oracle, si elimina la carpeta /opt/NetApp/smo/*, el archivo cmode_profiles.config que tiene los nombres de perfil de Cluster-Mode también se elimina. Este problema también activa el mismo mensaje de error.
+
+*Solución*
+
+Actualice el perfil: <profile_name> de perfil de actualización de smo
+
+
+NOTE: Si se instala SnapManager para Oracle en la ruta /opt/NetApp/smo/, la ubicación del archivo es /opt/NetApp/smo/cmode_profile/cmode_profiles.config.
+
+
+
+== El servidor no se inicia
+
+Al iniciar el servidor, es posible que aparezca un mensaje de error similar al siguiente:
+
+SMO-01104: Error al invocar el comando: SMO-17107: El servidor SnapManager no se pudo iniciar en el puerto 8074 debido a los siguientes errores: La dirección java.net.BindException: ya está en uso
+
+Esto puede deberse a que los puertos de escucha SnapManager (27214 y 27215, de forma predeterminada) están actualmente en uso en otra aplicación.
+
+Este error también puede ocurrir si el comando smo_Server ya se está ejecutando, pero SnapManager no detecta el proceso existente.
+
+*Solución*
+
+Es posible volver a configurar SnapManager o la otra aplicación para utilizar diferentes puertos.
+
+Para volver a configurar SnapManager, edite el siguiente archivo: C:\Program Files\NetApp\SnapManager para Oracle\properties\smo.config
+
+Asigne los siguientes valores:
+
+* Servidor de SMO.Port=27214
+* Servidor SMO.rmiRegistry.Port=27215
+* remote.registry.ocijdbc.port= 27215
++
+El archivo remote.registry.ocijdbc.Port debe ser el mismo que Server.rmiRegistry.Port.
+
+
+
+Para iniciar el servidor SnapManager, realice los siguientes pasos:
+
+. Haga clic en *Inicio* > *Panel de control* > *Herramientas administrativas* > *Servicios*.
+. Puede iniciar el servidor de una de estas tres formas:
++
+** En el panel izquierdo, haga clic en *Inicio*.
+** Haga clic con el botón derecho en NetApp SnapManager 3.3 for Oracle y seleccione *Inicio* en el menú desplegable.
+** Haga doble clic en NetApp SnapManager 3.3 for Oracle y, en la ventana Propiedades que se abrirá, haga clic en *Inicio*.
+
+
+
+
+
+
+== No se pueden gestionar los nombres de destino de los archivos de registro de archivos si los nombres de destino forman parte de otros nombres de destino
+
+Al crear una copia de seguridad del registro de archivos, si el usuario excluye un destino que forme parte de otros nombres de destino, también se excluirán los demás nombres de destino.
+
+Por ejemplo, supongamos que hay tres destinos disponibles para ser excluidos: E:\\Arch, G:\\Arch y H:\\Arch. Al crear la copia de seguridad del archivo de registro de archivos, si excluye E:\\Arch mediante el comando
+
+[listing]
+----
+smo backup create -profile almsamp1 -data -online -archivelogs  -exclude-dest E:\\arch
+----
+, SnapManager para Oracle excluye todos los destinos a partir de E:\\Arch.
+
+*Solución*
+
+* Agregue un separador de ruta después de que los destinos estén configurados en v$archive_dest. Por ejemplo, cambie E:\\Arch a E:\\Arch\.
+* Al crear una copia de seguridad, incluya destinos en lugar de excluir cualquier destino.
+
+
+
+
+== El tamaño de la base de datos del repositorio crece con el tiempo y no con el número de backups
+
+El tamaño de la base de datos del repositorio crece con el tiempo debido a que las operaciones SnapManager insertan o eliminan datos dentro del esquema en las tablas de la base de datos del repositorio, lo que da como resultado un uso elevado del espacio de índice.
+
+*Solución*
+
+Debe supervisar y reconstruir los índices de acuerdo con las directrices de Oracle para controlar el espacio consumido por el esquema del repositorio.
+
+
+
+== No se puede acceder a la interfaz gráfica de usuario de SnapManager y se produce un error en las operaciones de SnapManager cuando la base de datos del repositorio está inactiva
+
+Se produce un error en las operaciones de SnapManager y no se puede acceder a la interfaz gráfica de usuario cuando la base de datos del repositorio está inactiva.
+
+En la siguiente tabla, se enumeran las diferentes acciones que se pueden realizar y sus excepciones:
+
+|===
+
+
+| Operaciones | Excepciones 
+
+
+ a| 
+Abrir un repositorio cerrado
+ a| 
+El siguiente mensaje de error se registra en sm_gui.log: [WARN ]: SMO-01106: Se ha producido un error al consultar el repositorio: Closed Connection java.sql.SQLException: Closed Connection.
+
+
+
+ a| 
+Para actualizar un repositorio abierto, pulse F5
+ a| 
+Se muestra una excepción de repositorio en la GUI y también registra una NullPointerException en el archivo sm_gui.log.
+
+
+
+ a| 
+Actualizar el servidor host
+ a| 
+Se registra una NullPointerException en el archivo sumo_gui.logI.
+
+
+
+ a| 
+Creación de un nuevo perfil
+ a| 
+Aparecerá NullPointerException en la ventana Profile Configuration.
+
+
+
+ a| 
+Actualizar un perfil
+ a| 
+La siguiente excepción SQL se registra en sm_gui.log: [WARN ]: SMO-01106: Se ha producido un error al consultar el repositorio: Closed Connection.
+
+
+
+ a| 
+Obtener acceso a un backup
+ a| 
+El siguiente mensaje de error se registra en sm_gui.log: No se pudo inicializar de forma lazilada una colección.
+
+
+
+ a| 
+Ver las propiedades de clon
+ a| 
+El siguiente mensaje de error se registra en sm_gui.log y sumo_gui.log: No se pudo inicializar de forma lazilada una colección.
+
+|===
+*Solución*
+
+Debe asegurarse de que se ejecute la base de datos del repositorio cuando se desea acceder a la interfaz gráfica de usuario o realizar cualquier operación de SnapManager.
+
+
+
+== No se pueden crear los archivos temporales para la base de datos clonada
+
+Cuando los archivos de espacio de tabla temporales de la base de datos de destino se colocan en puntos de montaje diferentes del punto de montaje de los archivos de datos, la operación de creación de clonado se realiza correctamente, pero SnapManager no puede crear archivos temporales para la base de datos clonada.
+
+*Solución*
+
+Debe realizar una de las siguientes acciones:
+
+* Asegúrese de que la base de datos de destino esté diseñada para que los archivos temporales se coloquen en el mismo punto de montaje que los archivos de datos.
+* Crear manualmente o añadir archivos temporales en la base de datos clonada.
+
+
+
+
+== Se produce un error en el backup de la base de datos Data Guard en espera
+
+Si se configura alguna ubicación de registro de archivos con el nombre de servicio de la base de datos primaria, se produce un error en el backup de la base de datos en espera de Data Guard.
+
+*Solución*
+
+En la GUI, debe desactivar *especificar la ubicación del registro de archivo externo* correspondiente al nombre de servicio de la base de datos primaria.

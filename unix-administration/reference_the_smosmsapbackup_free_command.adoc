@@ -1,0 +1,85 @@
+---
+permalink: unix-administration/reference_the_smosmsapbackup_free_command.html 
+sidebar: sidebar 
+keywords: run, backup, free, command, snapshot, copies, metadata, smo 
+summary: Puede ejecutar el comando backup free para liberar las copias Snapshot de los backups sin eliminar los metadatos de backup del repositorio. 
+---
+= El comando libre de backup de smo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede ejecutar el comando backup free para liberar las copias Snapshot de los backups sin eliminar los metadatos de backup del repositorio.
+
+
+
+== Sintaxis
+
+[listing]
+----
+
+        smo backup free
+-profile profile_name
+[-label label \[-data \| -archivelogs\] \| \[-id guid \| -all\]
+-force
+\[-dump\]
+\[-quiet \| -verbose\]
+----
+
+
+== Parámetros
+
+* *-profile profile_name*
++
+Especifica el perfil asociado al backup que desea liberar. El perfil contiene el identificador de la base de datos y otra información de la base de datos.
+
+* *-id guid*
++
+Especifica los recursos del backup con el GUID especificado. SnapManager genera el GUID cuando se crea un backup. Puede utilizar el comando smo backup list para mostrar el GUID de cada backup. Incluye la opción -verbose para mostrar los ID de backup.
+
+* * etiqueta*
++
+Especifica el backup con la etiqueta especificada.
+
+* *-data*
++
+Especifica los archivos de datos.
+
+* *-archivelogs*
++
+Especifica los archivos de registro de archivos.
+
+* *-todo*
++
+Especifica todos los backups. Para eliminar los backups especificados, use la opción -id o -label.
+
+* *-fuerza*
++
+Fuerza la eliminación de las copias snapshot.
+
+* *-silencio*
++
+Muestra sólo mensajes de error en la consola. El valor predeterminado es mostrar mensajes de error y advertencia.
+
+* *-verbose*
++
+Muestra mensajes de error, advertencia e informativos en la consola.
+
+
+
+
+
+== Ejemplo
+
+En el siguiente ejemplo se libera el backup:
+
+[listing]
+----
+smo backup free -profile SALES1 -label full_backup_sales_May
+Operation Id [8abc01ec0e79004b010e79006da60001] succeeded.
+----
+*Información relacionada*
+
+xref:task_freeing_backups.adoc[Liberando backups]

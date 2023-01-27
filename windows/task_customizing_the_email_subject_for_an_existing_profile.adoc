@@ -1,0 +1,17 @@
+---
+permalink: windows/task_customizing_the_email_subject_for_an_existing_profile.html 
+sidebar: sidebar 
+keywords: snapmanager, enable, customize, email, subject, pattern, existing, profile, customize, update, customizing 
+summary: SnapManager le permite personalizar el patrón de asunto del correo electrónico para un perfil existente actualizando dicho perfil. Este patrón de asunto personalizado sólo es aplicable al perfil actualizado. 
+---
+= Personalización del asunto del correo electrónico para un perfil existente
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapManager le permite personalizar el patrón de asunto del correo electrónico para un perfil existente actualizando dicho perfil. Este patrón de asunto personalizado sólo es aplicable al perfil actualizado.
+
+. Introduzca el siguiente comando: smo profile update -profileprofile [-profile-passwordprofile_password][-database-dbnombrecompensb_dbname-host dB_host [-siddb_sid] [-login -usernamedb_username-password_password-Port_Port] [{-dirección-nombre-usuario] [-nombredeusuario_archivo_archivo]]-archivo_contraseña]-disoc] [-disoc]-disoc-nombredeusuario] [-archivo]-disoc-archivo]-nombredeusuario-archivo]-disoc-archivo]-disoc-disoc]-disoc-disoc] [-archivo]-disoc-disoc-archivo]-disoc-disoc-disoc-archivo]-disoc] [-disoc-disoc-disoc] [-disoc-disoc-disoc] [-disopnoarchivo]-disoc-disoc-disoc]-disoc-disoc-disoc] [-nombre
+

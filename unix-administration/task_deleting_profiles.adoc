@@ -1,0 +1,22 @@
+---
+permalink: unix-administration/task_deleting_profiles.html 
+sidebar: sidebar 
+keywords: delete, profile, anytime, contain, succesful, incomplete, backup, deleting, smo 
+summary: Puede eliminar un perfil en cualquier momento, siempre que no contenga copias de seguridad correctas o incompletas. Es posible eliminar perfiles que contengan copias de seguridad liberadas o eliminadas. 
+---
+= Eliminar perfiles
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede eliminar un perfil en cualquier momento, siempre que no contenga copias de seguridad correctas o incompletas. Es posible eliminar perfiles que contengan copias de seguridad liberadas o eliminadas.
+
+. Para eliminar un perfil, escriba este comando:
+`smo profile delete -profile profile_name`
+
+
+*Información relacionada*
+
+xref:reference_the_smosmsapprofile_delete_command.adoc[El comando smo profile delete]

@@ -1,0 +1,28 @@
+---
+permalink: unix-administration/task_freeing_or_deleting_retention_policy_exempt_backups.html 
+sidebar: sidebar 
+keywords: backup, retention, class, unlimited, delete, free, directly, policy, exempt, smo 
+summary: 'Los backups con clase de retención "ilimitada" no se pueden eliminar ni liberar directamente. Para eliminar o liberar estos backups, primero se debe asignar otra clase de retención, como por ejemplo cada hora, día, semana o mes. Para eliminar o liberar una copia de seguridad que esté exenta de la política de retención, primero debe actualizar la copia de seguridad para que sea elegible para su eliminación o su liberación.' 
+---
+= Liberar o eliminar backups exentos de la política de retención
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los backups con clase de retención "ilimitada" no se pueden eliminar ni liberar directamente. Para eliminar o liberar estos backups, primero se debe asignar otra clase de retención, como por ejemplo cada hora, día, semana o mes. Para eliminar o liberar una copia de seguridad que esté exenta de la política de retención, primero debe actualizar la copia de seguridad para que sea elegible para su eliminación o su liberación.
+
+. Para actualizar el backup y poder borrarlo mediante la política de retención, escriba este comando:
+`smo backup update -profileprofile_name {-labellabel [data | -archivelogs] | -idid} -retain [-hourly | -daily | -weekly | -monthly]`
+. Después de actualizar el backup de modo que sea apto para su eliminación, puede eliminar el backup o liberar recursos de backup.
++
+** Para eliminar la copia de seguridad, introduzca este comando: smo backup delete -profileprofile_name {-labellabel [data | -archivvelogs] | -idid | -all}
+** Para liberar los recursos de copia de seguridad, en lugar de eliminar la copia de seguridad, introduzca este comando:smo backup free -profileprofile_name {-labellabel [data | -archivvelogs] | -idid | -all} [-force] [ -dump] [-quiet | -verbose]
+
+
+
+
+*Información relacionada*
+
+xref:reference_the_smosmsapbackup_update_command.adoc[El comando de actualización de backup de smo]

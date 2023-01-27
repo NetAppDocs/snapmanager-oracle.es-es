@@ -1,0 +1,21 @@
+---
+permalink: windows/task_verifying_profiles.html 
+sidebar: sidebar 
+keywords: verify, exist, profile, correct, snapmanager, environment 
+summary: Puede comprobar que un perfil existente está configurado correctamente. Cuando se verifica un perfil, SnapManager comprueba si el entorno del perfil que se ha especificado y verifica que el perfil está configurado y que la base de datos de este perfil esté accesible. 
+---
+= Verificando perfiles
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede comprobar que un perfil existente está configurado correctamente. Cuando se verifica un perfil, SnapManager comprueba si el entorno del perfil que se ha especificado y verifica que el perfil está configurado y que la base de datos de este perfil esté accesible.
+
+. Para comprobar si el perfil está configurado correctamente, introduzca este comando: smo profile verify -profile_name
+
+
+*Información relacionada*
+
+xref:reference_the_smosmsapprofile_verify_command.adoc[El comando smo profile verify]

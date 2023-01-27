@@ -1,0 +1,34 @@
+---
+permalink: windows/task_viewing_a_list_of_operations.html 
+sidebar: sidebar 
+keywords: view, summary, list, operation, perform, profile 
+summary: Es posible ver una lista con un resumen de todas las operaciones realizadas en un perfil. 
+---
+= Ver una lista de operaciones
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible ver una lista con un resumen de todas las operaciones realizadas en un perfil.
+
+Puede ver la siguiente información cuando enumere operaciones asociadas a un perfil en particular:
+
+* Fecha de inicio y finalización cuando se ejecutó la operación
+* Estado de la operación
+* ID de la operación
+* Tipo de operación
+* Host en el que se ejecutó
++
+.. Para enumerar la información resumida de todas las operaciones, utilice el siguiente comando: smo operation list profile -profile profile_name-delimitador character [-quiet | -verbose]
++
+Cuando se especifica la opción -delimitador, el comando enumera cada fila en una línea separada y los atributos de esa fila están separados por el carácter especificado.
+
+
+
+
+
+*Información relacionada*
+
+xref:reference_the_smosmsapoperation_list_command.adoc[El comando smo operation list]

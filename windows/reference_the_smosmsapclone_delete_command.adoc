@@ -1,0 +1,102 @@
+---
+permalink: windows/reference_the_smosmsapclone_delete_command.html 
+sidebar: sidebar 
+keywords: run, clone, delete, command, operation, smo 
+summary: Puede ejecutar el comando clone delete para eliminar un clon. No es posible eliminar un clon si utiliza algún operación. 
+---
+= El comando smo clone delete
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede ejecutar el comando clone delete para eliminar un clon. No es posible eliminar un clon si utiliza algún operación.
+
+
+
+== Sintaxis
+
+[listing]
+----
+
+        smo clone delete
+-profile profile_name
+\[-id guid \| -label clone_name\]
+[-login
+\[-username db_username -password db_password -port db_port\]
+ ]
+\[-syspassword syspassword\]
+-force
+\[-dump\]
+\[-quiet \| -verbose\]
+----
+
+
+== Parámetros
+
+* *-profile profile_name*
++
+Especifica el nombre del perfil que contiene el clon que se va a eliminar. El perfil contiene el identificador de la base de datos y otra información de la base de datos.
+
+* *-fuerza*
++
+Elimina el clon incluso si hay recursos asociados con el clon.
+
+* *-id guid*
++
+Especifica el GUID del clon que se va a eliminar. SnapManager genera el GUID cuando se crea un clon. Puede usar el comando smo clone list para mostrar el GUID de cada clon.
+
+* *-nombre de etiqueta*
++
+Especifica la etiqueta del clon que se va a eliminar.
+
+* *-syspassaword syspassaword*
++
+Especifica la contraseña para el usuario con privilegios sys.
+
++
+
+NOTE: Debe proporcionar la contraseña para el usuario con privilegios sys si las credenciales de la base de datos proporcionadas no son las mismas para el usuario con privilegios sys.
+
+* *-login*
++
+Permite introducir los detalles de inicio de sesión de la base de datos.
+
+* *-username db_username*
++
+Especifica el nombre de usuario necesario para acceder a la base de datos.
+
+* *-password db_password*
++
+Especifica la contraseña necesaria para acceder a la base de datos.
+
+* *-puerto db_port*
++
+Especifica el número de puerto TCP utilizado para acceder a la base de datos que describe el perfil.
+
+* *-dump*
++
+Especifica que se recopilen los archivos de volcado después de la operación de eliminación de clones.
+
+* *-silencio*
++
+Muestra sólo mensajes de error en la consola. El valor predeterminado es mostrar mensajes de error y advertencia.
+
+* *-verbose*
++
+Muestra mensajes de error, advertencia e informativos en la consola.
+
+
+
+
+
+== Ejemplo
+
+En el ejemplo siguiente se elimina el clon:
+
+[listing]
+----
+smo clone delete -profile SALES1 -label SALES_May
+Operation Id [8abc01ec0e79004b010e79006da60001] succeeded.
+----

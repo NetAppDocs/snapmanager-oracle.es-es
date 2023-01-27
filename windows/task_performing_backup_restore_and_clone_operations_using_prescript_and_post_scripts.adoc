@@ -1,0 +1,51 @@
+---
+permalink: windows/task_performing_backup_restore_and_clone_operations_using_prescript_and_post_scripts.html 
+sidebar: sidebar 
+keywords: script, initiating, initiate, backup, restore, clone, operation, snapmanager, task-enabling, perform, post-script 
+summary: Puede usar su propio script para iniciar una operación de backup, restauración o clonado. SnapManager muestra una página Task-abling en el asistente Backup Create, el asistente Restore or Recover o el asistente Clone Create, donde puede seleccionar el script y proporcionar valores a los parámetros que requiera el script. 
+---
+= Realizar operaciones de backup, restauración y clonado mediante scripts previos y posteriores
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede usar su propio script para iniciar una operación de backup, restauración o clonado. SnapManager muestra una página Task-abling en el asistente Backup Create, el asistente Restore or Recover o el asistente Clone Create, donde puede seleccionar el script y proporcionar valores a los parámetros que requiera el script.
+
+* Instale los scripts de los plugins en la ubicación correcta de instalación de SnapManager.
+* Compruebe que los complementos estén instalados correctamente con el comando smsap plugin check.
+* Asegúrese de que está utilizando el shell BASH.
+
+
+En la interfaz de línea de comandos (CLI), enumere el nombre del script, seleccione los parámetros y configure los valores.
+
+. Para verificar que está usando el shell BASH, introduzca el siguiente comando en el símbolo del sistema:bash
++
+Como alternativa, puede introducir el comando cuál-bash en el símbolo del sistema y utilizar el resultado del comando como parámetro de inicio del script.
+
++
+El shell BASH funciona correctamente si no ve un error.
+
+. Para la operación de backup, introduzca la opción -taskspec y proporcione la ruta absoluta del archivo XML de especificación de tareas para realizar un preprocesamiento o una actividad de posprocesamiento que se debe realizar antes o después de la operación de backup: smo backup create -profile_name {[-full {-online | -offline | -auto} [-retenga {-hora | [-diaria | -semanal | -mensual | -unlimited}] [-verify] | [-data [-lablothora archivos [archivos] | [-tablespaces [-commentation]] [-compointing] | -retain] [-backup-destinpath1 [,[path2]]] [-exclude-destinpath1 [,path2]]] [-prunogs {-all | -untilSCNuntilSCN | -before {-dateyy-MM-dd HH:mm:ss | -months | -days | -weeks | -hours} -spuni] -despruni-toverbowune] -toverbowent-backup [-pruni]
++
+Si se produce un error en la operación del plugin de backup, solo se muestran el nombre del plugin y el código de devolución. El script del plugin debe incluir mensajes de registro y redirigir los mensajes a los archivos de registro definidos por el usuario.
+
+. Para la operación de restauración de backup, introduzca la opción -taskspec y proporcione la ruta absoluta del archivo XML de especificación de tareas para realizar un preprocesamiento o una actividad de posprocesamiento que debe tener lugar antes o después de la operación de restauración: backup restore -profileprofile_name {-lableared <label> | -rage <id>} {-fastute <files>|-tablecarance <tablespaces> | -complete | -controlfiles} [-recover {-alllogs | -nologs | -until <until>}][-<restorespec>] [-<taskspec>] [-verify][-force] | restore-povered-povered | -rback up | -rback up]
++
+Si se produce un error en la operación del plugin de restauración, solo se muestran el nombre del plugin y el código de devolución. El script del plugin debe incluir mensajes de registro y redirigir los mensajes a los archivos de registro definidos por el usuario.
+
+. Para la operación de creación de clones, introduzca la opción -taskspec y proporcione la ruta absoluta del archivo XML de especificación de tareas para realizar un procesamiento previo o una actividad de procesamiento posterior que debe tener lugar antes o después de la operación de clonado: crear -profileprofile_name {-backup-labelbackup_name | -backup-<backup-id>| -current} -newsidnew_sid-clonespecepath_to_labonespecesfichero [-reserveprofile_<yes, no, inherit>] [-<host>] [-<label>] [-<comment> ] -<taskspec>_]
++
+Si se produce un error en la operación del plugin de clonado, solo se muestran el nombre del plugin y el código de devolución. El script del plugin debe incluir mensajes de registro y redirigir los mensajes a los archivos de registro definidos por el usuario.
+
+
+
+
+
+== Ejemplo de creación de una copia de seguridad utilizando el archivo XML de especificación de tareas
+
+[listing]
+----
+smo backup create -profile SALES1 -full -online -taskspec sales1_taskspec.xml -force -verify
+----

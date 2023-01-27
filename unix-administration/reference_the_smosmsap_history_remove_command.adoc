@@ -1,0 +1,89 @@
+---
+permalink: unix-administration/reference_the_smosmsap_history_remove_command.html 
+sidebar: sidebar 
+keywords: command, enable, remove, history, snapmanager, associate, single, multiple, profile, smo 
+summary: Este comando permite quitar el historial de operaciones de SnapManager asociadas con un único perfil, varios perfiles o todos los perfiles bajo un repositorio. 
+---
+= El comando smo history remove
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Este comando permite quitar el historial de operaciones de SnapManager asociadas con un único perfil, varios perfiles o todos los perfiles bajo un repositorio.
+
+
+
+== Sintaxis
+
+[listing]
+----
+
+        smo history remove
+-profile \{-name profile_name \[profile_name1, profile_name2\] \| -all
+-repository
+-login \[-password repo_password\]
+-username repo_username
+-host repo_host
+-dbname repo_dbname
+-port repo_port}
+-operation \{-operations operation_name \[operation_name, operation_name2\] \| -all\}
+\[-quiet \| -verbose\]
+----
+
+
+== Parámetros
+
+* * perfil*
++
+Especifica el nombre del perfil. Este nombre puede tener hasta 30 caracteres y debe ser único dentro del host.
+
+* *-repositorio*
++
+Las opciones que siguen -repository especifican los detalles de la base de datos que almacena el perfil.
+
+* *-dbname repo_dbname*
++
+Especifica el nombre de la base de datos que almacena el perfil. Utilice el nombre global o el SID.
+
+* *-host repo_host*
++
+Especifica el nombre o la dirección IP del equipo host en el que se ejecuta la base de datos del repositorio.
+
+* *-login*
++
+Inicia los detalles de inicio de sesión en el repositorio.
+
+* *-username repo_username*
++
+Especifica el nombre de usuario necesario para acceder a la base de datos que almacena el repositorio.
+
+* *-port repo_port*
++
+Especifica el número de puerto TCP utilizado para acceder a la base de datos que almacena el repositorio.
+
+* *-operation {-operationsoperation_name [operation_name1, operation_name2] | -all*
++
+Especifica la operación SnapManager para la que se configura el historial.
+
+* *-silencio*
++
+Muestra sólo mensajes de error en la consola. El valor predeterminado es mostrar mensajes de error y advertencia.
+
+* *-verbose*
++
+Muestra mensajes de error, advertencia e informativos en la consola.
+
+
+
+
+
+== Comando de ejemplo
+
+[listing]
+----
+
+          smo  history purge -profile -name PROFILE1 -operation -operations backup
+ -verbose
+----

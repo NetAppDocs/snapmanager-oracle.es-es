@@ -1,0 +1,17 @@
+---
+permalink: windows/task_viewing_a_list_of_scheduled_operations.html 
+sidebar: sidebar 
+keywords: view, list, schedule, operation, profile 
+summary: Es posible ver una lista de las operaciones programadas para un perfil. 
+---
+= Ver una lista de operaciones programadas
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible ver una lista de las operaciones programadas para un perfil.
+
+. Para mostrar información sobre operaciones programadas, introduzca este comando: smo schedule list -profile_name[-quiet | -verbose]
+

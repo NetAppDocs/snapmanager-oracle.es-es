@@ -1,0 +1,22 @@
+---
+permalink: unix-installation-cmode/concept_understanding_the_differences_between_snapmirror_and_snapvault.html 
+sidebar: sidebar 
+keywords: snapmirror, disaster, recovery, technology, design, failover, primary, storage, secondary, geographically, disk-to-disk, snapshot, copy, replication, governance-related, purpose, compliance, standard 
+summary: SnapMirror es la tecnología de recuperación ante desastres diseñada para la conmutación del almacenamiento principal al almacenamiento secundario en un sitio geográficamente remoto. SnapVault es una tecnología de archivado diseñada para la replicación de copias Snapshot disco a disco con el fin de cumplir los estándares y para otros fines relacionados con la regulación. 
+---
+= Comprender las diferencias entre SnapMirror y SnapVault
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapMirror es la tecnología de recuperación ante desastres diseñada para la conmutación del almacenamiento principal al almacenamiento secundario en un sitio geográficamente remoto. SnapVault es una tecnología de archivado diseñada para la replicación de copias Snapshot disco a disco con el fin de cumplir los estándares y para otros fines relacionados con la regulación.
+
+Estos objetivos tienen en cuenta el diferente equilibrio que ocurre cada tecnología entre los objetivos de la moneda de backup y la retención de backup:
+
+* SnapMirror almacena _only_ las copias Snapshot que residen en el almacenamiento principal porque, en caso de desastre, necesita poder realizar una conmutación al respaldo a la versión más reciente de los datos primarios que sabe que son buenos. Por ejemplo, la organización puede duplicar las copias de los datos de producción por hora en un plazo de diez días. Como se indica en el caso de uso de la conmutación por error, el equipo del sistema secundario debe ser equivalente o casi equivalente al equipo del sistema primario para servir datos de forma eficiente desde el almacenamiento duplicado.
+* Por el contrario, SnapVault almacena las copias snapshot _independientemente de que residan en el almacenamiento principal porque, en caso de auditoría, es probable que el acceso a los datos históricos sea tan importante como el acceso a los datos actuales. Es posible que desee conservar copias Snapshot mensuales de sus datos en un período de 20 años (para cumplir, por ejemplo, las normativas de contabilidad gubernamental de su empresa). Como no hay necesidad de servir datos desde el almacenamiento secundario, puede utilizar discos más lentos y menos costosos en el sistema vault.
+
+
+Por supuesto, los diferentes pesos de SnapMirror y SnapVault dan a las divisas de backup y la retención de backup se derivan en última instancia del límite de 255 copias de Snapshot en cada volumen. Donde SnapMirror conserva las copias más recientes, SnapVault conserva las copias realizadas durante el período de tiempo más largo.

@@ -1,0 +1,48 @@
+---
+permalink: windows/reference_the_smosmsapcmdfile_command.html 
+sidebar: sidebar 
+keywords: cmdfile, command, run, host, limit, smo 
+summary: Puede utilizar el comando cmdfile para ejecutar cualquier comando si el shell del host limita el número de caracteres que pueden aparecer en una línea de comandos. 
+---
+= El comando cmdfile de smo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede utilizar el comando cmdfile para ejecutar cualquier comando si el shell del host limita el número de caracteres que pueden aparecer en una línea de comandos.
+
+
+
+== Sintaxis
+
+[listing]
+----
+
+        smo cmdfile
+-file file_name
+\[-quiet \| -verbose\]
+----
+Puede incluir el comando en un archivo de texto y usar el comando cmdfile de smo para ejecutar el comando. Sólo puede agregar un comando en un archivo de texto. No debe incluir smo en la sintaxis de comandos.
+
+
+NOTE: El comando cmdfile de smo reemplaza al comando pfile de smo. El archivo cmdsmo no es compatible con el comando pfile de smo.
+
+
+
+== Parámetros
+
+* *-file file_name*
++
+Especifica la ruta de acceso al archivo de texto que contiene el comando que desea ejecutar.
+
+* *-silencio*
++
+Especifica que sólo se muestran mensajes de error en la consola. El valor predeterminado es mostrar mensajes de error y advertencia.
+
+* *-verbose*
++
+Especifica que los mensajes de error, advertencia e informativos se muestran en la consola.
+
+

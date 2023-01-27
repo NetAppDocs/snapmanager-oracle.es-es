@@ -1,0 +1,28 @@
+---
+permalink: windows/reference_running_multiple_parallel_operations_fail_in_snapmanager.html 
+sidebar: sidebar 
+keywords: run, multiple, parallel, operation, fail, database, storage, system, igroup, lun 
+summary: Cuando se ejecutan varias operaciones en paralelo en bases de datos independientes que residen en el mismo sistema de almacenamiento, el igroup para LUN asociadas con ambas bases de datos puede eliminarse debido a una de las operaciones. Más adelante, si la otra operación intenta utilizar el igroup eliminado, SnapManager muestra un mensaje de error. 
+---
+= Se produce un error en la ejecución de varias operaciones paralelas en SnapManager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cuando se ejecutan varias operaciones en paralelo en bases de datos independientes que residen en el mismo sistema de almacenamiento, el igroup para LUN asociadas con ambas bases de datos puede eliminarse debido a una de las operaciones. Más adelante, si la otra operación intenta utilizar el igroup eliminado, SnapManager muestra un mensaje de error.
+
+Por ejemplo, si ejecuta las operaciones de eliminación de backup y creación de backup en bases de datos diferentes casi al mismo tiempo, la operación de creación de backup generará errores. Los siguientes pasos secuenciales muestran lo que ocurre cuando se ejecutan operaciones de eliminación de backup y creación de backup en distintas bases de datos casi al mismo tiempo.
+
+. Ejecute el comando backup delete.
+. Ejecute el comando backup create.
+. El comando backup create identifica el igroup ya existente y utiliza el mismo igroup para asignar la LUN.
+. El comando backup delete elimina la LUN de backup, que se asignó al mismo igroup.
+. A continuación, el comando backup delete elimina el igroup porque no hay ninguna LUN asociada con el igroup.
+. El comando backup create crea el backup e intenta asignar al igroup que no existe y, por lo tanto, se produce un error en la operación.
+
+
+*Qué hacer*
+
+Debe crear un igroup para cada sistema de almacenamiento que utilice la base de datos mediante el siguiente comando: Sdcli igroup create

@@ -1,0 +1,20 @@
+---
+permalink: unix-administration/task_cloning_with_rac_databases.html 
+sidebar: sidebar 
+keywords: clone, rac, database, non-rac, srvctl 
+summary: Es posible clonar la base de datos de RAC a una base de datos que no es de RAC, o bien clonarla en una base de datos que no es de RAC y luego modificarla a una base de datos de RAC. 
+---
+= Clonado con bases de datos RAC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible clonar la base de datos de RAC a una base de datos que no es de RAC, o bien clonarla en una base de datos que no es de RAC y luego modificarla a una base de datos de RAC.
+
+. Para clonar la base de datos RAC, introduzca el siguiente comando: smo clone create -backup-label backup_label-profile profile profile profile profile_name-newsid new_SID-clononpec full_path_to_clonespec_file-verbose
+. Para cambiar la base de datos que no es RAC clonada a una base de datos de RAC, cambie el nombre del archivo desde initrclone_SID.ora a initrclone_local_instance_SID.ora.
+. Edite el archivo con el nombre cambiado para establecer el parámetro cluster.database en TRUE. Información de la base de datos RAC.
+. Registre la base de datos RAC clonada con srvctl.
+

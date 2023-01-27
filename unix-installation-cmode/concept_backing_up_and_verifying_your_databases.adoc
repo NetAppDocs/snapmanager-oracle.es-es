@@ -1,0 +1,28 @@
+---
+permalink: unix-installation-cmode/concept_backing_up_and_verifying_your_databases.html 
+sidebar: sidebar 
+keywords: install, snapmanager, create, basic, backup, database, verify, ensure, contain, corrupt, file 
+summary: Después de instalar SnapManager, puede crear una copia de seguridad básica de la base de datos y comprobar que la copia de seguridad no contiene ningún archivo dañado. 
+---
+= Realizar backup y verificación de las bases de datos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Después de instalar SnapManager, puede crear una copia de seguridad básica de la base de datos y comprobar que la copia de seguridad no contiene ningún archivo dañado.
+
+*Información relacionada*
+
+xref:concept_snapmanager_backup_overview.adoc[Información general sobre backup de SnapManager]
+
+xref:concept_defining_a_backup_strategy.adoc[Definición de una estrategia de backup]
+
+xref:task_creating_a_profile_for_your_database.adoc[Crear un perfil para la base de datos]
+
+xref:task_backing_up_your_database.adoc[Realizar una copia de seguridad de la base de datos]
+
+xref:task_verifying_database_backups.adoc[Verificación de los backups de las bases de datos]
+
+xref:task_scheduling_recurring_backups.adoc[Programación de copias de seguridad periódicas]

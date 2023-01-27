@@ -1,0 +1,102 @@
+---
+permalink: windows/reference_the_smosmsapbackup_mount_command.html 
+sidebar: sidebar 
+keywords: run, backup, mount, command, recover, operation, external 
+summary: Puede ejecutar el comando backup Mount para montar un backup y realizar una operación de recuperación con una herramienta externa. 
+---
+= El comando de montaje de backup de smo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede ejecutar el comando backup Mount para montar un backup y realizar una operación de recuperación con una herramienta externa.
+
+
+
+== Sintaxis
+
+[listing]
+----
+
+        smo backup mount
+-profile profile_name
+[-label label \[-data \| -archivelogs\] \| \[-id id\]
+[-host  host]
+
+\[-dump\]
+[-quiet | -verbose]
+----
+
+
+== Parámetros
+
+* *-profile profile_name*
++
+Especifica el perfil asociado con el backup que desea montar. El perfil contiene el identificador de la base de datos y otra información de la base de datos.
+
+* *-id guid*
++
+Monta la copia de seguridad con el GUID especificado. SnapManager genera el GUID cuando se crea un backup. Puede utilizar el comando smo backup list para mostrar el GUID de cada backup.
+
+* * etiqueta*
++
+Monta la copia de seguridad con la etiqueta especificada.
+
+* *-data*
++
+Especifica los archivos de datos.
+
+* *-archivelogs*
++
+Especifica los archivos de registro de archivos.
+
+* *-host*
++
+Especifica el host en el que desea montar el backup.
+
+* *-dump*
++
+Recopila los archivos de volcado después de la operación de montaje correcta o con errores.
+
+* *-silencio*
++
+Muestra sólo mensajes de error en la consola. La configuración predeterminada es mostrar mensajes de error y advertencia.
+
+* *-verbose*
++
+Muestra mensajes de error, advertencia e informativos en la consola.
+
+
+
+
+NOTE: Debe utilizar este comando sólo si utiliza una herramienta externa como Oracle Recovery Manager (RMAN). SnapManager se encarga automáticamente del montaje de backups si se utiliza el comando smo backup restore para restaurar el backup. Este comando muestra una lista, que muestra las rutas donde se han montado las copias Snapshot. Esta lista solo se muestra cuando se especifica la opción -verbose.
+
+
+
+== Ejemplo
+
+En el ejemplo siguiente se monta la copia de seguridad:
+
+[listing]
+----
+smo backup mount -profile SALES1 -label full_backup_sales_May -verbose
+[INFO ]: SMO-13051: Process PID=6852
+[INFO ]: SMO-13036: Starting operation Backup Mount on host hadley.domain.private
+[INFO ]: SMO-13036: Starting operation Backup Mount on host hadley.domain.private
+[INFO ]: SMO-13046: Operation GUID 8abc01573883daf0013883daf5ac0001 starting on Profile FAS_P1
+[INFO ]: SD-00025: Beginning to connect filesystem(s) [I:\] from snapshot smo_fas_p1_fasdb_d_h_2_8abc0157388344bc01388344c2d50001_0.
+[INFO ]: SD-00016: Discovering storage resources for C:\SnapManager_auto_mounts\I-2012071400592328_0.
+[INFO ]: SD-00017: Finished storage discovery for C:\SnapManager_auto_mounts\I-2012071400592328_0
+[INFO ]: SD-00026: Finished connecting filesystem(s) [I:\] from snapshot smo_fas_p1_fasdb_d_h_2_8abc0157388344bc01388344c2d50001_0.
+[INFO ]: SD-00025: Beginning to connect filesystem(s) [H:\] from snapshot smo_fas_p1_fasdb_d_h_1_8abc0157388344bc01388344c2d50001_0.
+[INFO ]: SD-00016: Discovering storage resources for C:\SnapManager_auto_mounts\H-2012071400592312_0.
+[INFO ]: SD-00017: Finished storage discovery for C:\SnapManager_auto_mounts\H-2012071400592312_0.
+[INFO ]: SD-00026: Finished connecting filesystem(s) [H:\] from snapshot smo_fas_p1_fasdb_d_h_1_8abc0157388344bc01388344c2d50001_0.
+[INFO ]: SMO-13048: Backup Mount Operation Status: SUCCESS
+[INFO ]: SMO-13049: Elapsed Time: 0:19:05.620
+----
+*Información relacionada*
+
+xref:task_mounting_backups.adoc[Montar backups]

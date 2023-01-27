@@ -1,0 +1,18 @@
+---
+permalink: unix-administration/task_viewing_a_list_of_snapmanager_history_operation_as_a_report.html 
+sidebar: sidebar 
+keywords: history, specific, snapmanager, operation, report, retention, setting, smo 
+summary: Puede ver el historial de todas las operaciones de SnapManager específicas o como un informe de acuerdo con la configuración de retención. 
+---
+= Ver una lista del historial de operaciones de SnapManager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede ver el historial de todas las operaciones de SnapManager específicas o como un informe de acuerdo con la configuración de retención.
+
+. Para ver una lista de operaciones de historial de SnapManager, introduzca el siguiente comando:
+`smo history list -profile {-name, profile_name [profile_name1,profile_name2] | -all-repository-login [-passwordrepo_password] -usernamerepo_username-dbnamerepo_dbname-hostrepo_host-portrepo_port} -operation {-operationsoperation_name [operation_name1, operation_name2] | -all} [-delimiterdelimiter] [-quiet | -verbose]`
+

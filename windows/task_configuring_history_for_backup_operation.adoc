@@ -1,0 +1,30 @@
+---
+permalink: windows/task_configuring_history_for_backup_operation.html 
+sidebar: sidebar 
+keywords: snapmanager, oracle, cli, gui, history, configuring, history, operation, report 
+summary: SnapManager para Oracle le permite mantener el historial de operación de SnapManager desde la interfaz de línea de comandos o la interfaz gráfica de usuario de SnapManager. Puede ver el historial de la operación SnapManager como un informe. 
+---
+= Configurar el historial de funcionamiento de SnapManager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapManager para Oracle le permite mantener el historial de operación de SnapManager desde la interfaz de línea de comandos o la interfaz gráfica de usuario de SnapManager. Puede ver el historial de la operación SnapManager como un informe.
+
+. Para configurar el historial de la operación de SnapManager, introduzca el siguiente comando: smo history set -profile {-name, profile_name [profile_name1, profile_name2] | -all-repository [-passwwordrepo_password] -usernamerepo_username-namerepo_dbname-strepo_host-opertain_operation_weeklog | -weeklog_operation_weeklog_weeklog_1} -weekly} -weeklog_operation_weeklog_operation_weeklog_weeklog_weekly} -weeklog_operation_weeklog_weeklog_weeklog_weeklog_weekly}
+
+
+[listing]
+----
+
+        smo
+history set -profile -name PROFILE1 -operation -operations backup -retain -daily 6 -verbose
+----
+[listing]
+----
+
+        smo
+history set -profile -name PROFILE1 -operation -all -retain -weekly 3 -verbose
+----

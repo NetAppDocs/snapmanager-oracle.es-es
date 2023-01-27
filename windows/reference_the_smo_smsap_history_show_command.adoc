@@ -1,0 +1,53 @@
+---
+permalink: windows/reference_the_smo_smsap_history_show_command.html 
+sidebar: sidebar 
+keywords: command, enable, detail, history, information, specific, profile, smo, show 
+summary: Este comando le permite ver información detallada del historial de un perfil en concreto. 
+---
+= El comando smo history show
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Este comando le permite ver información detallada del historial de un perfil en concreto.
+
+
+
+== Sintaxis
+
+[listing]
+----
+
+        smo history show
+-profile profile
+----
+
+
+== Parámetros
+
+* * perfil*
++
+Especifica el nombre del perfil. Este nombre puede tener hasta 30 caracteres y debe ser único dentro del host.
+
+* *-silencio*
++
+Muestra sólo mensajes de error en la consola. El valor predeterminado es mostrar mensajes de error y advertencia.
+
+* *-verbose*
++
+Muestra mensajes de error, advertencia e informativos en la consola.
+
+
+
+
+
+== Comando de ejemplo
+
+[listing]
+----
+
+          smo  history show -profile -name PROFILE1
+ -verbose
+----

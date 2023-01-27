@@ -1,0 +1,26 @@
+---
+permalink: unix-administration/task_deleting_profile.html 
+sidebar: sidebar 
+keywords: delete, profile, contain, succesful, backup, operation, deleting, smo 
+summary: Es posible eliminar un perfil siempre que no contenga backups correctos que se estén utilizando actualmente en otras operaciones. Es posible eliminar perfiles que contengan copias de seguridad liberadas o eliminadas. 
+---
+= Eliminación de un perfil
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible eliminar un perfil siempre que no contenga backups correctos que se estén utilizando actualmente en otras operaciones. Es posible eliminar perfiles que contengan copias de seguridad liberadas o eliminadas.
+
+. Introduzca el siguiente comando:
+`smo profile delete -profileprofile [-quiet | -verbose]`
++
+Es posible eliminar un nuevo perfil creado para la división de clones. Mientras se elimina, Si elimina el perfil, no puede destruir el perfil más tarde se muestra el mensaje de advertencia en la interfaz de línea de comandos de SnapManager.
+
+
+
+[listing]
+----
+smo profile delete -profile AUTO-REVEN
+----

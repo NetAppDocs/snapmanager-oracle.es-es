@@ -1,0 +1,95 @@
+---
+permalink: windows/reference_the_smosmsapbackup_unmount_command.html 
+sidebar: sidebar 
+keywords: run, backup, unmount, command, smo 
+summary: Puede ejecutar el comando backup umount para desmontar un backup. 
+---
+= El comando de desmontaje del backup de smo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede ejecutar el comando backup umount para desmontar un backup.
+
+
+
+== Sintaxis
+
+[listing]
+----
+
+        smo backup unmount
+-profile profile_name
+[-label label \[-data \| -archivelogs\] \| \[-id id\]
+\[-force\]
+\[-dump\]
+\[-quiet \| -verbose\]
+----
+
+
+== Parámetros
+
+* *-profile profile_name*
++
+Especifica el perfil para el que desea desmontar un backup. El perfil contiene el identificador de la base de datos y otra información de la base de datos.
+
+* *-id*
++
+Desmonta el backup con el GUID especificado. SnapManager genera el GUID cuando se crea un backup. Puede utilizar el comando smo backup list para mostrar el GUID de cada backup.
+
+* * etiqueta*
++
+Desmonta el backup con la etiqueta especificada.
+
+* *-data*
++
+Especifica los archivos de datos.
+
+* *-archivelogs*
++
+Especifica los archivos de registro de archivos.
+
+* *-dump*
++
+Recoge los archivos de volcado después de una operación de desmontaje correcta o con errores.
+
+* *-fuerza*
++
+Desmonta el backup incluso si hay problemas en la liberación de los recursos asociados con el backup. SnapManager intenta desmontar el backup y borrar todos los recursos asociados. El registro muestra la operación de desmontaje correcta, pero es posible que deba limpiar los recursos de forma manual si hay errores en el registro.
+
+* *-silencio*
++
+Muestra sólo mensajes de error en la consola. El valor predeterminado es mostrar mensajes de error y advertencia.
+
+* *-verbose*
++
+Muestra mensajes de error, advertencia e informativos en la consola.
+
+
+
+
+
+== Ejemplo
+
+A continuación se muestra un ejemplo de una operación de desmontaje:
+
+[listing]
+----
+# smo backup unmount -label test -profile SALES1 -verbose
+----
+[listing]
+----
+[INFO ]: SMO-13051: Process PID=9788
+[INFO ]: SMO-13036: Starting operation Backup Unmount on host hadley.domain.private
+[INFO ]: SMO-13036: Starting operation Backup Unmount on host hadley.domain.private
+[INFO ]: SMO-13046: Operation GUID 8abc015738849a3d0138849a43900001 starting on Profile FAS_P1
+[INFO ]: SD-00031: Beginning to disconnect filesystem(s) [C:\SnapManager_auto_mounts\H-2012071400592312_0, C:\SnapManager_auto_mounts\I-2012071400592328_0].
+[INFO ]: SD-00032: Finished disconnecting filesystem(s) [C:\SnapManager_auto_mounts\H-2012071400592312_0, C:\SnapManager_auto_mounts\I-2012071400592328_0].
+[INFO ]: SMO-13048: Backup Unmount Operation Status: SUCCESS
+[INFO ]: SMO-13049: Elapsed Time: 0:07:26.754
+----
+*Información relacionada*
+
+xref:task_unmounting_backups.adoc[Desmontaje de backups]

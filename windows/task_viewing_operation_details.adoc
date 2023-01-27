@@ -1,0 +1,33 @@
+---
+permalink: windows/task_viewing_operation_details.html 
+sidebar: sidebar 
+keywords: view, detail, information, particular, profile, verify, success, failure, operation, determine 
+summary: Puede ver información detallada acerca de un perfil determinado para verificar el éxito o el fracaso de una operación. También puede ayudar a determinar los recursos de almacenamiento que se están utilizando para una operación en particular. 
+---
+= Ver los detalles de la operación
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede ver información detallada acerca de un perfil determinado para verificar el éxito o el fracaso de una operación. También puede ayudar a determinar los recursos de almacenamiento que se están utilizando para una operación en particular.
+
+Es posible ver los siguientes detalles sobre una operación en particular:
+
+* ID de la operación
+* Tipo de operación
+* Si la operación se ha forzado
+* Información de tiempo de ejecución, incluido el estado, la fecha de inicio y de finalización de la operación
+* El host donde se ejecutó la operación, incluidos el ID de proceso y la versión de SnapManager
+* Información del repositorio
+* Recursos de almacenamiento en uso
++
+.. Para ver la información detallada de un ID de operación específico, introduzca el siguiente comando: SMO operation show -profile profile_name [-label label | -id] [-quiet | -verbose]
+
+
+
+
+*Información relacionada*
+
+xref:reference_the_smosmsap_operation_show_command.adoc[El comando smo operation show]

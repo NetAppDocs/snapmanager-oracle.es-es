@@ -1,0 +1,121 @@
+---
+permalink: windows/concept_variables_available_in_the_task_scripts_for_clone_operation.html 
+sidebar: sidebar 
+keywords: provide, context, information, environment, variable, relate, clone, operation, perform, host 
+summary: SnapManager proporciona información de contexto en forma de variables de entorno relacionadas con la operación de clonado que se realiza. Por ejemplo, el script puede recuperar el nombre del host original, el nombre de la base de datos clonada y la etiqueta del backup. 
+---
+= Variables disponibles en los scripts de tareas para la operación de clonado
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapManager proporciona información de contexto en forma de variables de entorno relacionadas con la operación de clonado que se realiza. Por ejemplo, el script puede recuperar el nombre del host original, el nombre de la base de datos clonada y la etiqueta del backup.
+
+En la siguiente tabla, se enumeran las variables de entorno que se pueden utilizar en los scripts:
+
+|===
+
+
+| Variables | Descripción | Formato 
+
+
+ a| 
+SM_ORIGINAL_SID
+ a| 
+SID de la base de datos original
+ a| 
+cadena
+
+
+
+ a| 
+SM_ORIGINAL_HOST
+ a| 
+Nombre de host asociado con la base de datos original
+ a| 
+cadena
+
+
+
+ a| 
+SM_ORIGINAL_OS_USER
+ a| 
+Propietario del sistema operativo de la base de datos original
+ a| 
+cadena
+
+
+
+ a| 
+SM_ORIGINAL_OS_GROUP
+ a| 
+Grupo del sistema operativo de la base de datos original
+ a| 
+cadena
+
+
+
+ a| 
+SM_TARGET_SID
+ a| 
+SID de la base de datos del clon
+ a| 
+cadena
+
+
+
+ a| 
+SM_TARGET_HOST
+ a| 
+Nombre del host asociado con la base de datos del clon
+ a| 
+cadena
+
+
+
+ a| 
+SM_TARGET_OS_USER
+ a| 
+Propietario del sistema operativo de la base de datos clonada
+ a| 
+cadena
+
+
+
+ a| 
+SM_TARGET_OS_GROUP
+ a| 
+Grupo del sistema operativo de la base de datos clonada
+ a| 
+cadena
+
+
+
+ a| 
+SM_TARGET_DB_PORT
+ a| 
+Puerto de la base de datos de destino
+ a| 
+entero
+
+
+
+ a| 
+SM_TARGET_GLOBAL_DB_NAME
+ a| 
+Nombre de la base de datos global de la base de datos de destino
+ a| 
+cadena
+
+
+
+ a| 
+SM_BACKUP_LABEL
+ a| 
+Etiqueta del backup utilizado para el clon
+ a| 
+cadena
+
+|===

@@ -1,0 +1,783 @@
+---
+permalink: windows/reference_error_messages.html 
+sidebar: sidebar 
+keywords: error, message, information, operation 
+summary: Es posible encontrar información sobre los mensajes de error asociados a diferentes operaciones de SnapManager. 
+---
+= Mensajes de error
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible encontrar información sobre los mensajes de error asociados a diferentes operaciones de SnapManager.
+
+
+
+== Mensajes de error más comunes
+
+En la siguiente tabla se enumeran algunos de los errores más comunes e importantes asociados con SnapManager para Oracle:
+
+|===
+
+
+| Mensaje de error | Explicación | Resolución 
+
+
+ a| 
+SD-10038: El sistema de archivos no se puede escribir.
+ a| 
+El proceso de SnapManager no tiene acceso de escritura al sistema de archivos.
+ a| 
+Debe asegurarse de que el proceso de SnapManager tenga acceso de escritura al sistema de archivos. Después de corregir esto, es posible que deba tomar otra instantánea.
+
+
+
+ a| 
+SMO-05075: No se puede crear el perfil. Debe configurar la relación DP/XDP correctamente o elegir la política de protección correcta según la relación subyacente.
+ a| 
+Los volúmenes subyacentes no están en una relación de SnapVault ni de SnapMirror.
+ a| 
+Debe configurar una relación de protección de datos entre los volúmenes de origen y de destino, e inicializar la relación.
+
+
+
+ a| 
+SMO-05503: Se ha especificado el mismo nombre al perfil. Especifique un nombre diferente para cambiar el nombre del perfil.
+ a| 
+Los perfiles con nombres idénticos no pueden existir en un repositorio.
+ a| 
+Introduzca un nombre de perfil que no esté en uso.
+
+
+
+ a| 
+SMO-05505: No se pueden actualizar los metadatos del conjunto de datos.
+ a| 
+Es posible que el conjunto de datos se haya eliminado o no exista.
+ a| 
+Antes de actualizar los metadatos del conjunto de datos, compruebe que el conjunto de datos existe mediante la consola de gestión de NetApp.
+
+
+
+ a| 
+SMO-05506: No se puede actualizar el perfil porque hay operaciones en ejecución en el perfil. Debe esperar hasta que la operación o operaciones se completen y, a continuación, actualizar el perfil.
+ a| 
+El perfil no se puede actualizar cuando hay operaciones de backup, restauración y clonado en curso.
+ a| 
+Actualice el perfil una vez completada la operación actual.
+
+
+
+ a| 
+SMO-05509: Duración de la retención primaria de archive velog no válida; especifique un valor entero positivo.
+ a| 
+La duración de la retención de los backups de registros de archivos no puede ser negativa.
+ a| 
+Especifique un valor positivo para la duración de la retención de los backups de registros de archivos.
+
+
+
+ a| 
+SMO-07463: Esta restauración de backups requiere que la base de datos esté en el estado requerido. Error al llevar la base de datos al estado requerido.
+ a| 
+La base de datos no está en el estado requerido para una operación de backup.
+ a| 
+Compruebe que la base de datos esté en estado relevante antes de crear una copia de backup. El estado de la base de datos que se va a restaurar depende del tipo de proceso de restauración que se desee realizar y del tipo de archivos que se incluirán.
+
+
+
+ a| 
+SMO-09315: Después de realizar una actualización o una operación de actualización del repositorio, es posible que no se reciba la notificación de resumen para las notificaciones establecidas en la versión anterior, a menos que se actualice la notificación de resumen con los detalles del host de notificación.
+ a| 
+Los ajustes de notificación no se configuran para el repositorio después de una actualización gradual.
+ a| 
+Después de una actualización gradual, actualice la configuración de notificación de resumen para recibir notificaciones.
+
+
+
+ a| 
+SM0-02076: El nombre de la etiqueta no debe contener ningún carácter especial que no sea el guión bajo.
+ a| 
+El nombre de la etiqueta contiene caracteres especiales distintos del guión bajo.
+ a| 
+El nombre de la etiqueta debe ser único dentro del perfil. El nombre puede contener letras, números, un guión bajo (_) y un guión (-) (pero no puede comenzar con un guión). Asegúrese de que las etiquetas no contengan caracteres especiales excepto el guion bajo.
+
+
+
+ a| 
+SMO-06308: Excepción al intentar iniciar la programación: java.lang.NullPointerException
+ a| 
+Se configura el nombre de dominio completo (FQDN) del host de perfil en lugar del nombre de host del sistema y no se puede resolver el FQDN del host de perfil.
+ a| 
+Asegúrese de usar el nombre de host del sistema y no el FQDN.
+
+
+
+ a| 
+Error en ExecuteRestoreSteps: ORACLE-10003: Error al ejecutar SQL "DROP DISKGROUP;control nombre del grupo de discos; INCLUIDO CONTENIDO" contra la base de datos Oracle +ASM1: ORA-15039: diskgroup no eliminados ORA-15027: Uso activo del grupo de discos; "control del nombre del grupo de discos;" impide su desmontaje
+ a| 
+La operación para restaurar un backup con archivos de control no puede soltar el grupo de discos de control. Este problema ocurre si hay archivos de control de copia de seguridad obsoletos en el grupo de discos de control.
+ a| 
+Identifique los archivos de control de copia de seguridad obsoletos y elimínelos manualmente.
+
+
+
+ a| 
+RMAN-06004: Error DE ORACLE de la base de datos del catálogo de recuperación: ORA-01424: Carácter ausente o ilegal después del carácter de escape
+ a| 
+La operación de creación de backup no se pudo quitar la copia de backup del catálogo cuando SnapManager está integrada con RMAN.
+ a| 
+Compruebe si hay secuencias de comandos externas utilizadas para eliminar las copias de seguridad de RMAN. Ejecute el comando CROSSCHECK BACKUP en RMAN para actualizar el repositorio de RMAN y el comando resync catalog para sincronizar el archivo de control de la base de datos de destino con el catálogo de recuperación.
+
+
+
+ a| 
+[DEBUG]: Excepción al eliminar la copia de seguridad. java.lang.IllegalStateException: [Assertion failed] - este estado invariante debe ser true
+ a| 
+Se crean múltiples copias de Snapshot para un solo ID de operación.
+ a| 
+Eliminar las copias Snapshot manualmente y utilizar scripts para eliminar las entradas del repositorio.
+
+
+
+ a| 
+La hora y la hora del sistema que muestra SnapManager en los archivos de registro no coinciden o no están sincronizados.
+ a| 
+Java 7 aún no admite un cambio de zona horaria.
+ a| 
+Aplique la revisión tzUpdater proporcionada por Oracle.
+
+
+
+ a| 
+DISC-00001: No se puede detectar almacenamiento: El siguiente identificador no existe o no es del tipo esperado: Archivo ASM
+ a| 
+Los archivos de datos o de control o los redo logs se multiplexan en una base de datos ASM.
+ a| 
+Extraiga el multiplexado de Oracle.
+
+
+
+ a| 
+ORA-01031: Privilegios insuficientes. Compruebe que el servicio Windows de SnapManager está configurado para ejecutarse como usuario con los privilegios correctos y que el usuario está incluido en el grupo ORA_DBA.
+ a| 
+No tiene privilegios suficientes en SnapManager. La cuenta de servicio de SnapManager no forma parte del grupo ORA_DBA.
+ a| 
+Haga clic con el botón derecho del ratón en el icono *PC* del escritorio y seleccione *gestionar* para comprobar que la cuenta de usuario del servicio SnapManager forma parte del grupo ORA_DBA. Compruebe los usuarios y grupos locales y asegúrese de que la cuenta forma parte del grupo ORA_DBA. Si el usuario es el administrador local, asegúrese de que el usuario está en el grupo en lugar del administrador del dominio.
+
+
+
+ a| 
+0001-SMO-02016: Es posible que haya habido tablas externas en la base de datos de las que no se ha realizado un backup como parte de esta operación de backup (ya que la base de datos no estaba ABIERTA durante esta copia de seguridad ALL_EXTERNAL_LOCATIONS no se pudo consultar para determinar si existen tablas externas o no).
+ a| 
+SnapManager no realiza copias de seguridad de tablas externas (por ejemplo, tablas que no están almacenadas en archivos .dbf). Este problema se produce porque la base de datos no estaba abierta durante el backup, SnapManager no puede determinar si se están utilizando tablas externas.
+ a| 
+Puede haber tablas externas en la base de datos que no se incluyeron en un backup como parte de esta operación (porque la base de datos no estaba abierta durante el backup).
+
+
+
+ a| 
+0002-332 error de administrador: No se ha podido comprobar SD.snapshot.Clone el acceso al volumen "volume_name" del nombre de usuario de usuario en los servidores de Operations Manager "dfm_Server". Motivo: El recurso especificado no es válido. No se puede encontrar su ID en Operations Manager Server "dfm_Server"
+ a| 
+No se han configurado los privilegios de acceso adecuados y los roles.
+ a| 
+Defina los privilegios de acceso o los roles para los usuarios que intentan ejecutar el comando.
+
+
+
+ a| 
+[WARN] FLOW-11011: Operación cancelada [ERROR] FLOW-11008: Error de operación: Error de operación: Espacio de pila Java.
+ a| 
+Hay más archivos de registro de archivos en la base de datos que el máximo permitido.
+ a| 
+. Desplácese hasta el directorio de instalación de SnapManager.
+. Abra el archivo Launch-java.
+. Aumente el valor de `java -Xmx160m` Parámetro Java heap space . Por ejemplo, puede modificar el valor del valor predeterminado de 160 m a 200 m. `java -Xmx200m`.
+
+
+
+
+ a| 
+SMO-21019: No se pudo realizar la poda del registro de archivo para el destino: "E:\dest" con el motivo: "ORACLE-00101: Error al ejecutar el comando RMAN: [DELETE NOPROMET ARCHIVELOG 'E:\dest']
+ a| 
+La eliminación del registro de archivo falla en uno de los destinos. En este caso, SnapManager continúa depurando los archivos de registro de archivos de los otros destinos. Si algún archivo se elimina manualmente del sistema de archivos activo, RMAN no puede hacer una copia de los archivos de registro de archivos de ese destino.
+ a| 
+Conéctese a RMAN desde el host SnapManager. Ejecute el comando CROSSCHECK ARCHIVELOG ALL de RMAN y vuelva a realizar la operación de eliminación en los archivos de registro de archivos.
+
+
+
+ a| 
+SMO-13032: No se puede realizar la operación: Archive log Prune. Causa raíz: Excepción de RMAN: ORACLE-00101: Error al ejecutar el comando RMAN.
+ a| 
+Los archivos de registro de archivos se eliminan manualmente de los destinos de registro de archivos.
+ a| 
+Conéctese a RMAN desde el host SnapManager. Ejecute el comando CROSSCHECK ARCHIVELOG ALL de RMAN y vuelva a realizar la operación de eliminación en los archivos de registro de archivos.
+
+
+
+ a| 
+No se puede analizar la salida del shell: (java.util.regex.Matcher[pattern=Command Complete. Region=0,18 lastmatch=]) no coincide (name:backup_script) no se puede analizar la salida del shell: (java.util.regex.Matcher[pattern=Command complete. region=0,25 lastmatch=]) no coincide (description:script backup)
+
+No se puede analizar la salida del shell: (java.util.regex.Matcher[pattern=Command Complete. region=0,9 lastmatch=]) no coincide (timeout:0)
+ a| 
+Las variables de entorno no se definen correctamente en los scripts previos o posteriores a las tareas.
+ a| 
+Compruebe si las secuencias de comandos previas o posteriores a las tareas siguen la estructura del complemento SnapManager estándar. Para obtener información adicional sobre el uso de las variables de entorno en el script, consulte xref:concept_operations_in_task_scripts.adoc[Operaciones en scripts de tareas].
+
+
+
+ a| 
+ORA-01450: Se ha superado la longitud máxima de la llave (6398).
+ a| 
+Cuando se realiza una actualización de SnapManager 3.2 para Oracle a SnapManager 3.3 para Oracle, la operación de actualización se produce un error con este mensaje de error. Este problema puede ocurrir debido a uno de los siguientes motivos:
+
+* El tamaño de bloque del tablespace en el que existe el repositorio es inferior a 8k.
+* El parámetro nls_length_semántica se establece en char.
+
+ a| 
+Debe asignar los valores a los siguientes parámetros:
+
+* block_size=8192
+* nls_length=byte
+
+
+Después de modificar los valores de los parámetros, debe reiniciar la base de datos.
+
+Para obtener más información, consulte el artículo 2017632 de la base de conocimientos.
+
+|===
+
+
+== Mensajes de error asociados con el proceso de copia de seguridad de la base de datos (serie 2000)
+
+En la siguiente tabla se enumeran los errores comunes asociados al proceso de copia de seguridad de la base de datos:
+
+|===
+
+
+| Mensaje de error | Explicación | Resolución 
+
+
+ a| 
+SMO-02066: No es posible eliminar ni liberar los "registros de datos" del backup de registros de archivo, ya que el backup está asociado a los "registros de datos" del backup de datos.
+ a| 
+La copia de seguridad del registro de archivos se realiza junto con la copia de seguridad de los archivos de datos y se intentó eliminar el backup del registro de archivos.
+ a| 
+Utilice la opción -force para eliminar o liberar el backup.
+
+
+
+ a| 
+SMO-02067: No se puede eliminar ni liberar los "registros de datos" del backup de registros de archivo, ya que el backup está asociado a los "registros de datos" del backup de datos y se encuentra dentro de la duración de retención asignada.
+ a| 
+El backup de registros de archivos se asocia con el backup de la base de datos y se encuentra dentro del período de retención, y se intentó eliminar el backup de registros de archivos.
+ a| 
+Utilice la opción -force para eliminar o liberar el backup.
+
+
+
+ a| 
+SMO-07142: Registros archivados excluidos debido al patrón de exclusión <exclusion>.
+ a| 
+Se excluyen algunos archivos de registro de archivos durante la operación de creación de perfiles o creación de copias de seguridad.
+ a| 
+No se requiere ninguna acción.
+
+
+
+ a| 
+SMO-07155: Los archivos de registro archivados de <count> no existen en el sistema de archivos activo. Estos archivos de registro archivados no se incluirán en la copia de seguridad.
+ a| 
+Los archivos de registro de archivos no existen en el sistema de archivos activo durante la operación de creación de perfiles o de creación de backup. Estos archivos de registro archivados no se incluyen en la copia de seguridad.
+ a| 
+No se requiere ninguna acción.
+
+
+
+ a| 
+SMO-07148: Los archivos de registro archivados no están disponibles.
+ a| 
+No se crean archivos de registro de archivos para la base de datos actual durante la operación de creación de perfiles o creación de backups.
+ a| 
+No se requiere ninguna acción.
+
+
+
+ a| 
+SMO-07150: No se encuentran los archivos de registro archivados.
+ a| 
+Faltan todos los archivos de registro de archivos del sistema de archivos o se excluyen durante la operación de creación de perfiles o creación de copia de seguridad.
+ a| 
+No se requiere ninguna acción.
+
+
+
+ a| 
+SMO-13032: No se puede realizar la operación: Crear un backup. Causa raíz: ORACLE-20001: Error al intentar cambiar el estado A ABIERTO para la instancia de base de datos dfcln1: ORACLE-20004: Esperando poder abrir la base de datos sin la opción RESETLOGS, pero oracle está informando de que la base de datos necesita abrirse con la opción RESETLOGS. Para evitar que se restableciendo inesperadamente los registros, el proceso no continuará. Asegúrese de que la base de datos se puede abrir sin la opción RESETLOGS e inténtelo de nuevo.
+ a| 
+Se intenta realizar una copia de seguridad de la base de datos clonada que se creó con la opción -no-resetlogs. La base de datos clonada no es una base de datos completa. Sin embargo, es posible ejecutar operaciones de SnapManager, como la creación de perfiles y backups, etc. con la base de datos clonada, pero se produce un error en las operaciones de SnapManager debido a que la base de datos clonada no está configurada como una base de datos completa.
+ a| 
+Recuperar la base de datos clonada o convertir la base de datos a una base de datos de Data Guard en espera.
+
+|===
+
+
+== Mensajes de error asociados con el proceso de restauración (serie 3000)
+
+En la siguiente tabla se muestran los errores comunes asociados con el proceso de restauración:
+
+|===
+
+
+| Mensaje de error | Explicación | Resolución 
+
+
+ a| 
+SMO-03031:Restore especifica para restaurar el <variable> de backup, pues los recursos de almacenamiento para el backup ya se han liberado.
+ a| 
+Intentó restaurar una copia de seguridad que tiene liberados sus recursos de almacenamiento sin especificar una especificación de restauración.
+ a| 
+Especifique una especificación de restauración.
+
+
+
+ a| 
+SMO-03032:Restore especificación debe contener asignaciones para los archivos que restaurar, pues los recursos de almacenamiento del backup ya se han liberado. Los archivos que necesitan asignaciones son: <variable> desde instantáneas: <variable>
+ a| 
+Intentó restaurar una copia de seguridad que tiene liberados sus recursos de almacenamiento junto con una especificación de restauración que no contiene la asignación de todos los archivos que se van a restaurar.
+ a| 
+Corrija el archivo de especificación de restauración de modo que las asignaciones coincidan con los archivos que se van a restaurar.
+
+
+
+ a| 
+ORACLE-30028: No se puede volcar el <filename> del archivo de registro. Es posible que el archivo esté ausente/inaccesible/dañado. Este archivo de registro no se utilizará para la recuperación.
+ a| 
+Los archivos redo log en línea o los archivos archive log no se pueden utilizar para la recuperación.este error se produce debido a los siguientes motivos:
+
+* Los archivos redo log en línea o los archivos archive log mencionados en el mensaje de error no tienen números de cambio suficientes para solicitar la recuperación. Esto ocurre cuando la base de datos está en línea sin ninguna transacción. Los archivos redo log o archive log no tienen ningún número de cambio válido que se pueda aplicar para la recuperación.
+* El archivo redo log en línea o el archivo archive log mencionado en el mensaje de error no tiene suficientes privilegios de acceso para Oracle.
+* El archivo redo log en línea o el archivo de registro archivado mencionado en el mensaje de error están dañados y Oracle no puede leerlos.
+* El archivo redo log en línea o el archivo de registro archivado mencionado en el mensaje de error no se encuentra en la ruta de acceso mencionada.
+
+ a| 
+Si el archivo mencionado en el mensaje de error es un archivo de registro archivado y si ha proporcionado manualmente para la recuperación, asegúrese de que el archivo tiene permisos de acceso completo a Oracle.incluso si el archivo tiene permisos completos, y el mensaje continúa, el archivo de registro de archivo no tiene ningún número de cambio que se aplicará para la recuperación, y este mensaje puede ignorarse.
+
+|===
+
+
+== Mensajes de error asociados con el proceso de clonación (serie 4000)
+
+En la siguiente tabla se muestran los errores comunes asociados con el proceso de clonación:
+
+|===
+
+
+| Mensaje de error | Explicación | Resolución 
+
+
+ a| 
+SMO-04133: El destino de volcado no debe existir
+ a| 
+Se está utilizando SnapManager para crear nuevos clones; sin embargo, los destinos de volcado que usará el nuevo clon ya existen. SnapManager no puede crear un clon si existen destinos de volcado.
+ a| 
+Quite o cambie el nombre de los destinos de volcado antiguos antes de crear un clon.
+
+
+
+ a| 
+SMO-13032: No se puede realizar la operación: Clone Create. Causa raíz: ORACLE-00001: Error al ejecutar SQL: [ALTER DATABASE OPEN RESETLOGS;]. El comando devolvió: ORA-38856: No se puede marcar la instancia UNNAMED_INSTANCE_2 (redo thread 2) como habilitada.
+ a| 
+Se produce un error en la creación del clon cuando se crea desde la base de datos en espera con la siguiente configuración:
+
+* El modo de espera se crea mediante RMAN para realizar una copia de seguridad de los archivos de datos.
+
+ a| 
+Añada el parámetro _no_recovery_through_resetlogs=TRUE en el archivo de especificación del clon antes de crearlo. Consulte la documentación de Oracle (ID 334899.1) para obtener información adicional. Asegúrese de tener el nombre de usuario y la contraseña de Oracle metalink.
+
+
+
+ a| 
+ a| 
+No ha especificado un valor para un parámetro en el archivo de especificación del clon.
+ a| 
+Debe proporcionar un valor para el parámetro o eliminar ese parámetro si no es necesario en el archivo de especificación del clon.
+
+|===
+
+
+== Mensajes de error asociados con el proceso de gestión de perfiles (serie 5000)
+
+En la siguiente tabla se muestran los errores comunes asociados con el proceso de clonación:
+
+|===
+
+
+| Mensaje de error | Explicación | Resolución 
+
+
+ a| 
+SMO-20600: No se ha encontrado el perfil "profile1" en el repositorio "repo_name". Ejecute "Profile SYNC" para actualizar las asignaciones de perfil a repositorio.
+ a| 
+La operación de volcado no se puede realizar cuando se produce un error al crear el perfil.
+ a| 
+Utilice el sistema de volcado.
+
+|===
+
+
+== Mensajes de error asociados con la liberación de recursos de backup (series de backups 6000)
+
+En la siguiente tabla se muestran los errores comunes asociados con las tareas de backup:
+
+|===
+
+
+| Mensaje de error | Explicación | Resolución 
+
+
+ a| 
+SMO-06030: No se puede eliminar el backup porque está en uso: <variable>
+ a| 
+Se intentó realizar la operación de backup libre con comandos, cuando el backup está montado o tiene clones, o bien se Marca para que se conserve de forma ilimitada.
+ a| 
+Desmonte el backup o cambie la política de retención ilimitada. Si hay clones, elimínelos.
+
+
+
+ a| 
+SMO-06045: No se puede liberar el <variable> de backup porque los recursos de almacenamiento para el backup ya se han liberado
+ a| 
+Se intentó realizar la operación de backup libre con comandos, cuando ya se ha liberado el backup.
+ a| 
+No se puede liberar la copia de seguridad si ya se ha liberado.
+
+
+
+ a| 
+SMO-06047: Solo se pueden liberar los backups realizados correctamente. El estado de <ID> de backup es <status>.
+ a| 
+Se intentó realizar la operación de backup libre con comandos, cuando el estado del backup no es correcto.
+ a| 
+Vuelva a intentarlo después de realizar el backup correctamente.
+
+
+
+ a| 
+SMO-13082: No es posible realizar una operación de <variable> en la <ID> de backup porque se han liberado los recursos de almacenamiento para el backup.
+ a| 
+Con comandos, se intentó montar un backup con los recursos de almacenamiento liberados.
+ a| 
+No es posible montar, clonar o verificar un backup que tenga liberados sus recursos de almacenamiento.
+
+|===
+
+
+== Mensajes de error asociados con el proceso de actualización gradual (serie 9000)
+
+En la siguiente tabla se muestran los errores comunes asociados con el proceso de actualización gradual:
+
+|===
+
+
+| Mensaje de error | Explicación | Resolución 
+
+
+ a| 
+SMO-09234: Los hosts siguientes no existen en el almacén antiguo. <hostnames>.
+ a| 
+Intentó realizar una actualización gradual de un host, que no existe en la versión de repositorio anterior.
+ a| 
+Compruebe si el host existe en el repositorio anterior con el comando Repository show-Repository de la versión anterior de la interfaz de línea de comandos de SnapManager.
+
+
+
+ a| 
+SMO-09255: Los hosts siguientes no existen en el nuevo almacén. <hostnames>.
+ a| 
+Intentó realizar la reversión de un host, que no existe en la versión del nuevo repositorio.
+ a| 
+Compruebe si el host existe en el nuevo repositorio con el comando Repository show-Repository de la versión posterior de la CLI de SnapManager.
+
+
+
+ a| 
+SMO-09256:Rollback no se admite, ya que existe un nuevo perfil <profilenames>.for the hosts <hostnames> especificados.
+ a| 
+Intentó revertir un host que contiene nuevos perfiles existentes en el repositorio. Sin embargo, estos perfiles no existían en el host de la versión anterior de SnapManager.
+ a| 
+Elimine nuevos perfiles en la versión posterior o actualizada de SnapManager antes de la reversión.
+
+
+
+ a| 
+SMO-09257:Rollback no se admite, ya que los backups <backupid> están montados en los nuevos hosts.
+ a| 
+Intentó revertir una versión posterior del host SnapManager que tiene backups montados. Estos backups no se montan en la versión anterior del host SnapManager.
+ a| 
+Desmonte los backups en la versión posterior del host SnapManager y, a continuación, realice la reversión.
+
+
+
+ a| 
+SMO-09258: No se admite la reversión, ya que los backups <backupid> se desasocian de los nuevos hosts.
+ a| 
+Ha intentado revertir una versión posterior del host SnapManager que tiene backups que se están desdesmontan.
+ a| 
+Monte los backups en la versión posterior del host SnapManager y, a continuación, ejecute la reversión.
+
+
+
+ a| 
+SMO-09298: No se puede actualizar este almacén porque ya tiene otros hosts en la versión superior. En su lugar, ejecute rollingupgrade para todos los hosts.
+ a| 
+Realizó una actualización gradual en un solo host y, después, actualizó el repositorio para ese host.
+ a| 
+Realice una actualización gradual en todos los hosts.
+
+
+
+ a| 
+SMO-09297: Se ha producido un error al habilitar las restricciones. El repositorio puede estar en estado incoherente. Se recomienda restaurar el backup del repositorio que haya tomado antes de la operación actual.
+ a| 
+Se intentó realizar una operación de reversión o actualización sucesiva si la base de datos del repositorio queda en estado incoherente.
+ a| 
+Restaurar el repositorio del que se ha hecho backup anteriormente.
+
+|===
+
+
+== Ejecución de operaciones (serie 12,000)
+
+En la siguiente tabla se muestran los errores comunes asociados a las operaciones:
+
+|===
+
+
+| Mensaje de error | Explicación | Resolución 
+
+
+ a| 
+SMO-12347 [ERROR]: El servidor SnapManager no se ejecuta en la <host> del host y en la <port> de puertos. Ejecute este comando en un host que ejecuta el servidor SnapManager.
+ a| 
+Al configurar el perfil, debe introducir información sobre el host y el puerto. Sin embargo, SnapManager no puede realizar estas operaciones porque el servidor SnapManager no está en ejecución en el host y el puerto especificados.
+ a| 
+Introduzca el comando en un host que ejecuta el servidor SnapManager. Puede comprobar el puerto con el comando lsnrctl status y ver el puerto en el que se ejecuta la base de datos. Si es necesario, cambie el puerto del comando backup.
+
+|===
+
+
+== Ejecución de componentes de proceso (serie 13,000)
+
+En la siguiente tabla se muestran los errores comunes asociados con el componente de proceso de SnapManager:
+
+|===
+
+
+| Mensaje de error | Explicación | Resolución 
+
+
+ a| 
+SMO-13083: El patrón de Snapname con el valor "x" contiene caracteres que no son letras, números, guion bajo, guion y llaves.
+ a| 
+Al crear un perfil, ha personalizado el patrón de Snapname; sin embargo, ha incluido caracteres especiales que no están permitidos.
+ a| 
+Quite caracteres especiales que no sean letras, números, guion bajo, guion y corchetes.
+
+
+
+ a| 
+SMO-13084: El patrón de Snapname con el valor "x" no contiene el mismo número de llaves izquierda o derecha.
+ a| 
+Al crear un perfil, ha personalizado el patrón de Snapname; sin embargo, las llaves izquierda y derecha no coinciden.
+ a| 
+Introduzca los corchetes de apertura y cierre coincidentes en el patrón de Snapname.
+
+
+
+ a| 
+SMO-13085: El patrón de Snapname con el valor "x" contiene un nombre de variable no válido de "y".
+ a| 
+Al crear un perfil, ha personalizado el patrón de Snapname; sin embargo, ha incluido una variable que no está permitida.
+ a| 
+Elimine la variable ofensor. Para ver una lista de variables aceptables, consulte xref:concept_snapshot_copy_naming.adoc[Nomenclatura de copias Snapshot].
+
+
+
+ a| 
+El patrón de Snapname de SMO-13086 con el valor "x" debe contener la variable "smid".
+ a| 
+Al crear un perfil, ha personalizado el patrón Snapname; sin embargo, ha omitido la variable smid necesaria.
+ a| 
+Inserte la variable smid necesaria.
+
+|===
+
+
+== Mensajes de error asociados con utilidades de SnapManager (serie 14,000)
+
+En la siguiente tabla se muestran los errores comunes asociados con las utilidades de SnapManager:
+
+|===
+
+
+| Mensaje de error | Explicación | Resolución 
+
+
+ a| 
+SMO-14501: El ID de correo no puede estar vacío.
+ a| 
+No ha introducido la dirección de correo electrónico.
+ a| 
+Introduzca una dirección de correo electrónico válida.
+
+
+
+ a| 
+SMO-14502: El asunto del correo no puede estar vacío.
+ a| 
+No ha introducido el asunto del correo electrónico.
+ a| 
+Introduzca el asunto del correo electrónico que corresponda.
+
+
+
+ a| 
+SMO-14506: El campo del servidor de correo no puede estar vacío.
+ a| 
+No se introdujo el nombre de host ni la dirección IP del servidor de correo electrónico.
+ a| 
+Introduzca el nombre de host o la dirección IP del servidor de correo válido.
+
+
+
+ a| 
+SMO-14507: El campo Puerto de correo no puede estar vacío.
+ a| 
+No ha introducido el número de puerto de correo electrónico.
+ a| 
+Introduzca el número de puerto del servidor de correo electrónico.
+
+
+
+ a| 
+SMO-14508: Del ID de correo no puede estar en blanco.
+ a| 
+No ha introducido la dirección de correo electrónico del remitente.
+ a| 
+Introduzca una dirección de correo electrónico del remitente válida.
+
+
+
+ a| 
+SMO-14509: El nombre de usuario no puede estar vacío.
+ a| 
+Habilitó la autenticación y no proporcionó el nombre de usuario.
+ a| 
+Introduzca el nombre de usuario de autenticación por correo electrónico.
+
+
+
+ a| 
+SMO-14510: La contraseña no puede estar vacía. Introduzca la contraseña.
+ a| 
+Habilitó la autenticación y no proporcionó la contraseña.
+ a| 
+Introduzca la contraseña de autenticación por correo electrónico.
+
+
+
+ a| 
+SMO-14550: Estado del correo electrónico: <success/failure>.
+ a| 
+El número de puerto, el servidor de correo o la dirección de correo electrónico del receptor no son válidos.
+ a| 
+Proporcione los valores adecuados durante la configuración del correo electrónico.
+
+
+
+ a| 
+SMO-14559: Error al enviar una notificación de correo electrónico: <error>.
+ a| 
+Esto podría deberse a un número de puerto no válido, a un servidor de correo no válido o a una dirección de correo del destinatario no válida.
+ a| 
+Proporcione los valores adecuados durante la configuración del correo electrónico.
+
+
+
+ a| 
+SMO-14560: Error de notificación: La configuración de la notificación no está disponible.
+ a| 
+Error en el envío de notificaciones porque la configuración de notificación no está disponible.
+ a| 
+Agregar configuración de notificación.
+
+
+
+ a| 
+SMO-14565: Formato de hora no válido. Introduzca el formato de hora en HH:mm.
+ a| 
+Introdujo la hora en un formato incorrecto.
+ a| 
+Introduzca la hora en el formato: hh:mm.
+
+
+
+ a| 
+SMO-14566: Valor de fecha no válido. El rango de fechas válido es 1-31.
+ a| 
+La fecha configurada es incorrecta.
+ a| 
+La fecha debe estar entre 1 y 31.
+
+
+
+ a| 
+SMO-14567: Valor del día no válido. El rango de días válido es de 1 a 7.
+ a| 
+El día configurado es incorrecto.
+ a| 
+Introduzca el intervalo de días del 1 al 7.
+
+
+
+ a| 
+SMO-14569: El servidor no pudo iniciar la programación de notificaciones de resumen.
+ a| 
+El servidor SnapManager se cerró por motivos desconocidos.
+ a| 
+Inicie el servidor SnapManager.
+
+
+
+ a| 
+SMO-14570: Notificación resumida no disponible.
+ a| 
+No ha configurado la notificación de resumen.
+ a| 
+Configure la notificación de resumen.
+
+
+
+ a| 
+SMO-14571: No se pueden habilitar las notificaciones de perfil y de resumen.
+ a| 
+Ha seleccionado las opciones de notificación de perfil y resumen.
+ a| 
+Habilite la notificación de perfil o la notificación de resumen.
+
+
+
+ a| 
+SMO-14572: Proporcione un éxito o una opción de fallo para las notificaciones.
+ a| 
+No ha habilitado las opciones de éxito o fallo.
+ a| 
+Debe seleccionar Success o Failure Option o both.
+
+|===
+*Información relacionada*
+
+xref:concept_snapshot_copy_naming.adoc[Nomenclatura de copias Snapshot]

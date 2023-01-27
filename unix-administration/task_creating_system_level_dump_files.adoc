@@ -1,0 +1,25 @@
+---
+permalink: unix-administration/task_creating_system_level_dump_files.html 
+sidebar: sidebar 
+keywords: smo, system, dump, command, log, information, snapmanager, host, environment, system-level 
+summary: Puede usar el comando de volcado del sistema smo para obtener información sobre el registro del entorno y el host de SnapManager. Es posible especificar niveles de registro diferentes para recoger información sobre una operación, un perfil o un host y un entorno específicos. 
+---
+= Creación de archivos de volcado en el nivel del sistema
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede usar el comando de volcado del sistema smo para obtener información sobre el registro del entorno y el host de SnapManager. Es posible especificar niveles de registro diferentes para recoger información sobre una operación, un perfil o un host y un entorno específicos.
+
+. Introduzca el siguiente comando: Volcado de sistema smo
++
+Volcado resultante
+
++
+[listing]
+----
+Path:/<user-home>/.netapp/smo/3.3.0/smo_dump_server_host.jar
+----
+

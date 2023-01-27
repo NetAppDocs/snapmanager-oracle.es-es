@@ -1,0 +1,32 @@
+---
+permalink: unix-administration/task_post_rollback_tasks.html 
+sidebar: sidebar 
+keywords: perform, additional, step, rollback, repository, database, downgrade, snapmanager, host, post, task, smo 
+summary: Es necesario realizar algunos pasos adicionales después de revertir una base de datos de repositorio y degradar el host de SnapManager de SnapManager 3.2 a SnapManager 3.0, para ver las programaciones creadas en la versión anterior de la base de datos del repositorio. 
+---
+= Tareas posteriores a la reversión
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es necesario realizar algunos pasos adicionales después de revertir una base de datos de repositorio y degradar el host de SnapManager de SnapManager 3.2 a SnapManager 3.0, para ver las programaciones creadas en la versión anterior de la base de datos del repositorio.
+
+. Desplácese hasta cd /opt/NetApp/smo/repositorios.
++
+El directorio de repositorios puede contener dos archivos para cada repositorio. El nombre de archivo con el signo de número (#) se crea utilizando SnapManager 3.1 o posterior y el nombre de archivo con el guión (-) se crea utilizando SnapManager 3.0.
+
++
+Los nombres de los archivos pueden ser los siguientes:
+
++
+** Repository#SMO300a#SMOREPO1#10.72.197.141#1521
+** repository-smo300a-smorepo1-10.72.197.141-1521
+
+
+. Reemplace el signo de número (#) en el nombre de archivo por el guión (-).
++
+El nombre de archivo que tenía el signo de número (#) contiene ahora guión (-): Repository-SMO300a-SMOREPO1-10.72.197.141-1521.
+
+

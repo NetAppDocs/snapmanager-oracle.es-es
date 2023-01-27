@@ -1,0 +1,71 @@
+---
+permalink: windows/reference_the_smosmsapoperation_dump_command.html 
+sidebar: sidebar 
+keywords: run, operation, dump, command, create, jar, file, diagnostic, information, smo 
+summary: Puede ejecutar el comando operation dump para crear un archivo JAR que contenga información de diagnóstico acerca de una operación. 
+---
+= El comando de volcado de la operación de smo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede ejecutar el comando operation dump para crear un archivo JAR que contenga información de diagnóstico acerca de una operación.
+
+
+
+== Sintaxis
+
+[listing]
+----
+
+        smo operation dump
+-profile profile_name
+\[-label label_name \| -id guid\]
+\[-quiet \| -verbose\]
+----
+
+
+== Parámetros
+
+* *-profile profile_name*
++
+Especifica el perfil para el que desea crear los archivos de volcado. El perfil contiene el identificador de la base de datos y otra información de la base de datos.
+
+* *-label label_name*
++
+Crea archivos de volcado para la operación y asigna la etiqueta especificada.
+
+* *-id guid*
++
+Crea archivos de volcado para la operación con el GUID especificado. SnapManager genera el GUID cuando se inicia la operación.
+
+* *-silencio*
++
+Muestra sólo mensajes de error en la consola. El valor predeterminado es mostrar mensajes de error y advertencia.
+
+* *-verbose*
++
+Muestra mensajes de error, advertencia e informativos en la consola.
+
+
+
+
+
+== Ejemplo
+
+En el siguiente ejemplo se crea el archivo de volcado para la copia de seguridad:
+
+[listing]
+----
+smo operation dump -profile SALES1
+-id 8abc01ec0e78f3e2010e78f3fdd00001
+----
+[listing]
+----
+Dump file created Path: C:\userhomedirectory\netapp\smo\3.3\smo_dump_8abc01ec0e78f3e2010e78f3fdd00001.jar
+----
+*Información relacionada*
+
+xref:concept_dump_files.adoc[Volcar archivos]

@@ -1,0 +1,301 @@
+---
+permalink: unix-administration/task_creating_clone_specifications.html 
+sidebar: sidebar 
+keywords: snapmanager, oracle, clone, specification, xml, file, mapping, option, parameter, creating 
+summary: SnapManager para Oracle utiliza un archivo XML de especificación del clon, que incluye las asignaciones, las opciones y los parámetros que se deben utilizar en la operación de clonado. SnapManager utiliza esta información para determinar dónde colocar los archivos que clona y cómo tratar información de diagnóstico, archivos de control, parámetros, etc. 
+---
+= Creando especificaciones de clon
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapManager para Oracle utiliza un archivo XML de especificación del clon, que incluye las asignaciones, las opciones y los parámetros que se deben utilizar en la operación de clonado. SnapManager utiliza esta información para determinar dónde colocar los archivos que clona y cómo tratar información de diagnóstico, archivos de control, parámetros, etc.
+
+Es posible crear el archivo de especificación del clon con la interfaz gráfica de usuario (GUI) de SnapManager, la interfaz de línea de comandos (CLI) o un editor de texto.
+
+Cuando crea el archivo de especificación del clon con un editor de texto, debe guardarlo como archivo .xml. Es posible usar este archivo XML para otras operaciones de clonado.
+
+También puede crear una plantilla de especificación de clon y personalizarla. Puede usar el comando de plantilla de clon de smo o la interfaz gráfica de usuario; use el asistente Clone.
+
+SnapManager para Oracle agrega una cadena de versión a cualquier plantilla de especificación de clon que genere. SnapManager para Oracle asume la versión más reciente de cualquier archivo de especificación del clon que no tenga una cadena de versión.
+
+Si desea realizar la clonado remota, no cambie las ubicaciones predeterminadas de los archivos de datos, los archivos de registro de recuperación y los archivos de control en el archivo de especificación del clon. Si cambia la ubicación predeterminada, SnapManager no puede crear el clon o crear el clon en una base de datos que no es compatible con la funcionalidad de Snapshot. Por lo tanto, la creación automática de perfil falla.
+
+
+NOTE: Aunque la información del punto de montaje y del grupo de discos de ASM se puede editar desde la interfaz gráfica de usuario, solo se puede cambiar el nombre del archivo y no las ubicaciones del archivo.
+
+Puede ejecutar una tarea varias veces, ya sea con combinaciones de parámetros y valores iguales o diferentes.
+
+. Abra un archivo de texto e introduzca texto como se muestra en el ejemplo siguiente:
++
+[listing]
+----
+<clone-specification xmlns="http://www.example.com>
+     <storage-specification/>
+     <database-specification/>
+ </clone-specification>
+----
+. En el componente de especificación de almacenamiento, introduzca los puntos de montaje para los archivos de datos.
++
+La especificación de almacenamiento enumera las ubicaciones para el nuevo almacenamiento creado para el clon, como puntos de montaje de archivos de datos y dispositivos sin formato. Estos elementos se deben asignar del origen al destino.
+
++
+En el ejemplo siguiente se muestra la sintaxis de punto de montaje del archivo de datos que se utiliza en la especificación del clon:
+
++
+[listing]
+----
+<mountpoint>
+     <source>/mnt/path/source_data file_mountpoint</source>
+     <destination>/mnt/path/target_data file_mountpoint</destination>
+</mountpoint>
+----
+. Opcional: Si tiene un dispositivo sin formato en el origen, debe especificar la ruta del dispositivo sin formato en el origen y, a continuación, especificar el destino auto-generate='"true" para el destino.
++
+A diferencia del archivo de asignación de clones de las versiones anteriores de SnapManager para Oracle, no se puede especificar una ubicación para el dispositivo sin configurar en el destino. SnapManager para Oracle elegirá el siguiente nombre de dispositivo disponible para el dispositivo RAW clonado.
+
++
+En el ejemplo siguiente se muestra la sintaxis de dispositivo sin configurar que se utiliza en la especificación del clon:
+
++
+[listing]
+----
+<raw-device>
+     <source>/dev/raw/raw1</source>
+     <destination auto-generate="true"/>
+</raw-device>
+----
+. En el componente de especificación de la base de datos, identifique la información del archivo de control como una lista de los archivos de control que desea crear para el clon.
++
+La especificación de la base de datos especifica las opciones de la base de datos para el clon, como los archivos de control, los registros de recuperación, los registros de archivos y los parámetros de Oracle.
+
++
+En el ejemplo siguiente se muestra la sintaxis del archivo de control que se utiliza en la especificación del clon:
+
++
+[listing]
+----
+<controlfiles>
+     <file>/mnt/path/clonename/control/control01.ctl</file>
+     <file>/mnt/path/clonename/control/control02.ctl</file>
+</controlfiles>
+----
+. Especifique la estructura del registro de recuperación para el clon.
++
+En el ejemplo siguiente se muestra la estructura de directorio redo log para la clonado:
+
++
+[listing]
+----
+<redologs>
+     <redogroup>
+          <file>/mnt/path/clonename/redo/redo01.log</file>
+          <number>1</number>
+          <size unit="M">100</size>
+     </redogroup>
+     <redogroup>
+         <file>/mnt/path/clonename/redo/redo02.log</file>
+         <number>2</number>
+         <size unit="M">100</size>
+     </redogroup>
+</redologs>
+----
+. Especifique los parámetros de Oracle que deben establecerse con diferentes valores en la base de datos clonada. Si utiliza Oracle 10, debe especificar los siguientes parámetros:
++
+** Volcado en segundo plano
+** Volcado de memoria
+** Volcado de usuario
+** (Opcional) registros de archivo
++
+
+NOTE: Si los valores de los parámetros no están configurados correctamente, la operación de clonado se detiene y se recibe un mensaje de error.
+
+
+
++
+Si no especifica la ubicación donde se almacenan los registros de archivos, SnapManager crea el clon en modo noarchivelog. SnapManager copia esta información de parámetro en el archivo init.ora del clon.
+
++
++ en el ejemplo siguiente se muestra la sintaxis de parámetros que se utiliza en la especificación del clon:
+
++
++
+
++
+[listing]
+----
+<parameters>
+     <parameter>
+          <name>log_archive_dest_1</name>
+          <value>LOCATION=/mnt/path/clonename/archive</value>
+     </parameter>
+</parameters>
+----
++
++ puede utilizar un valor predeterminado utilizando un elemento default dentro del elemento Parameter. En el ejemplo siguiente, el parámetro os_Authentication_PREFIX tomará el valor predeterminado porque se especifica el elemento predeterminado:
+
++
++
+
++
+[listing]
+----
+<parameters>
+     <parameter>
+          <name>os_authent_prefix</name>
+          <default></default>
+     </parameter>
+</parameters>
+----
++
++ puede especificar una cadena vacía como valor de un parámetro mediante un elemento vacío. En el ejemplo siguiente, os_Authentication_PREFIX se establecerá en una cadena vacía:
+
++
++
+
++
+[listing]
+----
+<parameters>
+     <parameter>
+          <name>os_authent_prefix</name>
+          <value></value>
+     </parameter>
+</parameters>
+----
++
++ NOTA: Puede utilizar el valor del archivo init.ora de la base de datos de origen para el parámetro sin especificar ningún elemento.
+
++
++ Si un parámetro tiene varios valores, puede proporcionar los valores de los parámetros separados por comas. Por ejemplo, si desea mover los archivos de datos de una ubicación a otra, puede utilizar el parámetro dB_file_name_convert y especificar las rutas de acceso del archivo de datos separadas por comas, como se muestra en el ejemplo siguiente:
+
++
++
+
++
+[listing]
+----
+<parameters>
+     <parameter>
+          <name>db_file_name_convert</name>
+          <value>>/mnt/path/clonename/data file1,/mnt/path/clonename/data file2</value>
+     </parameter>
+</parameters>
+----
++
++ Si desea mover los archivos de registro de una ubicación a otra, a continuación puede utilizar el parámetro log_file_name_convert y especificar las rutas de acceso del archivo de registro separadas por comas, como se muestra en el ejemplo:
+
++
++
+
++
+[listing]
+----
+<parameters>
+     <parameter>
+          <name>log_file_name_convert</name>
+          <value>>/mnt/path/clonename/archivle1,/mnt/path/clonename/archivle2</value>
+     </parameter>
+</parameters>
+----
+. Opcional: Especifique sentencias SQL arbitrarias para que se ejecuten en el clon cuando está en línea.
++
+Puede utilizar las sentencias SQL para realizar tareas como la recreación de los archivos temporales en la base de datos clonada.
+
++
+
+NOTE: Debe asegurarse de que no se incluya un punto y coma al final de la instrucción SQL.
+
++
+A continuación se muestra una sentencia SQL de muestra que se ejecuta como parte de la operación de clonado:
+
++
+[listing]
+----
+<sql-statements>
+   <sql-statement>
+     ALTER TABLESPACE TEMP ADD
+     TEMPFILE '/mnt/path/clonename/temp_user01.dbf'
+     SIZE 41943040 REUSE AUTOEXTEND ON NEXT 655360
+     MAXSIZE 32767M
+   </sql-statement>
+</sql-statements>
+----
+
+
+
+
+== Ejemplo de especificación del clon
+
+En el ejemplo siguiente se muestra la estructura de especificaciones del clon, incluidos los componentes de especificación de base de datos y almacenamiento:
+
+[listing]
+----
+<clone-specification xmlns="http://www.example.com>
+
+   <storage-specification>
+     <storage-mapping>
+        <mountpoint>
+          <source>/mnt/path/source_mountpoint</source>
+          <destination>/mnt/path/target_mountpoint</destination>
+        </mountpoint>
+        <raw-device>
+          <source>/dev/raw/raw1</source>
+          <destination auto-generate="true"/>
+        </raw-device>
+        <raw-device>
+          <source>/dev/raw/raw2</source>
+          <destination auto-generate="true"/>
+        </raw-device>
+     </storage-mapping>
+   </storage-specification>
+
+   <database-specification>
+     <controlfiles>
+       <file>/mnt/path/clonename/control/control01.ctl</file>
+       <file>/mnt/path/clonename/control/control02.ctl</file>
+     </controlfiles>
+     <redologs>
+         <redogroup>
+           <file>/mnt/path/clonename/redo/redo01.log</file>
+           <number>1</number>
+           <size unit="M">100</size>
+        </redogroup>
+        <redogroup>
+           <file>/mnt/path/clonename/redo/redo02.log</file>
+           <number>2</number>
+           <size unit="M">100</size>
+        </redogroup>
+    </redologs>
+    <parameters>
+      <parameter>
+        <name>log_archive_dest_1</name>
+        <value>LOCATION=/mnt/path/clonename/archive</value>
+      </parameter>
+      <parameter>
+        <name>background_dump_dest</name>
+        <value>/mnt/path/clonename/admin/bdump</value>
+      </parameter>
+      <parameter>
+        <name>core_dump_dest</name>
+        <value>/mnt/path/clonename/admin/cdump</value>
+      </parameter>
+      <parameter>
+        <name>user_dump_dest</name>
+        <value>/mnt/path/clonename/admin/udump</value>
+      </parameter>
+    </parameters>
+   </database-specification>
+</clone-specification>
+----
+*Información relacionada*
+
+xref:task_cloning_databases_and_using_custom_plugin_scripts.adoc[Clonar bases de datos y usar scripts de plugins personalizados]
+
+xref:task_cloning_databases_from_backups.adoc[Clonar bases de datos a partir de backups]
+
+xref:task_cloning_databases_in_the_current_state.adoc[Clonado de bases de datos en estado actual]
+
+xref:concept_considerations_for_cloning_a_database_to_an_alternate_host.adoc[Consideraciones para clonar una base de datos en un host alternativo]

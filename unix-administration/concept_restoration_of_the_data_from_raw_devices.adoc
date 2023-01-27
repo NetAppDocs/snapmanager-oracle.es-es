@@ -1,0 +1,20 @@
+---
+permalink: unix-administration/concept_restoration_of_the_data_from_raw_devices.html 
+sidebar: sidebar 
+keywords: restore, alternate, location, connect, necessary, raw, device, local, host 
+summary: Antes de restaurar desde una ubicación alternativa, debe conectarse a los dispositivos sin formato necesarios que existan en el host local. 
+---
+= Restauración de los datos desde dispositivos sin configurar
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de restaurar desde una ubicación alternativa, debe conectarse a los dispositivos sin formato necesarios que existan en el host local.
+
+Puede invocar la restauración desde una operación de ubicación alternativa para copiar los bloques de datos de dispositivos sin formato alternativos a dispositivos sin formato activos. Para realizar esta operación, debe especificar el dispositivo RAW alternativo desde el que restaurar el dispositivo RAW original creando una especificación de restauración.
+
+*Información relacionada*
+
+xref:task_creating_restore_specifications.adoc[Creando especificaciones de restauración]

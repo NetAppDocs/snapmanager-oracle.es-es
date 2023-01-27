@@ -1,0 +1,21 @@
+---
+permalink: windows/task_using_snapmanager_commands.html 
+sidebar: sidebar 
+keywords: snapmanager, host, server, enter, command, prompt 
+summary: Después de iniciar el servidor de host SnapManager, puede utilizar SnapManager introduciendo comandos en el símbolo del sistema de su host. 
+---
+= El uso de comandos de la SnapManager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Después de iniciar el servidor de host SnapManager, puede utilizar SnapManager introduciendo comandos en el símbolo del sistema de su host.
+
+. Para realizar una operación:
++
+** En el caso de un host de Windows, vaya a *Inicio* > *todos los programas* > *NetApp* > *SnapManager para Oracle* > *Iniciar la interfaz de línea de comandos (CLI)* de SMO
+
+
+

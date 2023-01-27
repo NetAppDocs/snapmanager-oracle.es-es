@@ -1,0 +1,64 @@
+---
+permalink: unix-administration/reference_the_smosmsap_storage_rename_command.html 
+sidebar: sidebar 
+keywords: command, update, name, ip, address, storage, system, smo, rename 
+summary: Este comando actualiza el nombre o la dirección IP del sistema de almacenamiento. 
+---
+= El comando smo Storage rename
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Este comando actualiza el nombre o la dirección IP del sistema de almacenamiento.
+
+
+
+== Sintaxis
+
+[listing]
+----
+
+        smo storage rename
+-profile profile
+-oldname old_storage_name
+-newname new_storage_name
+\[-quiet \| -verbose\]
+----
+
+
+== Parámetros
+
+* * perfil*
++
+Especifica el nombre del perfil. Este nombre puede tener hasta 30 caracteres y debe ser único dentro del host.
+
+* *-oldname old_storage_name*
++
+Especifica la dirección IP o el nombre del sistema de almacenamiento antes de cambiar el nombre del sistema de almacenamiento. Debe introducir la dirección IP o el nombre del sistema de almacenamiento que se muestra cuando se ejecuta el comando smo Storage list.
+
+* *-newname new_storage_name*
++
+Especifica la dirección IP o el nombre del sistema de almacenamiento después de cambiar el nombre del sistema de almacenamiento.
+
+* *-silencio*
++
+Muestra sólo mensajes de error en la consola. El valor predeterminado es mostrar mensajes de error y advertencia.
+
+* *-verbose*
++
+Muestra mensajes de error, advertencia e informativos en la consola.
+
+
+
+
+
+== Ejemplo
+
+En el ejemplo siguiente se utiliza el comando smo Storage rename para cambiar el nombre del sistema de almacenamiento:
+
+[listing]
+----
+smo storage rename -profile mjullian -oldname lech -newname hudson -verbose
+----

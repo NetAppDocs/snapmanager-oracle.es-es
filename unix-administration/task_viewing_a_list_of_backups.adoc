@@ -1,0 +1,22 @@
+---
+permalink: unix-administration/task_viewing_a_list_of_backups.html 
+sidebar: sidebar 
+keywords: check, backup, create, profile, state, smo, list, command 
+summary: Puede comprobar qué backups se han creado para un perfil y su estado de backup mediante el comando smo backup list. Para cada perfil, el comando muestra primero la información sobre el backup más reciente y, a continuación, continúa hasta que se muestra la información de todos los backups. 
+---
+= Ver una lista de backups
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede comprobar qué backups se han creado para un perfil y su estado de backup mediante el comando smo backup list. Para cada perfil, el comando muestra primero la información sobre el backup más reciente y, a continuación, continúa hasta que se muestra la información de todos los backups.
+
+. Introduzca el siguiente comando:
+`smo backup list -profileprofile_name [-delimitercharacter] [data | -archivelogs] [-quiet | -verbose]`
+
+
+*Información relacionada*
+
+xref:reference_the_smosmsapbackup_list_command.adoc[El comando smo backup list]

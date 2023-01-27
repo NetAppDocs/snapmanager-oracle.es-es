@@ -1,0 +1,1652 @@
+---
+settings:
+  name: SnapManager Oracle
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  langs: es-es,us-en,ja-jp,ko-kr,zh-cn,zh-tw,de-de,fr-fr
+sidebar:
+  entries:
+  - title: Inicio
+    url: "/index.html"
+  - title: Notas de la versión
+    url: "/releasenotes.html"
+  - title: Instalación y configuración de UNIX para Clustered Data ONTAP
+    url: "/unix-installation-cmode/index.html"
+    entries:
+    - title: Información general del producto
+      url: "/unix-installation-cmode/reference_product_overview.html"
+      entries:
+      - title: Arquitectura SnapManager
+        url: "/unix-installation-cmode/reference_snapmanager_architecture.html"
+    - title: Flujo de trabajo de implementación
+      url: "/unix-installation-cmode/reference_deployment_workflow.html"
+    - title: Preparación para la implementación
+      url: "/unix-installation-cmode/task_preparing_for_deployment.html"
+      entries:
+      - title: Licencias de SnapManager
+        url: "/unix-installation-cmode/reference_snapmanager_licensing.html"
+      - title: Configuraciones admitidas
+        url: "/unix-installation-cmode/reference_supported_configurations.html"
+      - title: Tipos de almacenamiento admitidos
+        url: "/unix-installation-cmode/reference_supported_storage_types.html"
+      - title: Requisitos del host UNIX
+        url: "/unix-installation-cmode/reference_host_requirements.html"
+    - title: Configurar bases de datos
+      url: "/unix-installation-cmode/task_configuring_databases.html"
+      entries:
+      - title: Configurar la base de datos de destino
+        url: "/unix-installation-cmode/task_configuring_the_target_database.html"
+      - title: Crear un usuario de base de datos de Oracle para la base de datos de
+          destino
+        url: "/unix-installation-cmode/task_creating_an_oracle_user_for_the_target_database.html"
+      - title: Crear la instancia de la base de datos del repositorio
+        url: "/unix-installation-cmode/task_creating_the_repository_database_instance.html"
+      - title: Crear un usuario de Oracle para la instancia de la base de datos del
+          repositorio
+        url: "/unix-installation-cmode/task_creating_an_oracle_user_for_the_repository_database_instance.html"
+      - title: Verificación de la configuración del listener de Oracle
+        url: "/unix-installation-cmode/task_verifying_the_oracle_listener_configuration.html"
+    - title: Instalando SnapManager
+      url: "/unix-installation-cmode/task_installing_snapmanager.html"
+    - title: Configurar SnapManager
+      url: "/unix-installation-cmode/task_setting_up_snapmanager.html"
+      entries:
+      - title: Iniciando el servidor SnapManager
+        url: "/unix-installation-cmode/task_starting_the_snapmanager_server.html"
+      - title: Obtener acceso a la interfaz de usuario de SnapManager
+        url: "/unix-installation-cmode/task_accessing_the_snapmanager_user_interface.html"
+      - title: Configurar el repositorio de SnapManager
+        url: "/unix-installation-cmode/task_configuring_the_snapmanager_repository.html"
+    - title: Preparar sistemas de almacenamiento para la replicación de SnapMirror
+        y SnapVault
+      url: "/unix-installation-cmode/reference_preparing_storage_systems_for_snapmirror_and_snapvault_replication.html"
+      entries:
+      - title: Comprender las diferencias entre SnapMirror y SnapVault
+        url: "/unix-installation-cmode/concept_understanding_the_differences_between_snapmirror_and_snapvault.html"
+      - title: Preparar los sistemas de almacenamiento para la replicación de SnapMirror
+        url: "/unix-installation-cmode/task_preparing_storage_systems_for_snapmirror_replication.html"
+      - title: Preparar sistemas de almacenamiento para la replicación de SnapVault
+        url: "/unix-installation-cmode/task_preparing_storage_systems_for_snapvault_replication.html"
+    - title: Realizar backup y verificación de las bases de datos
+      url: "/unix-installation-cmode/concept_backing_up_and_verifying_your_databases.html"
+      entries:
+      - title: Información general sobre backup de SnapManager
+        url: "/unix-installation-cmode/concept_snapmanager_backup_overview.html"
+      - title: Definición de una estrategia de backup
+        url: "/unix-installation-cmode/concept_defining_a_backup_strategy.html"
+      - title: Crear un perfil para la base de datos
+        url: "/unix-installation-cmode/task_creating_a_profile_for_your_database.html"
+      - title: Realizar una copia de seguridad de la base de datos
+        url: "/unix-installation-cmode/task_backing_up_your_database.html"
+      - title: Verificación de los backups de las bases de datos
+        url: "/unix-installation-cmode/task_verifying_database_backups.html"
+      - title: Programación de copias de seguridad periódicas
+        url: "/unix-installation-cmode/task_scheduling_recurring_backups.html"
+    - title: A continuación, ¿dónde ir
+      url: "/unix-installation-cmode/reference_where_to_go_next.html"
+  - title: Instalación y configuración para UNIX para Data ONTAP en 7-Mode
+    url: "/unix-installation-7mode/index.html"
+    entries:
+    - title: Información general del producto
+      url: "/unix-installation-7mode/reference_product_overview.html"
+      entries:
+      - title: Arquitectura SnapManager
+        url: "/unix-installation-7mode/reference_snapmanager_architecture.html"
+    - title: Flujo de trabajo de implementación
+      url: "/unix-installation-7mode/reference_deployment_workflow.html"
+    - title: Preparación para la implementación
+      url: "/unix-installation-7mode/task_preparing_for_deployment.html"
+      entries:
+      - title: Licencias de SnapManager
+        url: "/unix-installation-7mode/reference_snapmanager_licensing.html"
+      - title: Configuraciones admitidas
+        url: "/unix-installation-7mode/reference_supported_configurations.html"
+      - title: Tipos de almacenamiento admitidos
+        url: "/unix-installation-7mode/reference_supported_storage_types.html"
+      - title: Requisitos del host UNIX
+        url: "/unix-installation-7mode/reference_host_requirements.html"
+    - title: Configurar bases de datos
+      url: "/unix-installation-7mode/task_configuring_databases.html"
+      entries:
+      - title: Configurar la base de datos de destino
+        url: "/unix-installation-7mode/task_configuring_the_target_database.html"
+      - title: Crear un usuario de base de datos de Oracle para la base de datos de
+          destino
+        url: "/unix-installation-7mode/task_creating_an_oracle_user_for_the_target_database.html"
+      - title: Crear la instancia de la base de datos del repositorio
+        url: "/unix-installation-7mode/task_creating_the_repository_database_instance.html"
+      - title: Crear un usuario de Oracle para la instancia de la base de datos del
+          repositorio
+        url: "/unix-installation-7mode/task_creating_an_oracle_user_for_the_repository_database_instance.html"
+      - title: Verificación de la configuración del listener de Oracle
+        url: "/unix-installation-7mode/task_verifying_the_oracle_listener_configuration.html"
+    - title: Instalando SnapManager
+      url: "/unix-installation-7mode/task_installing_snapmanager.html"
+    - title: Configurar SnapManager
+      url: "/unix-installation-7mode/task_setting_up_snapmanager.html"
+      entries:
+      - title: Iniciando el servidor SnapManager
+        url: "/unix-installation-7mode/task_starting_the_snapmanager_server.html"
+      - title: Obtener acceso a la interfaz de usuario de SnapManager
+        url: "/unix-installation-7mode/task_accessing_the_snapmanager_user_interface.html"
+      - title: Configurar el repositorio de SnapManager
+        url: "/unix-installation-7mode/task_configuring_the_snapmanager_repository.html"
+    - title: Realizar backup y verificación de las bases de datos
+      url: "/unix-installation-7mode/concept_backing_up_and_verifying_your_databases.html"
+      entries:
+      - title: Información general sobre backup de SnapManager
+        url: "/unix-installation-7mode/concept_snapmanager_backup_overview.html"
+      - title: Definición de una estrategia de backup
+        url: "/unix-installation-7mode/concept_defining_a_backup_strategy.html"
+      - title: Crear un perfil para la base de datos
+        url: "/unix-installation-7mode/task_creating_a_profile_for_your_database.html"
+      - title: Realizar una copia de seguridad de la base de datos
+        url: "/unix-installation-7mode/task_backing_up_your_database.html"
+      - title: Verificación de los backups de las bases de datos
+        url: "/unix-installation-7mode/task_verifying_database_backups.html"
+      - title: Programación de copias de seguridad periódicas
+        url: "/unix-installation-7mode/task_scheduling_recurring_backups.html"
+    - title: A continuación, ¿dónde ir
+      url: "/unix-installation-7mode/reference_where_to_go_next.html"
+  - title: Administración de UNIX
+    url: "/unix-administration/index.html"
+    entries:
+    - title: Información general del producto
+      url: "/unix-administration/reference_product_overview.html"
+      entries:
+      - title: Crear backups usando copias de Snapshot
+        url: "/unix-administration/concept_create_backups_using_snapshot_copies.html"
+      - title: Por qué debe prune los archivos de registro de archivos
+        url: "/unix-administration/concept_why_you_should_prune_archive_log_files.html"
+      - title: Consolidación de registros de archivo
+        url: "/unix-administration/concept_archive_log_consolidation.html"
+      - title: Restauración total o parcial de bases de datos
+        url: "/unix-administration/concept_full_or_partial_restoration_of_the_database.html"
+      - title: Comprobar el estado del backup
+        url: "/unix-administration/concept_verify_backup_status.html"
+      - title: Clones de backups de bases de datos
+        url: "/unix-administration/concept_clone_database_backups.html"
+      - title: Realizar un seguimiento de los detalles y generar informes
+        url: "/unix-administration/concept_track_details_and_produce_reports.html"
+      - title: Qué repositorios son
+        url: "/unix-administration/concept_what_repositories_are.html"
+      - title: Qué perfiles son
+        url: "/unix-administration/concept_what_profiles_are.html"
+      - title: Qué son los estados de operación de SnapManager
+        url: "/unix-administration/concept_what_snapmanager_operation_states_are.html"
+      - title: Cómo mantiene SnapManager la seguridad
+        url: "/unix-administration/concept_snapmanager_security.html"
+      - title: Acceso e impresión de la Ayuda en línea
+        url: "/unix-administration/task_accessing_and_printing_online_help.html"
+      - title: Diseños generales de bases de datos y configuraciones de almacenamiento
+          recomendados
+        url: "/unix-administration/concept_general_layout_and_configuration.html"
+        entries:
+        - title: Definir el inicio de la base de datos con el archivo oratab
+          url: "/unix-administration/task_defining_the_database_home_with_the_oratab_file.html"
+        - title: Requisitos para usar bases de datos de RAC con SnapManager
+          url: "/unix-administration/concept_requirements_for_using_rac_databases_with_snapmanager.html"
+        - title: Requisitos para usar bases de datos de ASM con SnapManager
+          url: "/unix-administration/concept_requirements_for_using_asm_databases_with_snapmanager.html"
+        - title: Dispositivos de partición compatibles
+          url: "/unix-administration/reference_supported_partition_devices.html"
+        - title: Compatibilidad con ASMLib
+          url: "/unix-administration/concept_support_for_asmlib.html"
+        - title: Compatibilidad con bases de datos de ASM sin ASMLib
+          url: "/unix-administration/concept_support_for_asm_databases_without_asmlib.html"
+          entries:
+          - title: Scripts compatibles
+            url: "/unix-administration/concept_supported_scripts.html"
+          - title: Limitaciones de uso de scripts para admitir una base de datos ASM
+              sin ASMLib
+            url: "/unix-administration/concept_limitations_of_using_scripts_to_support_asm_database_without_asmlib.html"
+          - title: Implementar y ejecutar los scripts
+            url: "/unix-administration/task_deploying_and_running_the_scripts.html"
+            entries:
+            - title: Compatibilidad con bases de datos de ASM de Oracle RAC sin ASMLib
+              url: "/unix-administration/concept_support_for_oracle_rac_asm_databases.html"
+            - title: Compatibilidad con bases de datos ASM de Oracle 10g sin ASMLib
+              url: "/unix-administration/concept_support_for_oracle_10g_asm_databases.html"
+          - title: Secuencias de comandos de ejemplo para admitir bases de datos ASM
+              sin ASMLib
+            url: "/unix-administration/reference_sample_scripts_to_support_asm_databases_without_asmlib.html"
+        - title: Requisitos para usar bases de datos con NFS y SnapManager
+          url: "/unix-administration/concept_requirements_for_using_databases_with_nfs_and_snapmanager.html"
+        - title: Ejemplos de distribuciones de volúmenes de base de datos
+          url: "/unix-administration/reference_sample_database_volume_layouts.html"
+      - title: Limitaciones al trabajar con SnapManager
+        url: "/unix-administration/concept_limitations.html"
+        entries:
+        - title: Limitaciones de SnapManager para Clustered Data ONTAP
+          url: "/unix-administration/concept_snapmanger_limitations_for_clustered_data_ontap.html"
+        - title: Limitaciones relacionadas con Oracle Database
+          url: "/unix-administration/concept_limitations_related_to_oracle_database.html"
+          entries:
+          - title: Versiones obsoletas de la base de datos Oracle
+            url: "/unix-administration/concept_deprecated_versions_of_oracle_database.html"
+        - title: Restricciones en la gestión de volúmenes
+          url: "/unix-administration/concept_volume_management_restrictions.html"
+    - title: Crear backups usando copias de Snapshot
+      url: "/unix-administration/concept_create_backups_using_snapshot_copies.html"
+    - title: Por qué debe prune los archivos de registro de archivos
+      url: "/unix-administration/concept_why_you_should_prune_archive_log_files.html"
+    - title: Consolidación de registros de archivo
+      url: "/unix-administration/concept_archive_log_consolidation.html"
+    - title: Restauración total o parcial de bases de datos
+      url: "/unix-administration/concept_full_or_partial_restoration_of_the_database.html"
+    - title: Comprobar el estado del backup
+      url: "/unix-administration/concept_verify_backup_status.html"
+    - title: Clones de backups de bases de datos
+      url: "/unix-administration/concept_clone_database_backups.html"
+    - title: Realizar un seguimiento de los detalles y generar informes
+      url: "/unix-administration/concept_track_details_and_produce_reports.html"
+    - title: Qué repositorios son
+      url: "/unix-administration/concept_what_repositories_are.html"
+    - title: Qué perfiles son
+      url: "/unix-administration/concept_what_profiles_are.html"
+    - title: Qué son los estados de operación de SnapManager
+      url: "/unix-administration/concept_what_snapmanager_operation_states_are.html"
+    - title: Cómo mantiene SnapManager la seguridad
+      url: "/unix-administration/concept_snapmanager_security.html"
+    - title: Acceso e impresión de la Ayuda en línea
+      url: "/unix-administration/task_accessing_and_printing_online_help.html"
+    - title: Diseños generales de bases de datos y configuraciones de almacenamiento
+        recomendados
+      url: "/unix-administration/concept_general_layout_and_configuration.html"
+      entries:
+      - title: Definir el inicio de la base de datos con el archivo oratab
+        url: "/unix-administration/task_defining_the_database_home_with_the_oratab_file.html"
+      - title: Requisitos para usar bases de datos de RAC con SnapManager
+        url: "/unix-administration/concept_requirements_for_using_rac_databases_with_snapmanager.html"
+      - title: Requisitos para usar bases de datos de ASM con SnapManager
+        url: "/unix-administration/concept_requirements_for_using_asm_databases_with_snapmanager.html"
+      - title: Dispositivos de partición compatibles
+        url: "/unix-administration/reference_supported_partition_devices.html"
+      - title: Compatibilidad con ASMLib
+        url: "/unix-administration/concept_support_for_asmlib.html"
+      - title: Compatibilidad con bases de datos de ASM sin ASMLib
+        url: "/unix-administration/concept_support_for_asm_databases_without_asmlib.html"
+        entries:
+        - title: Scripts compatibles
+          url: "/unix-administration/concept_supported_scripts.html"
+        - title: Limitaciones de uso de scripts para admitir una base de datos ASM
+            sin ASMLib
+          url: "/unix-administration/concept_limitations_of_using_scripts_to_support_asm_database_without_asmlib.html"
+        - title: Implementar y ejecutar los scripts
+          url: "/unix-administration/task_deploying_and_running_the_scripts.html"
+          entries:
+          - title: Compatibilidad con bases de datos de ASM de Oracle RAC sin ASMLib
+            url: "/unix-administration/concept_support_for_oracle_rac_asm_databases.html"
+          - title: Compatibilidad con bases de datos ASM de Oracle 10g sin ASMLib
+            url: "/unix-administration/concept_support_for_oracle_10g_asm_databases.html"
+        - title: Secuencias de comandos de ejemplo para admitir bases de datos ASM
+            sin ASMLib
+          url: "/unix-administration/reference_sample_scripts_to_support_asm_databases_without_asmlib.html"
+      - title: Requisitos para usar bases de datos con NFS y SnapManager
+        url: "/unix-administration/concept_requirements_for_using_databases_with_nfs_and_snapmanager.html"
+      - title: Ejemplos de distribuciones de volúmenes de base de datos
+        url: "/unix-administration/reference_sample_database_volume_layouts.html"
+    - title: Limitaciones al trabajar con SnapManager
+      url: "/unix-administration/concept_limitations.html"
+      entries:
+      - title: Limitaciones de SnapManager para Clustered Data ONTAP
+        url: "/unix-administration/concept_snapmanger_limitations_for_clustered_data_ontap.html"
+      - title: Limitaciones relacionadas con Oracle Database
+        url: "/unix-administration/concept_limitations_related_to_oracle_database.html"
+        entries:
+        - title: Versiones obsoletas de la base de datos Oracle
+          url: "/unix-administration/concept_deprecated_versions_of_oracle_database.html"
+      - title: Restricciones en la gestión de volúmenes
+        url: "/unix-administration/concept_volume_management_restrictions.html"
+    - title: Actualizar SnapManager
+      url: "/unix-administration/concept_upgrading_snapmanager_for_oracle.html"
+      entries:
+      - title: Preparando la actualización de SnapManager
+        url: "/unix-administration/concept_preparing_to_upgrade_snapmanager_for_oracle.html"
+      - title: Actualizar los hosts SnapManager
+        url: "/unix-administration/task_upgrading_snapmanager_for_oracle_hosts_c1.html"
+      - title: Tareas posteriores a la actualización
+        url: "/unix-administration/concept_post_upgrade_tasks.html"
+        entries:
+        - title: Actualizando el repositorio existente
+          url: "/unix-administration/task_updating_the_existing_repository.html"
+        - title: Modificación de la clase de retención de backups
+          url: "/unix-administration/task_modifying_the_backup_retention_class.html"
+        - title: Restaurar tipos de proceso
+          url: "/unix-administration/concept_restore_process_identification.html"
+      - title: Actualizar hosts de SnapManager mediante actualización gradual
+        url: "/unix-administration/concept_upgrading_snapmanager_hosts_by_using_rolling_upgrade.html"
+        entries:
+        - title: Requisitos previos para realizar actualizaciones sucesivas
+          url: "/unix-administration/concept_prerequisites_for_performing_rolling_upgrade.html"
+        - title: Realizar la actualización gradual en un único host o en varios hosts
+          url: "/unix-administration/task_performing_rolling_upgrade_on_a_single_host_or_multiple_hosts.html"
+        - title: Qué es una reversión
+          url: "/unix-administration/concept_what_a_rollback_is.html"
+          entries:
+          - title: Limitaciones en la ejecución de una reversión
+            url: "/unix-administration/concept_limitations_for_performing_a_rollback.html"
+          - title: Requisitos previos para ejecutar una reversión
+            url: "/unix-administration/concept_prerequisites_for_performing_a_rollback.html"
+          - title: Ejecución de una reversión en un solo host o varios hosts
+            url: "/unix-administration/task_performing_a_rollback_on_a_single_host_or_multiple_hosts.html"
+          - title: Tareas posteriores a la reversión
+            url: "/unix-administration/task_post_rollback_tasks.html"
+    - title: Configurando SnapManager
+      url: "/unix-administration/concept_configuring_snapmanager_for_oraclesap.html"
+      entries:
+      - title: Parámetros de configuración de SnapManager
+        url: "/unix-administration/reference_snapmanager_configuration_parameters.html"
+        entries:
+        - title: Edición de los parámetros de configuración
+          url: "/unix-administration/task_editing_the_configuration_parameters.html"
+      - title: Configuración de SnapDrive para UNIX para un entorno activo/activo
+          de Veritas SFRAC
+        url: "/unix-administration/task_configuring_snapdrive_in_an_active_active_unix_environment.html"
+      - title: Configurar SnapManager para que sea compatible con el entorno de Veritas
+          SFRAC
+        url: "/unix-administration/task_configuring_snapmanager_for_oracle_with_veritas_file_system.html"
+      - title: Asegurarse de que ASM detecta discos importados
+        url: "/unix-administration/task_ensuring_that_asm_discovers_imported_disks.html"
+    - title: Seguridad y gestión de credenciales
+      url: "/unix-administration/concept_managing_security_and_credentials.html"
+      entries:
+      - title: Qué es la autenticación de usuario
+        url: "/unix-administration/concept_what_user_authentication_is.html"
+      - title: Acerca del control de acceso basado en roles
+        url: "/unix-administration/concept_about_role_based_access_control.html"
+        entries:
+        - title: Habilitar el control de acceso basado en roles
+          url: "/unix-administration/task_enabling_role_based_access_control.html"
+        - title: Establecimiento de funciones y funcionalidades de control de acceso
+            basado en roles
+          url: "/unix-administration/task_setting_role-based_access_control_capabilities_and_roles.html"
+      - title: Almacenamiento de contraseñas cifradas para secuencias de comandos
+          personalizadas
+        url: "/unix-administration/task_storing_encrypted_passwords_for_custom_scripts.html"
+      - title: Autorizando el acceso al repositorio
+        url: "/unix-administration/task_authorizing_user_access_to_the_repository.html"
+      - title: Autorizando el acceso a los perfiles
+        url: "/unix-administration/task_authorizing_user_access_to_profiles.html"
+      - title: Visualización de las credenciales de usuario
+        url: "/unix-administration/task_viewing_user_credentials.html"
+      - title: Borrar credenciales de usuario para todos los hosts, repositorios y
+          perfiles
+        url: "/unix-administration/task_clearing_user_credentials_for_all_hosts_repositories_and_profiles.html"
+        entries:
+        - title: Configuración de credenciales después de borrar la caché de credenciales
+          url: "/unix-administration/task_setting_credentials_after_clearing_credential_cache.html"
+      - title: Eliminación de credenciales para recursos individuales
+        url: "/unix-administration/task_deleting_credentials_for_individual_resources.html"
+        entries:
+        - title: Eliminación de credenciales de usuario para repositorios
+          url: "/unix-administration/task_deleting_user_credentials_for_repositories.html"
+        - title: Eliminación de credenciales de usuario para hosts
+          url: "/unix-administration/task_deleting_user_credentials_for_hosts.html"
+        - title: Eliminación de credenciales de usuario para perfiles
+          url: "/unix-administration/task_deleting_user_credentials_for_profiles.html"
+    - title: Gestionar perfiles para backups eficientes
+      url: "/unix-administration/concept_managing_profiles_for_efficient_backups.html"
+      entries:
+      - title: Creación de perfiles
+        url: "/unix-administration/task_creating_profiles.html"
+      - title: Nomenclatura de copias Snapshot
+        url: "/unix-administration/concept_snapshot_copy_naming.html"
+      - title: Cambiar el nombre de los perfiles
+        url: "/unix-administration/task_renaming_profiles.html"
+      - title: Cambio de contraseñas de perfil
+        url: "/unix-administration/task_changing_profile_passwords.html"
+      - title: Restablecimiento de la contraseña del perfil
+        url: "/unix-administration/task_resetting_profile_password.html"
+      - title: Autorizando el acceso a los perfiles
+        url: "/unix-administration/task_authorizing_user_access_to_profiles.html"
+      - title: Verificando perfiles
+        url: "/unix-administration/task_verifying_profiles.html"
+      - title: Actualizando perfiles
+        url: "/unix-administration/task_updating_profiles.html"
+      - title: Eliminar perfiles
+        url: "/unix-administration/task_deleting_profiles.html"
+    - title: Realizar backups de bases de datos
+      url: "/unix-administration/concept_database_backup_management.html"
+      entries:
+      - title: Qué son los backups de la base de datos SnapManager
+        url: "/unix-administration/concept_what_snapmanager_database_backups_are.html"
+      - title: Qué son los backups completos y parciales
+        url: "/unix-administration/concept_what_full_and_partial_backups_are.html"
+        entries:
+        - title: Los tipos de backup y la cantidad de copias de Snapshot
+          url: "/unix-administration/concept_backup_types_and_the_number_of_snapshot_copies.html"
+        - title: Backups completos en línea
+          url: "/unix-administration/concept_full_online_backups.html"
+        - title: Backups parciales en línea
+          url: "/unix-administration/concept_partial_online_backups.html"
+        - title: Ejemplos de operaciones de backup, restauración y recuperación
+          url: "/unix-administration/reference_examples_of_backup_restore_and_recover_operations.html"
+      - title: Acerca del manejo de archivos de registro de archivo y archivos de
+          control
+        url: "/unix-administration/concept_about_control_file_and_archive_log_file_handling.html"
+      - title: Qué es la programación de backups de base de datos
+        url: "/unix-administration/concept_what_database_backup_scheduling_is.html"
+      - title: Creación de backups de la base de datos
+        url: "/unix-administration/task_creating_database_backups.html"
+        entries:
+        - title: Eliminar archivos de registro de archivos
+          url: "/unix-administration/task_pruning_archive_log_files.html"
+        - title: Consolidación de backups de registros de archivos
+          url: "/unix-administration/task_consolidating_archive_log_backups.html"
+        - title: Programar la eliminación del archivo de registro de archivos
+          url: "/unix-administration/task_scheduling_archive_log_file_pruning.html"
+        - title: Protección de backups de registros de archivos
+          url: "/unix-administration/task_protecting_archive_log_backups.html"
+      - title: Qué es AutoSupport
+        url: "/unix-administration/concept_what_autosupport_is.html"
+        entries:
+        - title: Añadir sistemas de almacenamiento que funcionen en Clustered Data
+            ONTAP al host del servidor SnapManager
+          url: "/unix-administration/task_adding_storage_systems_to_the_snapmanager_server_host.html"
+        - title: Habilitar AutoSupport en SnapManager
+          url: "/unix-administration/task_enabling_autosupport_in_snapmanager.html"
+        - title: Deshabilitar AutoSupport en SnapManager
+          url: "/unix-administration/task_disabling_autosupport_in_snapmanager.html"
+      - title: Verificación de los backups de las bases de datos
+        url: "/unix-administration/task_verifying_database_backups.html"
+      - title: Cambiar la política de retención de backups
+        url: "/unix-administration/task_changing_the_backup_retention_policy.html"
+        entries:
+        - title: Retención permanente de backups
+          url: "/unix-administration/task_retaining_backups_forever.html"
+        - title: Asignar backups con una clase de retención específica
+          url: "/unix-administration/task_assigning_backups_with_a_specific_retention_class.html"
+        - title: Cambiar el comportamiento predeterminado de la política de retención
+          url: "/unix-administration/task_changing_the_retention_policy_default_behavior.html"
+        - title: Liberar o eliminar backups exentos de la política de retención
+          url: "/unix-administration/task_freeing_or_deleting_retention_policy_exempt_backups.html"
+      - title: Ver una lista de backups
+        url: "/unix-administration/task_viewing_a_list_of_backups.html"
+      - title: Ver los detalles de backup
+        url: "/unix-administration/task_viewing_backup_details.html"
+      - title: Montar backups
+        url: "/unix-administration/task_mounting_backups.html"
+      - title: Desmontaje de backups
+        url: "/unix-administration/task_unmounting_backups.html"
+      - title: Liberando backups
+        url: "/unix-administration/task_freeing_backups.html"
+      - title: Eliminar backups
+        url: "/unix-administration/task_deleting_backups.html"
+    - title: Programación de backups de bases de datos
+      url: "/unix-administration/concept_scheduling_database_backups.html"
+      entries:
+      - title: Creando programaciones de backup
+        url: "/unix-administration/task_creating_backup_schedules.html"
+      - title: Actualizar una programación de backup
+        url: "/unix-administration/task_updating_a_backup_schedule.html"
+      - title: Ver una lista de operaciones programadas
+        url: "/unix-administration/task_viewing_a_list_of_scheduled_operations.html"
+      - title: Suspensión de programaciones de backup
+        url: "/unix-administration/task_suspending_backup_schedules.html"
+      - title: Reanudar programaciones de backup
+        url: "/unix-administration/task_resuming_backup_schedules.html"
+      - title: Eliminación de programaciones de backup
+        url: "/unix-administration/task_deleting_backup_schedules.html"
+    - title: Restaurar backups de base de datos
+      url: "/unix-administration/concept_restoring_database_backup.html"
+      entries:
+      - title: Qué es la restauración de base de datos
+        url: "/unix-administration/concept_what_database_restore_is.html"
+        entries:
+        - title: Directrices sobre cuándo utilizar la restauración rápida
+          url: "/unix-administration/concept_when_can_you_use_fast_restore.html"
+          entries:
+          - title: Ventajas e inconvenientes del uso de la restauración rápida
+            url: "/unix-administration/concept_advantages_and_disadvantages_of_using_fast_restore.html"
+        - title: Rápidas comprobaciones de cumplimiento de la restauración
+          url: "/unix-administration/concept_fast_restore_eligibility_checks.html"
+        - title: Recuperación de backups
+          url: "/unix-administration/concept_backup_recovery.html"
+        - title: Estado de la base de datos necesario para el proceso de restauración
+          url: "/unix-administration/concept_database_state_needed_for_restore_process.html"
+        - title: Qué planes de vista previa de restauración son
+          url: "/unix-administration/concept_restore_preview_plans.html"
+      - title: Previsualizar la información de restauración de copias de seguridad
+        url: "/unix-administration/task_previewing_backup_restore_information.html"
+      - title: Restauración de backups mediante restauración rápida
+        url: "/unix-administration/task_restoring_backups_using_fast_restore.html"
+      - title: Restauración de backups mediante Single File SnapRestore
+        url: "/unix-administration/task_restoring_backup_using_single_file_snaprestore.html"
+      - title: Restaurar backups en el almacenamiento principal
+        url: "/unix-administration/task_restoring_backups_on_primary_storage.html"
+      - title: Realizar recuperaciones a nivel de bloque con Oracle Recovery Manager
+          (RMAN)
+        url: "/unix-administration/task_performing_block_level_recovery_with_rman.html"
+      - title: Restaurar los archivos de una ubicación alternativa
+        url: "/unix-administration/concept_restore_files_from_an_alternate_location.html"
+        entries:
+        - title: Restaurar backups desde una ubicación alternativa
+          url: "/unix-administration/concept_restore_backups_from_an_alternate_location_overview.html"
+          entries:
+          - title: Restauración de los datos de los archivos
+            url: "/unix-administration/concept_restoration_of_the_data_from_files.html"
+          - title: Restauración de datos desde el sistema de ficheros
+            url: "/unix-administration/concept_restoration_of_the_data_from_file_systems.html"
+          - title: Restauración de los datos desde dispositivos sin configurar
+            url: "/unix-administration/concept_restoration_of_the_data_from_raw_devices.html"
+        - title: Creando especificaciones de restauración
+          url: "/unix-administration/task_creating_restore_specifications.html"
+        - title: Restaurar backups desde una ubicación alternativa
+          url: "/unix-administration/task_restoring_backups_from_an_alternate_location.html"
+    - title: Clonar el backup de bases de datos
+      url: "/unix-administration/concept_cloning_database_backup.html"
+      entries:
+      - title: Qué es la clonación
+        url: "/unix-administration/concept_what_cloning_is.html"
+      - title: Métodos de clonación
+        url: "/unix-administration/concept_cloning_methods.html"
+      - title: Creando especificaciones de clon
+        url: "/unix-administration/task_creating_clone_specifications.html"
+        entries:
+        - title: Clonar bases de datos y usar scripts de plugins personalizados
+          url: "/unix-administration/task_cloning_databases_and_using_custom_plugin_scripts.html"
+      - title: Clonar bases de datos a partir de backups
+        url: "/unix-administration/task_cloning_databases_from_backups.html"
+      - title: Clonado de bases de datos en estado actual
+        url: "/unix-administration/task_cloning_databases_in_the_current_state.html"
+      - title: Clonado de backups de bases de datos sin necesidad de restablecer registros
+        url: "/unix-administration/task_cloning_database_backups_without_resetlogs.html"
+      - title: Consideraciones para clonar una base de datos en un host alternativo
+        url: "/unix-administration/concept_considerations_for_cloning_a_database_to_an_alternate_host.html"
+        entries:
+        - title: Clonar una base de datos en un host alternativo
+          url: "/unix-administration/task_cloning_a_database_to_an_alternate_host.html"
+      - title: Ver una lista de clones
+        url: "/unix-administration/task_viewing_a_list_of_clones.html"
+      - title: Visualización de información detallada de los clones
+        url: "/unix-administration/task_viewing_detailed_clone_information.html"
+      - title: Eliminar clones
+        url: "/unix-administration/task_deleting_clones.html"
+      - title: Dividir un clon
+        url: "/unix-administration/concept_splitting_a_clone.html"
+        entries:
+        - title: Ver una estimación de división de clones
+          url: "/unix-administration/task_viewing_clone_split_estimate.html"
+        - title: Dividir un clon en el almacenamiento principal o secundario
+          url: "/unix-administration/task_splitting_a_clone_on_a_primary_or_secondary_storage.html"
+        - title: Ver el estado del proceso de división de clones
+          url: "/unix-administration/task_viewing_status_of_clone_split_process.html"
+        - title: Ver el resultado del proceso de división de clones
+          url: "/unix-administration/task_viewing_the_result_of_the_clone_split_process.html"
+        - title: Detener el proceso de división de clones
+          url: "/unix-administration/task_stopping_the_clone_split_process.html"
+        - title: Eliminación de un perfil
+          url: "/unix-administration/task_deleting_profile.html"
+        - title: Destruir un perfil
+          url: "/unix-administration/task_destroying_split_clone_and_associated_profile.html"
+        - title: Eliminar un ciclo de operaciones de división de clones de una base
+            de datos de repositorio
+          url: "/unix-administration/task_deleting_a_clone_split_operation_cycle_from_a_repository_database.html"
+    - title: Introducción a la protección de datos en SnapManager
+      url: "/unix-administration/concept_introduction_to_data_protection_in_snapmanager.html"
+      entries:
+      - title: "¿Qué son las políticas de protección"
+        url: "/unix-administration/concept_what_protection_policies_are.html"
+      - title: Qué estados de protección son
+        url: "/unix-administration/concept_what_protection_states_are.html"
+      - title: Qué pools de recursos son
+        url: "/unix-administration/concept_what_resource_pools_are.html"
+      - title: Acerca de diferentes políticas de protección
+        url: "/unix-administration/concept_about_different_protection_policies.html"
+      - title: Configuración y habilitación de la protección de datos condicionada
+          por políticas
+        url: "/unix-administration/concept_configuring_and_enabling_policy_driven_data_protection.html"
+        entries:
+        - title: Configuración de DataFabric Manager Server y SnapDrive cuando el
+            control de acceso basado en roles está habilitado
+          url: "/unix-administration/task_configuring_snapdrive_when_rbac_is_enabled.html"
+        - title: La configuración de SnapDrive cuando RBAC no está habilitado
+          url: "/unix-administration/task_configuring_snapdrive_when_rbac_is_not_enabled.html"
+        - title: Comprender la habilitación o deshabilitación de la protección de
+            datos en el perfil
+          url: "/unix-administration/concept_understanding_enabling_or_disabling_of_data_protection_in_profile.html"
+      - title: Cómo SnapManager retiene los backups en el almacenamiento local
+        url: "/unix-administration/concept_how_snapmanager_retains_backups_on_the_local_storage.html"
+      - title: Aspectos que se deben tener en cuenta al realizar la protección de
+          datos
+        url: "/unix-administration/concept_prerequisites_for_data_protection.html"
+        entries:
+        - title: Licencias necesarias para la protección de datos en SnapManager
+          url: "/unix-administration/concept_licenses_required_for_data_protection.html"
+      - title: Protección de backups de bases de datos en almacenamiento secundario
+          o terciario
+        url: "/unix-administration/task_protecting_database_backups_on_secondary_storage.html"
+      - title: Restaurar backups protegidos a partir del almacenamiento secundario
+        url: "/unix-administration/concept_restoring_protected_backups_from_secondary_storage.html"
+        entries:
+        - title: Información general sobre restauraciones de backups protegidos
+          url: "/unix-administration/concept_restores_of_protected_backups_overview.html"
+        - title: Restaurar backups a partir del almacenamiento secundario
+          url: "/unix-administration/task_restoring_backups_from_secondary_storage.html"
+      - title: Clonar backups protegidos
+        url: "/unix-administration/task_cloning_protected_backups.html"
+    - title: SnapManager para Oracle usa Protection Manager para proteger un backup
+        de base de datos
+      url: "/unix-administration/concept_snapmanager_for_oracle_uses_protection_manager_to_protect_a_database_backup.html"
+      entries:
+      - title: Detalles de la base de datos de destino
+        url: "/unix-administration/concept_details_of_the_target_database.html"
+      - title: Configuración y topología de almacenamiento principal y secundario
+        url: "/unix-administration/concept_primary_and_secondary_storage_configuration_and_topology.html"
+      - title: Programa de backup y estrategia de retención
+        url: "/unix-administration/concept_backup_schedule_and_retention_strategy.html"
+      - title: Resumen de flujo de trabajo para backup de bases de datos local y secundario
+        url: "/unix-administration/concept_workflow_summary_for_local_and_secondary_database_backup.html"
+      - title: Protección de la configuración y ejecución de backups
+        url: "/unix-administration/task_protected_backup_configuration_and_execution.html"
+        entries:
+        - title: Uso de SnapManager para Oracle para crear el perfil de base de datos
+            para un backup local
+          url: "/unix-administration/task_using_snapmanager_for_oracle_to_create_the_database_profile_for_a_local_backup.html"
+        - title: Uso de Protection Manager para configurar un pool de recursos secundario
+          url: "/unix-administration/task_using_protection_manager_to_configure_a_secondary_resource_pool.html"
+        - title: Uso de Protection Manager para configurar las programaciones de backups
+            secundarios
+          url: "/unix-administration/task_using_protection_manager_to_configure_secondary_backup_schedules.html"
+        - title: Uso de Protection Manager para configurar una política de protección
+            de backups secundarios
+          url: "/unix-administration/task_using_protection_manager_to_configure_a_secondary_backup_protection_policy.html"
+        - title: Utilice SnapManager para Oracle para crear el perfil de base de datos
+            y asignar una política de protección
+          url: "/unix-administration/task_using_snapmanager_for_oracle_to_create_the_database_profile_and_assign_a_protection_policy.html"
+        - title: Uso de Protection Manager para aprovisionar el nuevo conjunto de
+            datos
+          url: "/unix-administration/task_using_protection_manager_to_provision_the_new_dataset.html"
+        - title: Uso de SnapManager para Oracle para crear un backup protegido
+          url: "/unix-administration/task_using_snapmanager_for_oracle_to_create_a_protected_backup.html"
+        - title: Usar SnapManager para Oracle para confirmar la protección del backup
+          url: "/unix-administration/task_using_snapmanager_for_oracle_to_confirm_backup_protection.html"
+      - title: Restauración de base de datos desde backup
+        url: "/unix-administration/task_database_restoration_from_backup.html"
+        entries:
+        - title: Uso de SnapManager para Oracle para restaurar un backup local en
+            el almacenamiento primario
+          url: "/unix-administration/task_use_snapmanager_for_oracle_to_restore_a_local_backup_on_primary_storage.html"
+        - title: Uso de SnapManager para Oracle para restaurar backups desde almacenamiento
+            secundario
+          url: "/unix-administration/task_using_snapmanager_for_oracle_to_restore_backups_from_secondary_storage.html"
+    - title: Realizando operaciones de gestión
+      url: "/unix-administration/concept_performing_management_operations.html"
+      entries:
+      - title: Ver una lista de operaciones
+        url: "/unix-administration/task_viewing_a_list_of_operations.html"
+      - title: Ver los detalles de la operación
+        url: "/unix-administration/task_viewing_operation_details.html"
+      - title: Emitir comandos desde un host alternativo
+        url: "/unix-administration/task_issuing_commands_from_an_alternate_host.html"
+      - title: Comprobación de la versión del software SnapManager
+        url: "/unix-administration/task_checking_the_snapmanager_software_version.html"
+      - title: Detener el servidor host SnapManager
+        url: "/unix-administration/task_stopping_the_snapmanager_host_server.html"
+      - title: Reiniciar el servidor host UNIX de SnapManager
+        url: "/unix-administration/task_restarting_the_snapmanager_unix_host_server.html"
+      - title: Desinstalar el software de un host UNIX
+        url: "/unix-administration/task_uninstalling_the_software_from_a_unix_host.html"
+    - title: Configuración de una notificación por correo electrónico
+      url: "/unix-administration/concept_configuring_e_mail_notification.html"
+      entries:
+      - title: Configuración de un servidor de correo para un repositorio
+        url: "/unix-administration/task_configuring_mail_server_for_a_repository.html"
+      - title: Configuración de la notificación por correo electrónico para un perfil
+          nuevo
+        url: "/unix-administration/task_configuring_e_mail_notification_for_a_new_profile.html"
+        entries:
+        - title: Personalización del asunto del correo electrónico para un nuevo perfil
+          url: "/unix-administration/task_customizing_e_mail_subject_for_a_new_profile.html"
+      - title: Configuración de la notificación por correo electrónico para un perfil
+          existente
+        url: "/unix-administration/task_configuring_e_mail_notification_for_an_existing_profile.html"
+        entries:
+        - title: Personalización del asunto del correo electrónico para un perfil
+            existente
+          url: "/unix-administration/task_customizing_the_email_subject_for_an_existing_profile.html"
+      - title: Configuración de notificación por correo electrónico de resumen para
+          varios perfiles
+        url: "/unix-administration/task_configuring_summary_e_mail_notification_for_multiple_profiles.html"
+      - title: Adición de un nuevo perfil para resumir las notificaciones por correo
+          electrónico
+        url: "/unix-administration/task_adding_new_profile_to_summary_notification.html"
+      - title: Adición de un perfil existente para resumir las notificaciones por
+          correo electrónico
+        url: "/unix-administration/task_adding_existing_profile_to_summary_notification.html"
+      - title: Desactivar la notificación por correo electrónico para varios perfiles
+        url: "/unix-administration/task_disabling_email_notification_for_multiple_profiles.html"
+    - title: Creación de archivos de especificación de tareas y secuencias de comandos
+        para operaciones de SnapManager
+      url: "/unix-administration/concept_creating_task_specification_file_and_scripts_for_snapmanager_operations.html"
+      entries:
+      - title: Crear scripts de tareas previas, tareas posteriores y directivas
+        url: "/unix-administration/task_creating_pretask_post_task_and_policy_scripts.html"
+        entries:
+        - title: Operaciones en scripts de tareas
+          url: "/unix-administration/concept_operations_in_task_scripts.html"
+        - title: Variables disponibles en los scripts de tareas para la operación
+            de backup
+          url: "/unix-administration/concept_variables_available_in_the_task_scripts_for_backup_operation.html"
+        - title: Variables disponibles en los scripts de tareas para la operación
+            de restauración
+          url: "/unix-administration/concept_variables_available_in_custom_script_for_restore_operation.html"
+        - title: Variables disponibles en los scripts de tareas para la operación
+            de clonado
+          url: "/unix-administration/concept_variables_available_in_the_task_scripts_for_clone_operation.html"
+        - title: Error al manejar en scripts personalizados
+          url: "/unix-administration/concept_error_handling_in_custom_scripts.html"
+      - title: Ver scripts de plugin de muestra
+        url: "/unix-administration/task_viewing_sample_plugin_scripts.html"
+      - title: Creación de scripts de tareas
+        url: "/unix-administration/task_creating_task_scripts.html"
+      - title: Almacenamiento de los scripts de tareas
+        url: "/unix-administration/task_storing_the_task_scripts.html"
+      - title: Verificar la instalación de los scripts de los plugins
+        url: "/unix-administration/task_verifying_installation_of_plugin_scripts.html"
+      - title: Creación de un archivo de especificación de tareas
+        url: "/unix-administration/task_creating_a_task_specification_file.html"
+      - title: Realizar operaciones de backup, restauración y clonado mediante scripts
+          previos y posteriores
+        url: "/unix-administration/task_performing_backup_restore_and_clone_operations_using_prescript_and_post_scripts.html"
+    - title: Actualizar el nombre del sistema de almacenamiento y el nombre de host
+        de la base de datos de destino asociados con un perfil
+      url: "/unix-administration/concept_updating_storage_controller_name_and_database_hostname_associated_with_a_profile.html"
+      entries:
+      - title: Actualizar el nombre del sistema de almacenamiento asociado con un
+          perfil
+        url: "/unix-administration/task_updating_storage_system_name_associated_with_a_profile.html"
+      - title: Ver una lista de sistemas de almacenamiento asociados a un perfil
+        url: "/unix-administration/task_viewing_a_list_of_storage_controllers_associated_with_a_profile.html"
+      - title: Actualizar el nombre de host de la base de datos de destino asociado
+          a un perfil
+        url: "/unix-administration/task_updating_target_database_hostname_associated_with_a_profile.html"
+    - title: Mantener el historial de operaciones de SnapManager
+      url: "/unix-administration/concept_maintaining_history_of_snapmanager_operations.html"
+      entries:
+      - title: Configurar el historial de funcionamiento de SnapManager
+        url: "/unix-administration/task_configuring_history_for_backup_operation.html"
+      - title: Ver una lista del historial de operaciones de SnapManager
+        url: "/unix-administration/task_viewing_a_list_of_snapmanager_history_operation_as_a_report.html"
+      - title: Ver el historial detallado de una operación específica asociada a un
+          perfil
+        url: "/unix-administration/task_viewing_the_detailed_history_of_a_specific_operation_associated_with_a_profile.html"
+      - title: Eliminando historial de operación de SnapManager
+        url: "/unix-administration/task_purging_history_of_snapmanager_operation.html"
+      - title: Eliminar la configuración del historial asociada a un único perfil
+          o a varios perfiles
+        url: "/unix-administration/task_removing_history_configuration_associated_with_a_single_profile_or_multiple_profiles.html"
+      - title: Ver detalles de configuración del historial de SnapManager
+        url: "/unix-administration/task_viewing_snapmanger_history_operation_details.html"
+    - title: Referencia de comandos de SnapManager para Oracle
+      url: "/unix-administration/concept_snapmanager_for_oraclefor_sap_command_reference.html"
+      entries:
+      - title: El comando smo_Server restart
+        url: "/unix-administration/reference_the_smosmsap_server_restart_command.html"
+      - title: El comando start smo_Server
+        url: "/unix-administration/reference_the_smosmsap_server_start_command.html"
+      - title: El comando de estado del servidor smo_server
+        url: "/unix-administration/reference_the_smosmsap_server_status_command.html"
+      - title: El comando smo_Server stop
+        url: "/unix-administration/reference_the_smosmsap_server_stop_command.html"
+      - title: El comando smo backup create
+        url: "/unix-administration/reference_the_smosmsapbackup_create_command.html"
+      - title: El comando smo backup delete
+        url: "/unix-administration/reference_the_smosmsapbackup_delete_command.html"
+      - title: El comando libre de backup de smo
+        url: "/unix-administration/reference_the_smosmsapbackup_free_command.html"
+      - title: El comando smo backup list
+        url: "/unix-administration/reference_the_smosmsapbackup_list_command.html"
+      - title: El comando de montaje de backup de smo
+        url: "/unix-administration/reference_the_smosmsapbackup_mount_command.html"
+      - title: El comando smo backup restore
+        url: "/unix-administration/reference_the_smosmsapbackup_restore_command.html"
+      - title: El comando smo backup show
+        url: "/unix-administration/reference_the_smosmsapbackup_show_command.html"
+      - title: El comando de desmontaje del backup de smo
+        url: "/unix-administration/reference_the_smosmsapbackup_unmount_command.html"
+      - title: El comando de actualización de backup de smo
+        url: "/unix-administration/reference_the_smosmsapbackup_update_command.html"
+      - title: El comando smo backup verify
+        url: "/unix-administration/reference_the_smosmsapbackup_verify_command.html"
+      - title: El comando smo clone create
+        url: "/unix-administration/reference_the_smosmsapclone_create_command.html"
+      - title: El comando smo clone delete
+        url: "/unix-administration/reference_the_smosmsapclone_delete_command.html"
+      - title: El comando smo clone list
+        url: "/unix-administration/reference_the_smosmsapclone_list_command.html"
+      - title: El comando smo clone show
+        url: "/unix-administration/reference_the_smosmsapclone_show_command.html"
+      - title: El comando de plantilla de clon de smo
+        url: "/unix-administration/reference_the_smosmsapclone_template_command.html"
+      - title: El comando smo clone update
+        url: "/unix-administration/reference_the_smosmsap_clone_update_command.html"
+      - title: El comando smo clone split-delete
+        url: "/unix-administration/reference_the_smosmsap_clone_split_delete_command.html"
+      - title: El comando smo clone split-estimation
+        url: "/unix-administration/reference_the_smosmsap_clone_splitestimate_command.html"
+      - title: El comando de división de clones de smo
+        url: "/unix-administration/reference_the_smosmsap_clone_split_command.html"
+      - title: El comando split-result de clon de smo
+        url: "/unix-administration/reference_the_smosmsap_clone_split_result_command.html"
+      - title: El comando de parada por división de clones de smo
+        url: "/unix-administration/reference_the_smosmsap_clone_stopsplit_command.html"
+      - title: El comando de estado dividido de clon de smo
+        url: "/unix-administration/reference_the_smosmsap_clone_splitstatus_command.html"
+      - title: El comando smo clone detach
+        url: "/unix-administration/reference_the_smosmsap_clone_detach_command.html"
+      - title: El comando cmdfile de smo
+        url: "/unix-administration/reference_the_smosmsapcmdfile_command.html"
+      - title: El comando smo credential clear
+        url: "/unix-administration/reference_the_smosmsapcredential_clear_command.html"
+      - title: El comando smo credential delete
+        url: "/unix-administration/reference_the_smosmsapcredential_delete_command.html"
+      - title: El comando smo credential list
+        url: "/unix-administration/reference_the_smosmsapcredential_list_command.html"
+      - title: El comando smo credential set
+        url: "/unix-administration/reference_the_smosmsapcredential_set_command.html"
+      - title: El comando smo history list
+        url: "/unix-administration/reference_the_smosmsap_history_list_command.html"
+      - title: El comando Operation-show de historial de smo
+        url: "/unix-administration/reference_the_smosmsap_history_operation_show_command.html"
+      - title: El comando smo history purge
+        url: "/unix-administration/reference_the_smosmsap_history_purge_command.html"
+      - title: El comando smo history remove
+        url: "/unix-administration/reference_the_smosmsap_history_remove_command.html"
+      - title: El comando smo history set
+        url: "/unix-administration/reference_the_smosmsap_history_set_command.html"
+      - title: El comando smo history show
+        url: "/unix-administration/reference_the_smo_smsap_history_show_command.html"
+      - title: El comando smo help
+        url: "/unix-administration/reference_the_smosmsaphelp_command.html"
+      - title: El comando remove-summary-notification de la notificación de smo
+        url: "/unix-administration/reference_the_smo_notification_removesummarynotification_command.html"
+      - title: El comando de notificación de actualización-resumen-notificación de
+          smo
+        url: "/unix-administration/reference_the_smosmsap_notification_updatesummarynotification_command.html"
+      - title: El comando smo notification set
+        url: "/unix-administration/reference_the_smosmsap_notification_set_command.html"
+      - title: El comando de volcado de la operación de smo
+        url: "/unix-administration/reference_the_smosmsapoperation_dump_command.html"
+      - title: El comando smo operation list
+        url: "/unix-administration/reference_the_smosmsapoperation_list_command.html"
+      - title: El comando smo operation show
+        url: "/unix-administration/reference_the_smosmsap_operation_show_command.html"
+      - title: El comando smo password reset
+        url: "/unix-administration/reference_the_smosmsap_password_reset_command.html"
+      - title: El comando smo plugin check
+        url: "/unix-administration/reference_the_smosmsap_plugin_check_command.html"
+      - title: El comando smo profile create
+        url: "/unix-administration/reference_the_smosmsapprofile_create_command.html"
+      - title: El comando smo profile delete
+        url: "/unix-administration/reference_the_smosmsapprofile_delete_command.html"
+      - title: El comando smo profile destroy
+        url: "/unix-administration/reference_the_smosmsap_profile_destroy_command.html"
+      - title: El comando smo profile dump
+        url: "/unix-administration/reference_the_smosmsapprofile_dump_command.html"
+      - title: El comando smo profile list
+        url: "/unix-administration/reference_the_smosmsapprofile_list_command.html"
+      - title: El comando smo profile show
+        url: "/unix-administration/reference_the_smosmsapprofile_show_command.html"
+      - title: El comando smo profile SYNC
+        url: "/unix-administration/reference_the_smosmsapprofile_sync_command.html"
+      - title: El comando smo profile update
+        url: "/unix-administration/reference_the_smosmsapprofile_update_command.html"
+      - title: El comando smo profile verify
+        url: "/unix-administration/reference_the_smosmsapprofile_verify_command.html"
+      - title: El comando smo protection-policy
+        url: "/unix-administration/reference_the_smosmsapprotection_policy_command.html"
+      - title: El comando smo repository create
+        url: "/unix-administration/reference_the_smosmsaprepository_create_command.html"
+      - title: El comando smo repository delete
+        url: "/unix-administration/reference_the_smosmsaprepository_delete_command.html"
+      - title: El comando rollback del almacén de smo
+        url: "/unix-administration/reference_the_smosmsap_repository_rollingback_command.html"
+      - title: El comando rollingupgrade del almacén de smo
+        url: "/unix-administration/reference_the_smosmsap_repository_rollingupgrade.html"
+      - title: El comando smo repository show
+        url: "/unix-administration/reference_the_smosmsaprepository_show_command.html"
+      - title: El comando de actualización del almacén de smo
+        url: "/unix-administration/reference_the_smosmsaprepository_update_command.html"
+      - title: El comando smo schedule create
+        url: "/unix-administration/reference_the_smosmsap_schedule_create_command.html"
+      - title: El comando smo schedule delete
+        url: "/unix-administration/reference_the_smosmsap_schedule_delete_command.html"
+      - title: El comando smo schedule list
+        url: "/unix-administration/reference_the_smosmsap_schedule_list_command.html"
+      - title: El comando smo schedule resume
+        url: "/unix-administration/reference_the_smosmsap_schedule_resume_command.html"
+      - title: El comando smo schedule suspend
+        url: "/unix-administration/reference_the_smosmsap_schedule_suspend_command.html"
+      - title: El comando smo schedule update
+        url: "/unix-administration/reference_the_smosmsap_schedule_update_command.html"
+      - title: El comando smo Storage list
+        url: "/unix-administration/reference_the_smosmsap_storage_list_command.html"
+      - title: El comando smo Storage rename
+        url: "/unix-administration/reference_the_smosmsap_storage_rename_command.html"
+      - title: El comando dump del sistema de smo
+        url: "/unix-administration/reference_the_smosmsapsystem_dump_command.html"
+      - title: El comando smo system verify
+        url: "/unix-administration/reference_the_smosmsapsystem_verify_command.html"
+      - title: El comando version de smo
+        url: "/unix-administration/reference_the_smosmsapversion_command.html"
+    - title: Resolución de problemas de SnapManager
+      url: "/unix-administration/reference_troubleshooting_snapmanager.html"
+      entries:
+      - title: Volcar archivos
+        url: "/unix-administration/concept_dump_files.html"
+        entries:
+        - title: Creación de archivos de volcado en el nivel de las operaciones
+          url: "/unix-administration/task_creating_operation_level_dump_files.html"
+        - title: Creación de archivos de volcado a nivel de perfil
+          url: "/unix-administration/task_creating_profile_level_dump_files.html"
+        - title: Creación de archivos de volcado en el nivel del sistema
+          url: "/unix-administration/task_creating_system_level_dump_files.html"
+        - title: Cómo localizar archivos de volcado
+          url: "/unix-administration/reference_how_to_locate_dump_files.html"
+        - title: Cómo recopilar archivos de volcado
+          url: "/unix-administration/concept_how_to_collect_dump_files.html"
+        - title: Recopilación de información de registro adicional para facilitar
+            la depuración
+          url: "/unix-administration/concept_collecting_additional_log_information_for_easier_debugging.html"
+      - title: Solucionar problemas de clones
+        url: "/unix-administration/reference_troubleshooting_clone_issues.html"
+      - title: Solución de problemas de la interfaz gráfica de usuario
+        url: "/unix-administration/reference_troubleshooting_graphical_user_interface_issues.html"
+      - title: Resolución de problemas de SnapDrive
+        url: "/unix-administration/reference_troubleshooting_snapdrive_issues.html"
+      - title: Solucionar problemas de cambio de nombre del sistema de almacenamiento
+        url: "/unix-administration/reference_troubleshooting_storage_system_renaming_issue.html"
+      - title: Resolución de problemas conocidos
+        url: "/unix-administration/reference_troubleshooting_known_issues.html"
+      - title: Se produce un error en el montaje de un volumen FlexClone en un entorno
+          NFS
+        url: "/unix-administration/reference_mounting_a_flexclone_fails_in_nfs_environment.html"
+      - title: Se produce un error en la ejecución de varias operaciones paralelas
+          en SnapManager
+        url: "/unix-administration/reference_running_multiple_parallel_operations_fail_in_snapmanager.html"
+      - title: No se puede restaurar la base de datos de RAC desde uno de los nodos
+          de RAC donde no se creó el perfil
+        url: "/unix-administration/reference_unable_to_restore_rac_database_from_rac_node_where_the_profile_was_not_created.html"
+      - title: Dónde obtener más información
+        url: "/unix-administration/reference_where_to_go_for_more_information.html"
+    - title: Clasificación de mensajes de error
+      url: "/unix-administration/reference_error_message_classifications.html"
+    - title: Mensajes de error
+      url: "/unix-administration/reference_error_messages.html"
+  - title: Instalación y configuración para Windows
+    url: "/windows/index.html"
+    entries:
+    - title: Qué es para Oracle
+      url: "/windows/concept_what_snapmanager_for_oraclefor_sap_is.html"
+      entries:
+      - title: Qué hace SnapManager para Oracle
+        url: "/windows/concept_what_snapmanager_for_oraclesnapmanager_for_sap_does.html"
+      - title: Integración con otras aplicaciones y tecnologías de NetApp
+        url: "/windows/concept_integration_with_other_netapp_applications_and_technologies.html"
+      - title: Ventajas de usar SnapManager
+        url: "/windows/concept_advantages_of_using_snapmanager.html"
+        entries:
+        - title: Crear backups usando copias de Snapshot
+          url: "/windows/concept_create_backups_using_snapshot_copies.html"
+        - title: Por qué debe prune los archivos de registro de archivos
+          url: "/windows/concept_why_you_should_prune_archive_log_files.html"
+        - title: Consolidación de registros de archivo
+          url: "/windows/concept_archive_log_consolidation.html"
+        - title: Restauración total o parcial de bases de datos
+          url: "/windows/concept_full_or_partial_restoration_of_the_database.html"
+        - title: Comprobar el estado del backup
+          url: "/windows/concept_verify_backup_status.html"
+        - title: Clones de backups de bases de datos
+          url: "/windows/concept_clone_database_backups.html"
+        - title: Realizar un seguimiento de los detalles y generar informes
+          url: "/windows/concept_track_details_and_produce_reports.html"
+      - title: En qué consiste la arquitectura de SnapManager para Oracle
+        url: "/windows/concept_what_the_snapmanager_architecture_is.html"
+        entries:
+        - title: Host SnapManager
+          url: "/windows/concept_snapmanager_host.html"
+        - title: Interfaces gráficas de usuario y de línea de comandos de SnapManager
+          url: "/windows/concept_snapmanager_graphical_user_and_command_line_interfaces.html"
+        - title: Repositorio de SnapManager
+          url: "/windows/concept_snapmanager_repository.html"
+        - title: SnapDrive en el servidor SnapManager
+          url: "/windows/concept_snapdrive_on_snapmanager_server.html"
+      - title: Qué repositorios son
+        url: "/windows/concept_what_repositories_are.html"
+      - title: Qué perfiles son
+        url: "/windows/concept_what_profiles_are.html"
+      - title: Qué son los estados de operación de SnapManager
+        url: "/windows/concept_what_snapmanager_operation_states_are.html"
+      - title: Cómo mantiene SnapManager la seguridad
+        url: "/windows/concept_snapmanager_security.html"
+      - title: Acceso e impresión de la Ayuda en línea
+        url: "/windows/task_accessing_and_printing_online_help.html"
+    - title: Consideraciones sobre la puesta en marcha de SnapManager para Oracle
+      url: "/windows/concept_snapmanager_for_oracle_deployment_considerations.html"
+      entries:
+      - title: Requisitos para ejecutar SnapManager
+        url: "/windows/concept_requirements_for_running_snapmanager.html"
+        entries:
+        - title: Hardware host compatible
+          url: "/windows/concept_supported_host_hardware.html"
+        - title: Configuraciones generales admitidas
+          url: "/windows/concept_supported_general_configurations.html"
+        - title: Configuraciones en clúster
+          url: "/windows/concept_clustered_configurations.html"
+      - title: Compatibilidad con la versión de la base de datos y información general
+          de la configuración
+        url: "/windows/concept_database_version_support_and_configuration_overview.html"
+        entries:
+        - title: Diseño y configuración generales
+          url: "/windows/concept_general_layout_and_configuration.html"
+        - title: Ejemplos de distribuciones de volúmenes de base de datos
+          url: "/windows/reference_sample_database_volume_layouts.html"
+      - title: Limitaciones al trabajar con SnapManager
+        url: "/windows/concept_limitations.html"
+      - title: Las funciones de SnapManager y las tecnologías de Oracle no son compatibles
+          con Windows
+        url: "/windows/concept_snapmanager_features_and_oracle_technologies_not_supported_on_windows.html"
+      - title: Limitaciones de SnapManager para Clustered Data ONTAP
+        url: "/windows/concept_snapmanger_limitations_for_clustered_data_ontap.html"
+      - title: Limitaciones relacionadas con Oracle Database
+        url: "/windows/concept_limitations_related_to_oracle_database.html"
+      - title: Versiones obsoletas de la base de datos Oracle
+        url: "/windows/concept_deprecated_versions_of_oracle_database.html"
+    - title: Instalar SnapManager para Oracle
+      url: "/windows/concept_installing_snapmanager_for_oracle.html"
+      entries:
+      - title: Preparar la instalación de SnapManager para Oracle
+        url: "/windows/concept_preparing_to_install_snapmanager_for_oracle.html"
+        entries:
+        - title: Tareas de preinstalación
+          url: "/windows/concept_preinstallation_tasks.html"
+        - title: Descargue el paquete de instalación de SnapManager para Oracle
+          url: "/windows/task_downloading_snapmanager_for_oracle_installation_package.html"
+      - title: Instalar SnapManager para Oracle
+        url: "/windows/task_installing_snapmanager_for_oracle.html"
+    - title: Actualizar SnapManager
+      url: "/windows/concept_upgrading_snapmanager_for_oracle.html"
+      entries:
+      - title: Preparando la actualización de SnapManager
+        url: "/windows/concept_preparing_to_upgrade_snapmanager_for_oracle.html"
+      - title: Actualizar hosts SnapManager
+        url: "/windows/task_upgrading_snapmanager_for_oracle_hosts.html"
+      - title: Tareas posteriores a la actualización
+        url: "/windows/concept_post_upgrade_tasks.html"
+        entries:
+        - title: Actualizando el repositorio existente
+          url: "/windows/task_updating_the_existing_repository.html"
+        - title: Modificación de la clase de retención de backups
+          url: "/windows/task_modifying_the_backup_retention_class.html"
+      - title: Actualizar hosts de SnapManager mediante actualización gradual
+        url: "/windows/concept_upgrading_snapmanager_hosts_by_using_rolling_upgrade.html"
+        entries:
+        - title: Requisitos previos para realizar la actualización gradual
+          url: "/windows/concept_prerequisites_for_performing_rolling_upgrade.html"
+        - title: Realizar la actualización gradual en un único host o en varios hosts
+          url: "/windows/task_performing_rolling_upgrade_on_a_single_host_or_multiple_hosts.html"
+        - title: Qué es una reversión
+          url: "/windows/concept_what_a_rollback_is.html"
+          entries:
+          - title: Limitaciones en la ejecución de una reversión
+            url: "/windows/concept_limitations_for_performing_a_rollback.html"
+          - title: Requisitos previos para ejecutar una reversión
+            url: "/windows/concept_prerequisites_for_performing_a_rollback.html"
+          - title: Ejecución de una reversión en un solo host o varios hosts
+            url: "/windows/task_performing_a_rollback_on_a_single_host_or_multiple_hosts.html"
+          - title: Tareas posteriores a la reversión
+            url: "/windows/task_post_rollback_tasks.html"
+    - title: Configurando SnapManager
+      url: "/windows/concept_configuring_snapmanager_for_oraclesap.html"
+      entries:
+      - title: Parámetros de configuración de SnapManager
+        url: "/windows/reference_snapmanager_configuration_parameters.html"
+        entries:
+        - title: Edición de los parámetros de configuración
+          url: "/windows/task_editing_the_configuration_parameters.html"
+    - title: Comenzando por Oracle
+      url: "/windows/task_starting_snapmanager_for_oraclefor_sap.html"
+      entries:
+      - title: Identificación de una base de datos existente para realizar una copia
+          de seguridad
+        url: "/windows/task_identifying_an_existing_database_to_backup.html"
+      - title: Verificación del estado del listener de Oracle
+        url: "/windows/task_verifying_the_oracle_listener_status.html"
+      - title: Crear usuarios de Oracle para la base de datos del repositorio
+        url: "/windows/task_creating_oracle_users_for_the_repository_database.html"
+      - title: Crear un usuario de Oracle para la base de datos de destino
+        url: "/windows/task_creating_an_oracle_user_for_the_target_database.html"
+      - title: Acceso a SnapManager
+        url: "/windows/concept_accessing_snapmanager.html"
+        entries:
+        - title: Iniciar el servidor host SnapManager
+          url: "/windows/task_starting_the_snapmanager_windows_host_server.html"
+          entries:
+          - title: Verificación del estado del servidor host SnapManager
+            url: "/windows/task_verifying_the_snapmanager_windows_host_server_status.html"
+        - title: El uso de comandos de la SnapManager
+          url: "/windows/task_using_snapmanager_commands.html"
+        - title: Inicia la interfaz gráfica de usuario de SnapManager
+          url: "/windows/task_starting_the_snapmanager_graphical_user_interface.html"
+        - title: Descarga e inicio de la interfaz gráfica de usuario mediante Java
+            Web Start
+          url: "/windows/task_downloading_and_starting_the_graphical_user_interface_using_java_web_start_windows.html"
+      - title: Verificación del entorno
+        url: "/windows/task_verifying_the_environment.html"
+        entries:
+        - title: Verificando SnapDrive para Windows
+          url: "/windows/task_verifying_snapdrive_for_windows.html"
+      - title: Creación de repositorios
+        url: "/windows/task_creating_repositories.html"
+        entries:
+        - title: Cómo organizar repositorios
+          url: "/windows/concept_how_to_organize_repositories.html"
+      - title: Orden de realización de operaciones
+        url: "/windows/task_order_of_performing_operations.html"
+    - title: Seguridad y gestión de credenciales
+      url: "/windows/concept_managing_security_and_credentials.html"
+      entries:
+      - title: Qué es la autenticación de usuario
+        url: "/windows/concept_what_user_authentication_is.html"
+      - title: Almacenamiento de contraseñas cifradas para secuencias de comandos
+          personalizadas
+        url: "/windows/task_storing_encrypted_passwords_for_custom_scripts.html"
+      - title: Autorizando el acceso al repositorio
+        url: "/windows/task_authorizing_user_access_to_the_repository.html"
+      - title: Autorizando el acceso a los perfiles
+        url: "/windows/task_authorizing_user_access_to_profiles.html"
+      - title: Visualización de las credenciales de usuario
+        url: "/windows/task_viewing_user_credentials.html"
+      - title: Borrar credenciales de usuario para todos los hosts, repositorios y
+          perfiles
+        url: "/windows/task_clearing_user_credentials_for_all_hosts_repositories_and_profiles.html"
+        entries:
+        - title: Configuración de credenciales después de borrar la caché de credenciales
+          url: "/windows/task_setting_credentials_after_clearing_credential_cache.html"
+      - title: Eliminación de credenciales para recursos individuales
+        url: "/windows/task_deleting_credentials_for_individual_resources.html"
+        entries:
+        - title: Eliminación de credenciales de usuario para repositorios
+          url: "/windows/task_deleting_user_credentials_for_repositories.html"
+        - title: Eliminación de credenciales de usuario para hosts
+          url: "/windows/task_deleting_user_credentials_for_hosts.html"
+        - title: Eliminación de credenciales de usuario para perfiles
+          url: "/windows/task_deleting_user_credentials_for_profiles.html"
+    - title: Gestionar perfiles para backups eficientes
+      url: "/windows/concept_managing_profiles_for_efficient_backups.html"
+      entries:
+      - title: Creación de perfiles
+        url: "/windows/task_creating_profiles.html"
+      - title: Nomenclatura de copias Snapshot
+        url: "/windows/concept_snapshot_copy_naming.html"
+      - title: Cambiar el nombre de los perfiles
+        url: "/windows/task_renaming_profiles.html"
+      - title: Cambio de contraseñas de perfil
+        url: "/windows/task_changing_profile_passwords.html"
+      - title: Restablecimiento de la contraseña del perfil
+        url: "/windows/task_resetting_profile_password.html"
+      - title: Autorizando el acceso a los perfiles
+        url: "/windows/task_authorizing_user_access_to_profiles.html"
+      - title: Verificando perfiles
+        url: "/windows/task_verifying_profiles.html"
+      - title: Actualizando perfiles
+        url: "/windows/task_updating_profiles.html"
+      - title: Eliminar perfiles
+        url: "/windows/task_deleting_profiles.html"
+    - title: Realizar backups de bases de datos
+      url: "/windows/concept_database_backup_management.html"
+      entries:
+      - title: Qué son los backups de la base de datos SnapManager
+        url: "/windows/concept_what_snapmanager_database_backups_are.html"
+      - title: Qué son los backups completos y parciales
+        url: "/windows/concept_what_full_and_partial_backups_are.html"
+        entries:
+        - title: Los tipos de backup y la cantidad de copias de Snapshot
+          url: "/windows/concept_backup_types_and_the_number_of_snapshot_copies.html"
+        - title: Backups completos en línea
+          url: "/windows/concept_full_online_backups.html"
+        - title: Backups parciales en línea
+          url: "/windows/concept_partial_online_backups.html"
+        - title: Ejemplos de operaciones de backup, restauración y recuperación
+          url: "/windows/reference_examples_of_backup_restore_and_recover_operations.html"
+      - title: Acerca del manejo de archivos de registro de archivo y archivos de
+          control
+        url: "/windows/concept_about_control_file_and_archive_log_file_handling.html"
+      - title: Qué es la programación de backups de base de datos
+        url: "/windows/concept_what_database_backup_scheduling_is.html"
+      - title: Creación de backups de la base de datos
+        url: "/windows/task_creating_database_backups.html"
+        entries:
+        - title: Eliminar archivos de registro de archivos
+          url: "/windows/task_pruning_archive_log_files.html"
+        - title: Consolidación de backups de registros de archivos
+          url: "/windows/task_consolidating_archive_log_backups.html"
+        - title: Programar la eliminación del archivo de registro de archivos
+          url: "/windows/task_scheduling_archive_log_file_pruning.html"
+      - title: Qué es AutoSupport
+        url: "/windows/concept_what_autosupport_is.html"
+        entries:
+        - title: Añadir sistemas de almacenamiento que funcionen en Clustered Data
+            ONTAP al host del servidor SnapManager
+          url: "/windows/task_adding_storage_systems_to_the_snapmanager_server_host.html"
+        - title: Habilitar AutoSupport en SnapManager
+          url: "/windows/task_enabling_autosupport_in_snapmanager.html"
+        - title: Deshabilitar AutoSupport en SnapManager
+          url: "/windows/task_disabling_autosupport_in_snapmanager.html"
+      - title: Verificación de los backups de las bases de datos
+        url: "/windows/task_verifying_database_backups.html"
+      - title: Cambiar la política de retención de backups
+        url: "/windows/task_changing_the_backup_retention_policy.html"
+        entries:
+        - title: Retención permanente de backups
+          url: "/windows/task_retaining_backups_forever.html"
+        - title: Asignar backups con una clase de retención específica
+          url: "/windows/task_assigning_backups_with_a_specific_retention_class.html"
+        - title: Cambiar el comportamiento predeterminado de la política de retención
+          url: "/windows/task_changing_the_retention_policy_default_behavior.html"
+        - title: Liberar o eliminar backups exentos de la política de retención
+          url: "/windows/task_freeing_or_deleting_retention_policy_exempt_backups.html"
+      - title: Ver una lista de backups
+        url: "/windows/task_viewing_a_list_of_backups.html"
+      - title: Ver los detalles de backup
+        url: "/windows/task_viewing_backup_details.html"
+      - title: Montar backups
+        url: "/windows/task_mounting_backups.html"
+      - title: Desmontaje de backups
+        url: "/windows/task_unmounting_backups.html"
+      - title: Liberando backups
+        url: "/windows/task_freeing_backups.html"
+      - title: Eliminar backups
+        url: "/windows/task_deleting_backups.html"
+    - title: Programación de backups de bases de datos
+      url: "/windows/concept_scheduling_database_backups.html"
+      entries:
+      - title: Creando programaciones de backup
+        url: "/windows/task_creating_backup_schedules.html"
+      - title: Actualizar una programación de backup
+        url: "/windows/task_updating_a_backup_schedule.html"
+      - title: Ver una lista de operaciones programadas
+        url: "/windows/task_viewing_a_list_of_scheduled_operations.html"
+      - title: Suspensión de programaciones de backup
+        url: "/windows/task_suspending_backup_schedules.html"
+      - title: Reanudar programaciones de backup
+        url: "/windows/task_resuming_backup_schedules.html"
+      - title: Eliminación de programaciones de backup
+        url: "/windows/task_deleting_backup_schedules.html"
+    - title: Restaurar backups de base de datos
+      url: "/windows/concept_restoring_database_backup.html"
+      entries:
+      - title: Qué es la restauración de base de datos
+        url: "/windows/concept_what_database_restore_is.html"
+        entries:
+        - title: Recuperación de backups
+          url: "/windows/concept_backup_recovery.html"
+        - title: Estado de la base de datos necesario para el proceso de restauración
+          url: "/windows/concept_database_state_needed_for_restore_process.html"
+        - title: Qué planes de vista previa de restauración son
+          url: "/windows/concept_restore_preview_plans.html"
+      - title: Previsualizar la información de restauración de copias de seguridad
+        url: "/windows/task_previewing_backup_restore_information.html"
+      - title: Restaurar backups en el almacenamiento principal
+        url: "/windows/task_restoring_backups_on_primary_storage.html"
+      - title: Realizar recuperaciones a nivel de bloque con Oracle Recovery Manager
+          (RMAN)
+        url: "/windows/task_performing_block_level_recovery_with_rman.html"
+      - title: Restaurar los archivos de una ubicación alternativa
+        url: "/windows/concept_restore_files_from_an_alternate_location.html"
+        entries:
+        - title: Restaurar backups desde una ubicación alternativa
+          url: "/windows/concept_restore_backups_from_an_alternate_location_overview.html"
+          entries:
+          - title: Restauración de los datos de los archivos
+            url: "/windows/concept_restoration_of_the_data_from_files.html"
+          - title: Restauración de datos desde el sistema de ficheros
+            url: "/windows/concept_restoration_of_the_data_from_file_systems.html"
+        - title: Creando especificaciones de restauración
+          url: "/windows/task_creating_restore_specifications.html"
+        - title: Restaurar backups desde una ubicación alternativa
+          url: "/windows/task_restoring_backups_from_an_alternate_location.html"
+    - title: Clonar el backup de bases de datos
+      url: "/windows/concept_cloning_database_backup.html"
+      entries:
+      - title: Qué es la clonación
+        url: "/windows/concept_what_cloning_is.html"
+      - title: Métodos de clonación
+        url: "/windows/concept_cloning_methods.html"
+      - title: Creando especificaciones de clon
+        url: "/windows/task_creating_clone_specifications.html"
+        entries:
+        - title: Clonar bases de datos y usar scripts de plugins personalizados
+          url: "/windows/task_cloning_databases_and_using_custom_plugin_scripts.html"
+      - title: Clonar bases de datos a partir de backups
+        url: "/windows/task_cloning_databases_from_backups.html"
+      - title: Clonado de bases de datos en estado actual
+        url: "/windows/task_cloning_databases_in_the_current_state.html"
+      - title: Clonado de backups de bases de datos sin necesidad de restablecer registros
+        url: "/windows/task_cloning_database_backups_without_resetlogs.html"
+      - title: Consideraciones para clonar una base de datos en un host alternativo
+        url: "/windows/concept_considerations_for_cloning_a_database_to_an_alternate_host.html"
+        entries:
+        - title: Clonar una base de datos en un host alternativo
+          url: "/windows/task_cloning_a_database_to_an_alternate_host.html"
+      - title: Ver una lista de clones
+        url: "/windows/task_viewing_a_list_of_clones.html"
+      - title: Visualización de información detallada de los clones
+        url: "/windows/task_viewing_detailed_clone_information.html"
+      - title: Eliminar clones
+        url: "/windows/task_deleting_clones.html"
+    - title: Introducción a la protección de datos en SnapManager
+      url: "/windows/concept_introduction_to_data_protection_in_snapmanager.html"
+      entries:
+      - title: Cómo SnapManager retiene los backups en el almacenamiento local
+        url: "/windows/concept_how_snapmanager_retains_backups_on_the_local_storage.html"
+      - title: Aspectos que se deben tener en cuenta al realizar la protección de
+          datos
+        url: "/windows/concept_prerequisites_for_data_protection.html"
+        entries:
+        - title: Licencias necesarias para la protección de datos en SnapManager
+          url: "/windows/concept_licenses_required_for_data_protection.html"
+      - title: Protección de backups de bases de datos mediante scripts posteriores
+        url: "/windows/concept_protecting_database_backups_by_using_post_scripts.html"
+        entries:
+        - title: Ejemplos de scripts posteriores
+          url: "/windows/reference_sample_post_scripts.html"
+        - title: Creación o actualización de los scripts posteriores
+          url: "/windows/task_creating_or_updating_post_scripts.html"
+          entries:
+          - title: Creación de archivos de post-procesamiento y de especificación
+              de tareas
+            url: "/windows/task_creating_post_processing_task_specification_file.html"
+            entries:
+            - title: Uso de la especificación de tareas de posprocesamiento para reflejar
+                volúmenes
+              url: "/windows/task_using_post-processing_task_specification_to_mirror_volumes.html"
+            - title: Uso de la especificación de tareas de posprocesamiento para los
+                qtrees de almacén
+              url: "/windows/task_using_post_processing_task_specification_to_vault_qtrees.html"
+    - title: Realizando operaciones de gestión
+      url: "/windows/concept_performing_management_operations.html"
+      entries:
+      - title: Ver una lista de operaciones
+        url: "/windows/task_viewing_a_list_of_operations.html"
+      - title: Ver los detalles de la operación
+        url: "/windows/task_viewing_operation_details.html"
+      - title: Emitir comandos desde un host alternativo
+        url: "/windows/task_issuing_commands_from_an_alternate_host.html"
+      - title: Comprobación de la versión del software SnapManager
+        url: "/windows/task_checking_the_snapmanager_software_version.html"
+      - title: Detener el servidor host SnapManager
+        url: "/windows/task_stopping_the_snapmanager_host_server.html"
+      - title: Reiniciar el servidor host SnapManager
+        url: "/windows/task_restarting_the_snapmanager_windows_host_server.html"
+      - title: Desinstalando SnapManager
+        url: "/windows/task_uninstalling_the_software_from_a_windows_host.html"
+    - title: Configuración de una notificación por correo electrónico
+      url: "/windows/concept_configuring_e_mail_notification.html"
+      entries:
+      - title: Configuración de un servidor de correo para un repositorio
+        url: "/windows/task_configuring_mail_server_for_a_repository.html"
+      - title: Configuración de la notificación por correo electrónico para un perfil
+          nuevo
+        url: "/windows/task_configuring_e_mail_notification_for_a_new_profile.html"
+        entries:
+        - title: Personalización del asunto del correo electrónico para un nuevo perfil
+          url: "/windows/task_customizing_e_mail_subject_for_a_new_profile.html"
+      - title: Configuración de la notificación por correo electrónico para un perfil
+          existente
+        url: "/windows/task_configuring_e_mail_notification_for_an_existing_profile.html"
+        entries:
+        - title: Personalización del asunto del correo electrónico para un perfil
+            existente
+          url: "/windows/task_customizing_the_email_subject_for_an_existing_profile.html"
+      - title: Configuración de notificación por correo electrónico de resumen para
+          varios perfiles
+        url: "/windows/task_configuring_summary_e_mail_notification_for_multiple_profiles.html"
+      - title: Adición de un nuevo perfil para resumir las notificaciones por correo
+          electrónico
+        url: "/windows/task_adding_new_profile_to_summary_notification.html"
+      - title: Adición de un perfil existente para resumir las notificaciones por
+          correo electrónico
+        url: "/windows/task_adding_existing_profile_to_summary_notification.html"
+      - title: Desactivar la notificación por correo electrónico para varios perfiles
+        url: "/windows/task_disabling_email_notification_for_multiple_profiles.html"
+    - title: Creación de archivos de especificación de tareas y secuencias de comandos
+        para operaciones de SnapManager
+      url: "/windows/concept_creating_task_specification_file_and_scripts_for_snapmanager_operations.html"
+      entries:
+      - title: Crear scripts de tareas previas, tareas posteriores y directivas
+        url: "/windows/task_creating_pretask_post_task_and_policy_scripts.html"
+        entries:
+        - title: Operaciones en scripts de tareas
+          url: "/windows/concept_operations_in_task_scripts.html"
+        - title: Variables disponibles en los scripts de tareas para la operación
+            de backup
+          url: "/windows/concept_variables_available_in_the_task_scripts_for_backup_operation.html"
+        - title: Variables disponibles en los scripts de tareas para la operación
+            de restauración
+          url: "/windows/concept_variables_available_in_custom_script_for_restore_operation.html"
+        - title: Variables disponibles en los scripts de tareas para la operación
+            de clonado
+          url: "/windows/concept_variables_available_in_the_task_scripts_for_clone_operation.html"
+        - title: Error al manejar en scripts personalizados
+          url: "/windows/concept_error_handling_in_custom_scripts.html"
+      - title: Ver scripts de plugin de muestra
+        url: "/windows/task_viewing_sample_plugin_scripts.html"
+      - title: Creación de scripts de tareas
+        url: "/windows/task_creating_task_scripts.html"
+      - title: Almacenamiento de los scripts de tareas
+        url: "/windows/task_storing_the_task_scripts.html"
+      - title: Verificar la instalación de los scripts de los plugins
+        url: "/windows/task_verifying_installation_of_plugin_scripts.html"
+      - title: Creación de un archivo de especificación de tareas
+        url: "/windows/task_creating_a_task_specification_file.html"
+      - title: Realizar operaciones de backup, restauración y clonado mediante scripts
+          previos y posteriores
+        url: "/windows/task_performing_backup_restore_and_clone_operations_using_prescript_and_post_scripts.html"
+    - title: Actualizar el nombre del sistema de almacenamiento y el nombre de host
+        de la base de datos de destino asociados con un perfil
+      url: "/windows/concept_updating_storage_controller_name_and_database_hostname_associated_with_a_profile.html"
+      entries:
+      - title: Actualizar el nombre del sistema de almacenamiento asociado con un
+          perfil
+        url: "/windows/task_updating_storage_system_name_associated_with_a_profile.html"
+      - title: Ver una lista de sistemas de almacenamiento asociados a un perfil
+        url: "/windows/task_viewing_a_list_of_storage_controllers_associated_with_a_profile.html"
+      - title: Actualizar el nombre de host de la base de datos de destino asociado
+          a un perfil
+        url: "/windows/task_updating_target_database_hostname_associated_with_a_profile.html"
+    - title: Mantener el historial de operaciones de SnapManager
+      url: "/windows/concept_maintaining_history_of_snapmanager_operations.html"
+      entries:
+      - title: Configurar el historial de funcionamiento de SnapManager
+        url: "/windows/task_configuring_history_for_backup_operation.html"
+      - title: Ver una lista del historial de operaciones de SnapManager
+        url: "/windows/task_viewing_a_list_of_snapmanager_history_operation_as_a_report.html"
+      - title: Ver el historial detallado de una operación específica asociada a un
+          perfil
+        url: "/windows/task_viewing_the_detailed_history_of_a_specific_operation_associated_with_a_profile.html"
+      - title: Eliminando historial de operación de SnapManager
+        url: "/windows/task_purging_history_of_snapmanager_operation.html"
+      - title: Eliminar la configuración del historial asociada a un único perfil
+          o a varios perfiles
+        url: "/windows/task_removing_history_configuration_associated_with_a_single_profile_or_multiple_profiles.html"
+      - title: Ver detalles de configuración del historial de SnapManager
+        url: "/windows/task_viewing_snapmanger_history_operation_details.html"
+    - title: Referencia de comandos de SnapManager para Oracle
+      url: "/windows/concept_snapmanager_for_oraclefor_sap_command_reference.html"
+      entries:
+      - title: El comando smo_Server restart
+        url: "/windows/reference_the_smosmsap_server_restart_command.html"
+      - title: El comando start smo_Server
+        url: "/windows/reference_the_smosmsap_server_start_command.html"
+      - title: El comando de estado del servidor smo_server
+        url: "/windows/reference_the_smosmsap_server_status_command.html"
+      - title: El comando smo_Server stop
+        url: "/windows/reference_the_smosmsap_server_stop_command.html"
+      - title: El comando smo backup create
+        url: "/windows/reference_the_smosmsapbackup_create_command.html"
+      - title: El comando smo backup delete
+        url: "/windows/reference_the_smosmsapbackup_delete_command.html"
+      - title: El comando libre de backup de smo
+        url: "/windows/reference_the_smosmsapbackup_free_command.html"
+      - title: El comando smo backup list
+        url: "/windows/reference_the_smosmsapbackup_list_command.html"
+      - title: El comando de montaje de backup de smo
+        url: "/windows/reference_the_smosmsapbackup_mount_command.html"
+      - title: El comando smo backup restore
+        url: "/windows/reference_the_smosmsapbackup_restore_command.html"
+      - title: El comando smo backup show
+        url: "/windows/reference_the_smosmsapbackup_show_command.html"
+      - title: El comando de desmontaje del backup de smo
+        url: "/windows/reference_the_smosmsapbackup_unmount_command.html"
+      - title: El comando de actualización de backup de smo
+        url: "/windows/reference_the_smosmsapbackup_update_command.html"
+      - title: El comando smo backup verify
+        url: "/windows/reference_the_smosmsapbackup_verify_command.html"
+      - title: El comando smo clone create
+        url: "/windows/reference_the_smosmsapclone_create_command.html"
+      - title: El comando smo clone delete
+        url: "/windows/reference_the_smosmsapclone_delete_command.html"
+      - title: El comando smo clone list
+        url: "/windows/reference_the_smosmsapclone_list_command.html"
+      - title: El comando smo clone show
+        url: "/windows/reference_the_smosmsapclone_show_command.html"
+      - title: El comando de plantilla de clon de smo
+        url: "/windows/reference_the_smosmsapclone_template_command.html"
+      - title: El comando smo clone update
+        url: "/windows/reference_the_smosmsap_clone_update_command.html"
+      - title: El comando smo clone detach
+        url: "/windows/reference_the_smosmsap_clone_detach_command.html"
+      - title: El comando cmdfile de smo
+        url: "/windows/reference_the_smosmsapcmdfile_command.html"
+      - title: El comando smo credential clear
+        url: "/windows/reference_the_smosmsapcredential_clear_command.html"
+      - title: El comando smo credential delete
+        url: "/windows/reference_the_smosmsapcredential_delete_command.html"
+      - title: El comando smo credential list
+        url: "/windows/reference_the_smosmsapcredential_list_command.html"
+      - title: El comando smo credential set
+        url: "/windows/reference_the_smosmsapcredential_set_command.html"
+      - title: El comando smo history list
+        url: "/windows/reference_the_smosmsap_history_list_command.html"
+      - title: El comando Operation-show de historial de smo
+        url: "/windows/reference_the_smosmsap_history_operation_show_command.html"
+      - title: El comando smo history purge
+        url: "/windows/reference_the_smosmsap_history_purge_command.html"
+      - title: El comando smo history remove
+        url: "/windows/reference_the_smosmsap_history_remove_command.html"
+      - title: El comando smo history set
+        url: "/windows/reference_the_smosmsap_history_set_command.html"
+      - title: El comando smo history show
+        url: "/windows/reference_the_smo_smsap_history_show_command.html"
+      - title: El comando smo help
+        url: "/windows/reference_the_smosmsaphelp_command.html"
+      - title: El comando remove-summary-notification de la notificación de smo
+        url: "/windows/reference_the_smo_notification_removesummarynotification_command.html"
+      - title: El comando de notificación de actualización-resumen-notificación de
+          smo
+        url: "/windows/reference_the_smosmsap_notification_updatesummarynotification_command.html"
+      - title: El comando smo notification set
+        url: "/windows/reference_the_smosmsap_notification_set_command.html"
+      - title: El comando de volcado de la operación de smo
+        url: "/windows/reference_the_smosmsapoperation_dump_command.html"
+      - title: El comando smo operation list
+        url: "/windows/reference_the_smosmsapoperation_list_command.html"
+      - title: El comando smo operation show
+        url: "/windows/reference_the_smosmsap_operation_show_command.html"
+      - title: El comando smo password reset
+        url: "/windows/reference_the_smosmsap_password_reset_command.html"
+      - title: El comando smo profile create
+        url: "/windows/reference_the_smosmsapprofile_create_command.html"
+      - title: El comando smo profile delete
+        url: "/windows/reference_the_smosmsapprofile_delete_command.html"
+      - title: El comando smo profile dump
+        url: "/windows/reference_the_smosmsapprofile_dump_command.html"
+      - title: El comando smo profile list
+        url: "/windows/reference_the_smosmsapprofile_list_command.html"
+      - title: El comando smo profile show
+        url: "/windows/reference_the_smosmsapprofile_show_command.html"
+      - title: El comando smo profile SYNC
+        url: "/windows/reference_the_smosmsapprofile_sync_command.html"
+      - title: El comando smo profile update
+        url: "/windows/reference_the_smosmsapprofile_update_command.html"
+      - title: El comando smo profile verify
+        url: "/windows/reference_the_smosmsapprofile_verify_command.html"
+      - title: El comando smo repository create
+        url: "/windows/reference_the_smosmsaprepository_create_command.html"
+      - title: El comando smo repository delete
+        url: "/windows/reference_the_smosmsaprepository_delete_command.html"
+      - title: El comando rollback del almacén de smo
+        url: "/windows/reference_the_smosmsap_repository_rollingback_command.html"
+      - title: El comando rollingupgrade del almacén de smo
+        url: "/windows/reference_the_smosmsap_repository_rollingupgrade.html"
+      - title: El comando smo repository show
+        url: "/windows/reference_the_smosmsaprepository_show_command.html"
+      - title: El comando de actualización del almacén de smo
+        url: "/windows/reference_the_smosmsaprepository_update_command.html"
+      - title: El comando smo schedule create
+        url: "/windows/reference_the_smosmsap_schedule_create_command.html"
+      - title: El comando smo schedule delete
+        url: "/windows/reference_the_smosmsap_schedule_delete_command.html"
+      - title: El comando smo schedule list
+        url: "/windows/reference_the_smosmsap_schedule_list_command.html"
+      - title: El comando smo schedule resume
+        url: "/windows/reference_the_smosmsap_schedule_resume_command.html"
+      - title: El comando smo schedule suspend
+        url: "/windows/reference_the_smosmsap_schedule_suspend_command.html"
+      - title: El comando smo schedule update
+        url: "/windows/reference_the_smosmsap_schedule_update_command.html"
+      - title: El comando smo Storage list
+        url: "/windows/reference_the_smosmsap_storage_list_command.html"
+      - title: El comando smo Storage rename
+        url: "/windows/reference_the_smosmsap_storage_rename_command.html"
+      - title: El comando dump del sistema de smo
+        url: "/windows/reference_the_smosmsapsystem_dump_command.html"
+      - title: El comando smo system verify
+        url: "/windows/reference_the_smosmsapsystem_verify_command.html"
+      - title: El comando version de smo
+        url: "/windows/reference_the_smosmsapversion_command.html"
+    - title: Resolución de problemas de SnapManager
+      url: "/windows/reference_troubleshooting_snapmanager.html"
+      entries:
+      - title: Volcar archivos
+        url: "/windows/concept_dump_files.html"
+        entries:
+        - title: Creación de archivos de volcado en el nivel de las operaciones
+          url: "/windows/task_creating_operation_level_dump_files.html"
+        - title: Creación de archivos de volcado a nivel de perfil
+          url: "/windows/task_creating_profile_level_dump_files.html"
+        - title: Creación de archivos de volcado en el nivel del sistema
+          url: "/windows/task_creating_system_level_dump_files.html"
+        - title: Cómo localizar archivos de volcado
+          url: "/windows/reference_how_to_locate_dump_files.html"
+        - title: Cómo recopilar archivos de volcado
+          url: "/windows/concept_how_to_collect_dump_files.html"
+        - title: Recopilación de información de registro adicional para facilitar
+            la depuración
+          url: "/windows/concept_collecting_additional_log_information_for_easier_debugging.html"
+      - title: Solucionar problemas de clones
+        url: "/windows/reference_troubleshooting_clone_issues.html"
+      - title: Solución de problemas de la interfaz gráfica de usuario
+        url: "/windows/reference_troubleshooting_graphical_user_interface_issues.html"
+      - title: Resolución de problemas conocidos
+        url: "/windows/reference_troubleshooting_known_issues.html"
+      - title: Se produce un error en la ejecución de varias operaciones paralelas
+          en SnapManager
+        url: "/windows/reference_running_multiple_parallel_operations_fail_in_snapmanager.html"
+      - title: No se puede restaurar la base de datos de RAC desde uno de los nodos
+          de RAC donde no se creó el perfil
+        url: "/windows/reference_unable_to_restore_rac_database_from_rac_node_where_the_profile_was_not_created.html"
+      - title: Dónde obtener más información
+        url: "/windows/reference_where_to_go_for_more_information.html"
+    - title: Clasificación de mensajes de error
+      url: "/windows/reference_error_message_classifications.html"
+    - title: Mensajes de error
+      url: "/windows/reference_error_messages.html"
+  - title: Avisos legales
+    url: "/reference_legal_notices.html"
